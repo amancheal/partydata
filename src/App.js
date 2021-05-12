@@ -1,10 +1,17 @@
 
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import SignUp from './component/Auth/SignUp';
+
+
 function App() {
   return (
-    <div >
-        <h1>Hello world</h1>
-    </div>
+    <Router>
+
+        <SignUp />
+
+    </Router>
+
   );
 }
 
