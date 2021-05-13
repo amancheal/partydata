@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Head from '../Headers/signUpHeader';
-//import axios from 'axios';
+import axios from 'axios';
 import { Options } from 'react-naija-states'
 import 'react-naija-states/dist/index.css'
 
@@ -8,8 +8,8 @@ function SignUp(){
 
     const [stateValue, setStateValue] = useState({
 
-        firstName:'',
-        lastName:'',
+        firstname:'',
+        lastname:'',
         email:'',
         phoneNumber:'',
         state:'',
@@ -47,22 +47,31 @@ function SignUp(){
                 confirmPassword: stateValue.confirmPassword
             }
             if(stateValue.password === stateValue.confirmPassword){
-                console.log(newUser)
+                axios.post('http://41.190.25.21:3001/usermanager/newuser', newUser)
+                .then(res =>{
 
-                setStateValue({...stateValue,
-                    firstName:'',
-                    lastName:'',
-                    email:'',
-                    phoneNumber:'',
-                    state:'',
-                    localGovernment:'',
-                    ward:'',
-                    district:'',
-                    religion:'',
-                    date:'',
-                    password:'',
-                    confirmPassword:''
+                    if(res.data.status === 201){
+                        console.log(res.data)
+                        setLoad(false)
+                        setErr(res.data.message)
+                    }
+                    setStateValue({...stateValue,
+                        firstname:'',
+                        lastname:'',
+                        email:'',
+                        phone:'',
+                        state:'',
+                        localGovernment:'',
+                        ward:'',
+                        district:'',
+                        religion:'',
+                        date:'',
+                        password:'',
+                        confirmPassword:''
+                    })
                 })
+                .catch(err => console.log(err))
+
             }else{
                 setErr('Password do no match')
             }
@@ -75,6 +84,10 @@ function SignUp(){
             color: 'rgb(250, 20, 0)',
         }
 
+        const sub =()=>{
+           // setLoad(true)
+        }
+
 
 
 
@@ -85,10 +98,9 @@ function SignUp(){
             </div>
                <div>
 
-
                 { load ?  <div  >
                     <div style={myStyle}  className='fa-5x   d-flex justify-content-center align-items-center'>
-                    <i class="fas fa-spinner fa-spin"></i>
+                    <i className="fas fa-spinner fa-spin"></i>
                     </div>
 
                 </div> :   <div className='container'>
@@ -173,7 +185,7 @@ function SignUp(){
                                 </label>
                                 </div>
                                 <div  className='mx-2  mx-lg-4 '>
-                                <input type="submit"  value='Sign Up' className=' px-3 p-1 p-2 px-lg-5 bg-success btn btn-success' />
+                                <input type="submit" onClick={sub} value='Sign Up' className=' px-3 p-1 p-2 px-lg-5 bg-success btn btn-success' />
                                 </div>
 
                             </div>

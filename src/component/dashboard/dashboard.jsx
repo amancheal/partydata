@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Cards from './cards';
 
 
 function DashBoard(){
@@ -11,7 +11,7 @@ function DashBoard(){
 
                 </div>
                 <div className='col-md-9 col-lg-9 col-xl-9 col-xxl-9'>
-                    
+                    <Cards />
                 </div>
             </div>
             </div>
