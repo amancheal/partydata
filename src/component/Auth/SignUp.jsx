@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Head from '../Headers/signUpHeader';
 import axios from 'axios';
 import { Options } from 'react-naija-states'

@@ -1,11 +1,10 @@
 import React from 'react';
-import DashBoardNav  from '../Headers/dashBoardNav';
+
 
 function Cards(){
     return(
         <React.Fragment>
             <div>
-            <DashBoardNav />
 
             <div className='container'>
                 <div className='row'>
