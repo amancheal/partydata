@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
+import { connect } from "react-redux"
 
 
-
-function DashBoardNav(){
+function DashBoardNav(props) {
 
 const [search, setSearch] = useState('')
 
@@ -16,7 +16,9 @@ const handleChange = (e)=>{
             <div className='container'>
            <nav className='navbar navbar-light d-flex justify-content-between '>
                <div className='my-3   '>
-               <span style={{fontWeight:'light'}} className='navbar-brand'>Dashboard</span>
+                        <span style={{ fontWeight: 'light' }} className='navbar-brand'>{props.whattoshow}</span>
+
+
                </div>
                     <form className='form-inline   ' >
                             <div className="input-group ">
@@ -35,5 +37,12 @@ const handleChange = (e)=>{
     )
 }
 
-export default DashBoardNav
+const mapStateToProps = (state) => {
+    return {
+        whattoshow: state.nav
+    }
+}
 
+
+
+export default connect(mapStateToProps, null)(DashBoardNav)

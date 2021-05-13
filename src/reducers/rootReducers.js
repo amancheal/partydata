@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
-import DashBoardReducer from './dashBoardReducer';
+import { navReducer } from './dashBoardReducer';
 
 
 export default combineReducers({
-    nav:DashBoardReducer
+    nav: navReducer
 })
