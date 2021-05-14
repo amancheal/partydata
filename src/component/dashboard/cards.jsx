@@ -1,48 +1,62 @@
-import React from 'react';
+import React, { useState } from "react";
 
+function Cards() {
 
-function Cards(){
-    return(
-        <React.Fragment>
-            <div>
+  const [list] = useState([
 
-            <div className='container'>
-                <div className='row'>
-                <div className='col-lg-4 col-sm-6 col-md-6'>
-                    <div className='card'>
-                            <div class="card bg-primary">
-                            <div class="card-body text-center">
-                                <p class="card-text">Some text inside the first card</p>
-                            </div>
-                            </div>
+    {
+        name:"Feed Back Portal",
+        color:'bg-danger'
+    },
+    {
+        name:"Aspiring Politicians",
+        color:'bg-primary'
+    },
+    {
+        name:"Registered Stake Holders",
+        color:'bg-success'
+    },
+    {
+        name:"Politicians To Watch",
+        color:'bg-danger'
+    },
+    {
+        name:"Forencis",
+        color:'bg-primary'
+    },
+    {
+        name:"E-Voting",
+        color:'bg-success'
+    }
+
+  ]);
+
+  return (
+    <div >
+      <div className="row ">
+                    { list.map(({name, color})=>{
+
+                        return(
+               <div key={name} className={`col-lg-3 col-md-4  px-5  mx-2 d-flex justify-content-center  rounded-3  ${color} my-2  py-5 `}>
+
+                <div className=" bord card-body   text-center">
+
+                  <h6 className=" card-title text-white">{name}</h6>
+
+                <div className=''>
+
                     </div>
                 </div>
-                <div className='col-lg-4 col-sm-6 col-md-6'>
-                    <div className='card'>
-                            <div class="card bg-primary">
+                </div>
+                        )
+                    }) }
 
-                            <div class="card-body  text-center">
-                            <p class="card-text">Feedback Portal</p>
-                                <hr  />
 
-                            </div>
-                            </div>
-                    </div>
-                </div>
-                <div className='col-4'>
-                    <div className='card'>
-                            <div class="card bg-primary">
-                            <div class="card-body text-center">
-                                <p class="card-text">Some text inside the first card</p>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
-        </React.Fragment>
-    )
+
+
+      </div>
+    </div>
+  );
 }
 
-export default Cards
+export default Cards;
