@@ -1,23 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Head from '../Headers/signUpHeader';
-//import axios from 'axios';
-import { Options } from 'react-naija-states'
-import 'react-naija-states/dist/index.css'
+import axios from 'axios';
+import { Options } from 'react-naija-states';
+import 'react-naija-states/dist/index.css';
+import 'react-datepicker/dist/react-datepicker.css';
+import DatePicer from 'react-datepicker';
 
 function SignUp(){
 
     const [stateValue, setStateValue] = useState({
 
-        firstName:'',
-        lastName:'',
+        firstname:'',
+        lastname:'',
         email:'',
-        phoneNumber:'',
+        phone:'',
         state:'',
-        localGovernment:'',
+        lga:'',
         ward:'',
         district:'',
         religion:'',
-        date:'',
+        dob: new Date(),
         password:'',
         confirmPassword:''
     });
@@ -33,36 +35,59 @@ function SignUp(){
         const submit = (e)=>{
             e.preventDefault();
             const newUser = {
-                firstName: stateValue.firstName,
-                lastName: stateValue.lastName,
+                firstname: stateValue.firstname,
+                lastname: stateValue.lastname,
                 email: stateValue.email,
-                phoneNumber: stateValue.phoneNumber,
+                phone: stateValue.phone,
                 state: stateValue.state,
-                localGovernment: stateValue.localGovernment,
+                lga: stateValue.lga,
                 ward: stateValue.ward,
                 district: stateValue.district,
                 religion: stateValue.religion,
-                date: stateValue.date,
-                password: stateValue.password,
-                confirmPassword: stateValue.confirmPassword
+                dob: stateValue.dob,
+                password: stateValue.password
+
             }
             if(stateValue.password === stateValue.confirmPassword){
                 console.log(newUser)
 
-                setStateValue({...stateValue,
-                    firstName:'',
-                    lastName:'',
-                    email:'',
-                    phoneNumber:'',
-                    state:'',
-                    localGovernment:'',
-                    ward:'',
-                    district:'',
-                    religion:'',
-                    date:'',
-                    password:'',
-                    confirmPassword:''
-                })
+                    fetch('http://41.190.25.21:3001/usermanager/newuser', {
+                        method:'POST',
+                        headers:{
+                            'Content-type':'application/json'
+                        },
+                        body: JSON.stringify(newUser)
+                    })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+
+
+                // axios.post('http://41.190.25.21:3001/usermanager/newuser', newUser)
+                // .then(res =>{
+                //     console.log(newUser)
+                //     if(res.data.status === 201){
+                //         console.log(newUser)
+                //         console.log(res.data)
+                //         setLoad(false)
+                //         setErr(res.data.message)
+                //     }
+                //     setStateValue({...stateValue,
+                //         firstname:'',
+                //         lastname:'',
+                //         email:'',
+                //         phone:'',
+                //         state:'',
+                //         lga:'',
+                //         ward:'',
+                //         district:'',
+                //         religion:'',
+                //         dob:'',
+                //         password:'',
+                //         confirmPassword:''
+                //     })
+                // })
+                // .catch(err => console.log(err))
+
             }else{
                 setErr('Password do no match')
             }
@@ -75,6 +100,14 @@ function SignUp(){
             color: 'rgb(250, 20, 0)',
         }
 
+        const sub =()=>{
+        // setLoad(true)
+        }
+
+
+    let onChaneDate = (date)=>{
+        setStateValue({...stateValue, [stateValue.dob]: date })
+    }
 
 
 
@@ -85,10 +118,9 @@ function SignUp(){
             </div>
                <div>
 
-
                 { load ?  <div  >
                     <div style={myStyle}  className='fa-5x   d-flex justify-content-center align-items-center'>
-                    <i class="fas fa-spinner fa-spin"></i>
+                    <i className="fas fa-spinner fa-spin"></i>
                     </div>
 
                 </div> :   <div className='container'>
@@ -107,11 +139,11 @@ function SignUp(){
                         <div className='row'>
                             <div className='col-12 col-lg-6 col-md-6 form-group '>
                                 <label htmlFor="FirstName" className='text p-2' >First-Name</label>
-                                <input type="text" onChange={onChane} name="firstName" value={stateValue.firstName} className='form-control' required placeholder='First-Name'/>
+                                <input type="text" onChange={onChane} name="firstname" value={stateValue.firstname} className='form-control' required placeholder='First-Name'/>
                             </div>
                             <div className='col-12 col-lg-6 col-md-6 form-group '>
                                 <label htmlFor="LastName" className='text p-2'>Last-Name</label>
-                                <input type="text" onChange={onChane} name="lastName" value={stateValue.lastName} className='form-control' required placeholder='Last-Name'/>
+                                <input type="text" onChange={onChane} name="lastname" value={stateValue.lastname} className='form-control' required placeholder='Last-Name'/>
                             </div>
                             <div className='col-12 col-lg-6 col-md-6 form-group '>
                                 <label htmlFor="Email" className='text p-2'>Email-Address</label>
@@ -119,7 +151,7 @@ function SignUp(){
                             </div>
                             <div className='col-12 col-lg-6 col-md-6 form-group '>
                                 <label htmlFor="Phone" className='text p-2'>Phone-Nmuber</label>
-                                <input type="number" onChange={onChane} name="phoneNumber" value={stateValue.phoneNumber} className='form-control' required placeholder='07028292200'/>
+                                <input type="number" onChange={onChane} name="phone" value={stateValue.phone} className='form-control' required placeholder='07028292200'/>
                             </div>
                             <div className='col-12 col-lg-6 col-md-6  form-group '>
                             <label htmlFor="State" className='p-2'>State-Of-Origin</label>
@@ -129,7 +161,7 @@ function SignUp(){
                             </div>
                             <div className='col-12 col-lg-6 col-md-6  form-group '>
                             <label htmlFor="Local-govername" className='p-2'>Local-Government</label>
-                            <select name="localGovernment" selected onChange={onChane} value={stateValue.localGovernment || ''}   className=' mb-3 form-control' >
+                            <select name="lga" selected onChange={onChane} value={stateValue.lga || ''}   className=' mb-3 form-control' >
                             <Options type='lga' state={stateValue.state} />
                                  </select>
                             </div>
@@ -144,14 +176,20 @@ function SignUp(){
                             <div className='col-12 col-lg-6 col-md-6  form-group '>
                             <label htmlFor="religion" className='p-2'>Select-Religion</label>
                             <select name="religion" value={stateValue.religion} selected onChange={onChane}   className=' mb-3 form-control' >
-                                                <option value="Christian">Christain</option>
+                                                <option value="Christian">Christiain</option>
                                                 <option value="Muslim">Muslim</option>
                                                 <option value="Traditional-Worshiper">Traditional-Worshiper</option>
                                  </select>
                             </div>
                             <div className='col-12 col-lg-6 col-md-6 form-group '>
                                 <label htmlFor="date" className='text p-2'>Date</label>
-                                <input type="date" onChange={onChane} value={stateValue.date} name="date" className='form-control' required placeholder='MM/DD/YY'/>
+                                <div >
+                            <DatePicer
+                            selected={stateValue.dob}
+                            className='form-control'
+                            onChange={onChaneDate}
+                             />
+                             </div>
                             </div>
                             <div className='col-12 col-lg-6 col-md-6 form-group '>
                                 <label htmlFor="password" className='text p-2'>Password</label>
@@ -173,7 +211,7 @@ function SignUp(){
                                 </label>
                                 </div>
                                 <div  className='mx-2  mx-lg-4 '>
-                                <input type="submit"  value='Sign Up' className=' px-3 p-1 p-2 px-lg-5 bg-success btn btn-success' />
+                                <input type="submit" onClick={sub} value='Sign Up' className=' px-3 p-1 p-2 px-lg-5 bg-success btn btn-success' />
                                 </div>
 
                             </div>
