@@ -11,26 +11,20 @@ const handleChange = (e)=>{
     setSearch(e.target.value)
 }
 
+let openNav =()=>{
+
+  let el =  document.getElementById("wrapper");
+  el.classList.toggle('toggled')
+}
+
     return(
         <React.Fragment>
-            <div >
-           <nav className='navbar navbar-light  '>
-               <div className='my-3  '>
-                        <span style={{ fontWeight: 'light' }} className='navbar-brand'>{whattoshow}</span>
-
-
-               </div>
-                    <form className='form-inline   ' >
-                            <div className="input-group ">
-                        <div className="input-group-prepend ">
-                            <span  className="input-group-text " id="basic-addon1"><i  className=' fa fa-search py-1 '></i></span>
-                        </div>
-                        <input type="text" className="form-control rounded " value={search} onChange={handleChange} placeholder="search" aria-label="search" aria-describedby="basic-addon1" />
-                        <i style={{color:'gray'}} className="fal fa-user fa-2x mx-3 my-auto "></i>
-                        </div>
-
-                    </form>
-
+            <div id='page-content-wrapper  '>
+            <nav className="navbar  navbar-expand-lg  bg-transparent navbar-light py-4 px-4 ">
+                <div className='  d-flex align-items-center'>
+            <i style={{fontSize:'30px',cursor:'pointer'}}   onClick={openNav } className='fas fa-align-left  primary-text fs-4 me-3'  id='menu-toggle'></i>
+            <span  className='dash navbar-brand '>{whattoshow}</span>
+            </div>
            </nav>
            </div>
         </React.Fragment>

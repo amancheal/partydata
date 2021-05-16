@@ -33,6 +33,7 @@ function SignUp(){
         }
 
         const submit = (e)=>{
+             setLoad(true)
             e.preventDefault();
             const newUser = {
                 firstname: stateValue.firstname,
@@ -49,42 +50,53 @@ function SignUp(){
 
             }
             if(stateValue.password === stateValue.confirmPassword){
-                console.log(newUser)
 
-                    fetch('http://41.190.25.21:3001/usermanager/newuser', {
+                   fetch('http://41.190.25.21:3001/usermanager/newuser', {
+
                         method:'POST',
                         headers:{
-                            'Content-type':'application/json'
+                            'content-type':'application/json'
                         },
                         body: JSON.stringify(newUser)
                     })
-                    .then(res => res.json())
-                    .then(data => console.log(data))
+                    .then(res =>{
+                        console.log(res)
+                        return res.json()
+
+                    }
+                         )
+
+                    .then(data => {
+                        console.log(data)
+                         if(data.status === 'success'){
+                        console.log(data)
+
+                        setLoad(false)
+                        setErr(data.message)
+                    }
+                    setStateValue({...stateValue,
+                        firstname:'',
+                        lastname:'',
+                        email:'',
+                        phone:'',
+                        state:'',
+                        lga:'',
+                        ward:'',
+                        district:'',
+                        religion:'',
+                        dob:'',
+                        password:'',
+                        confirmPassword:''
+                    })
+                    window.location = '/dashboard';
+                }
+                   )
 
 
                 // axios.post('http://41.190.25.21:3001/usermanager/newuser', newUser)
                 // .then(res =>{
                 //     console.log(newUser)
-                //     if(res.data.status === 201){
-                //         console.log(newUser)
-                //         console.log(res.data)
-                //         setLoad(false)
-                //         setErr(res.data.message)
-                //     }
-                //     setStateValue({...stateValue,
-                //         firstname:'',
-                //         lastname:'',
-                //         email:'',
-                //         phone:'',
-                //         state:'',
-                //         lga:'',
-                //         ward:'',
-                //         district:'',
-                //         religion:'',
-                //         dob:'',
-                //         password:'',
-                //         confirmPassword:''
-                //     })
+
                 // })
                 // .catch(err => console.log(err))
 
@@ -100,9 +112,7 @@ function SignUp(){
             color: 'rgb(250, 20, 0)',
         }
 
-        const sub =()=>{
-        // setLoad(true)
-        }
+
 
 
     let onChaneDate = (date)=>{
@@ -128,7 +138,7 @@ function SignUp(){
                     <h4>Create an Account</h4>
                     <p>Create an account and start a career as a Politian or Stakeholder.</p>
                 </div>
-                    {err ?   <div className="alert py-4 alert-danger alert-dismissible fade show" role="alert">
+                    {err ?   <div className="alert py-4 alert-success alert-dismissible fade show" role="alert">
                                     <b > {err} </b>
                                     <button type="button" className="close btn " data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -211,7 +221,7 @@ function SignUp(){
                                 </label>
                                 </div>
                                 <div  className='mx-2  mx-lg-4 '>
-                                <input type="submit" onClick={sub} value='Sign Up' className=' px-3 p-1 p-2 px-lg-5 bg-success btn btn-success' />
+                                <input type="submit"  value='Sign Up' className=' px-3 p-1 p-2 px-lg-5 bg-success btn btn-success' />
                                 </div>
 
                             </div>
