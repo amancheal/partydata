@@ -1,10 +1,15 @@
 import React from 'react';
-
+import Profile from '../dashboard/profile';
+import DashBoardNav from '../Headers/dashBoardNav';
 
 function AllStakeHolders(){
     return(
         <React.Fragment>
-            <h1>Hello this is the stake holders  page</h1>
+         <div className='d-flex' id='wrapper'>
+        <Profile />
+
+      <DashBoardNav />
+        </div>
         </React.Fragment>
     )
 }

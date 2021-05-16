@@ -7,11 +7,11 @@ const navReducer = (state = initState, action) => {
         case DASH_BOARD:
             return "Dashboard";
         case MANAGE_STAKE_HOLDERS:
-            return "Manage stake holders";
+            return "Manage Stake Holders";
         case ALL_STAKE_HOLDERS:
-            return "All stake holders";
+            return "All Stake Holders";
         case FEED_BACK_PORTAL:
-            return "Feedback portal";
+            return "Feedback Portal";
         default:
             return state;
     }

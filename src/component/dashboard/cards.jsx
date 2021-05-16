@@ -32,16 +32,16 @@ function Cards() {
   ]);
 
   return (
-    <div >
-      <div className="row ">
+    <div className="jumbotron my-2" >
+      <div className=" card-columns   ">
                     { list.map(({name, color})=>{
 
                         return(
-               <div key={name} className={`col-lg-3 col-md-4  px-5  mx-2 d-flex justify-content-center  rounded-3  ${color} my-2  py-5 `}>
+               <div key={name} className={`card    rounded-4  ${color} my-2  py-5 `}>
 
-                <div className=" bord card-body   text-center">
+                <div className=" card-body  text-center">
 
-                  <h6 className=" card-title text-white">{name}</h6>
+                  <h6 className=" card-title  text-center text-white">{name}</h6>
 
                 <div className=''>
 
