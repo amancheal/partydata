@@ -53,13 +53,11 @@ function Cards() {
                         return(
                <div key={name} className={`card  rounded-4  ${color} my-2  py-5 `}>
 
-                <div className=" card-body  text-center">
+                <div className="crd card-body text-justify text-nowrap  text-center">
 
                   <h6 className=" card-title  text-center text-white">{name}</h6>
 
-                <div className=''>
 
-                    </div>
                 </div>
                 </div>
                         )

@@ -8,7 +8,7 @@ function Chart() {
         labels:['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         datasets:[
             {
-                label:'Recent Feedbacks',
+                label:'',
                 data: [
                     4000,
                     800,
