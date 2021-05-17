@@ -46,23 +46,25 @@ function Cards() {
     }
 
   return (
-    <div className="jumbotron my-2" >
-      <div className=" card-columns   ">
-                    { list.map(({name, color})=>{
+    <div className="jumbotron" >
+<div class="card-columns">
 
-                        return(
-               <div key={name} className={`card  rounded-4  ${color} my-2  py-5 `}>
+        { list.map(({name, color})=>{
 
-                <div className="crd card-body text-justify text-nowrap  text-center">
+        return(
+        <div key={name} className={`card rounded-4  ${color} my-2  py-5 `}>
 
-                  <h6 className=" card-title  text-center text-white">{name}</h6>
+        <div className="crd card-body text-justify   text-center">
 
+        <p className=" card-title  text-center text-white">{name}</p>
 
-                </div>
-                </div>
-                        )
-                    }) }
-      </div>
+        </div>
+        </div>
+        )
+        }) }
+
+  </div>
+
       <div className='bg-white my-3 py-1 border-4 rounded'>
       <span className='mx-3' style={tab !== 'chart' ?{color:'gray', fontWeight:'500'} :{color:'red', borderBottom:'2px solid red', fontWeight:'500'}} onClick={chart}>Chart</span>   <span style={tab !== 'feedbacks' ?{color:'gray', fontWeight:'500'} :{color:'red', borderBottom:'2px solid red', fontWeight:'500'}} onClick={feeds} className='mx-3'>Recent Feedback</span>
       </div>
