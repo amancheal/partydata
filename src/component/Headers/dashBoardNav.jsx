@@ -26,7 +26,7 @@ let openNav =()=>{
             <i style={{fontSize:'30px',cursor:'pointer'}}   onClick={openNav } className='far fa-bars  primary-text fs-4 me-3'  id='menu-toggle'></i>
             <span  className='dash navbar-brand '>{whattoshow}</span>
             </div>
-           </nav>  
+           </nav>
            </div>
         </React.Fragment>
     )
