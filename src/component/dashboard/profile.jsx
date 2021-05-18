@@ -24,6 +24,10 @@ import {updateNav} from '../../action/actions/nav_actions'
                         <li  className='lin '><Link id='link' className='mx-1 text-center'  to='/allStakeHolders' onClick={()=>getWhatToShow(ALL_STAKE_HOLDERS)}><i className="far fa-users mx-2"></i> All Stakeholders</Link> </li>
                            <li className='lin'> <Link id='link' className='mx-1 text-center'   to='/manageAllStakeHolders' onClick={()=>getWhatToShow(MANAGE_STAKE_HOLDERS)} > <i className="far fa-tasks mx-2"></i> Manage Stakeholders</Link> </li>
                            <li  className='lin'> <Link  id='link' className='mx-1 text-center'   to='/feedBack' onClick={()=>getWhatToShow(FEED_BACK_PORTAL)}><i className="far fa-plus mx-2"></i> Feed Back Portal</Link> </li>
+                            <li  className='set'> <Link  id='link' className='mx-1 text-center'   to='/feedBack' onClick={()=>getWhatToShow(FEED_BACK_PORTAL)}><i className="far fa-cogs mx-2"></i> Settings</Link> </li>
+                            <li  className='set'> <Link  id='link' className='mx-1 text-center'   to='/feedBack' onClick={()=>getWhatToShow(FEED_BACK_PORTAL)}><i className="fas fa-sign-out-alt mx-2"></i> Log out</Link> </li>
+
+
 
 
                 </div>
