@@ -4,42 +4,51 @@ import FeedBacks from './feedBackList';
 
 function Cards() {
 
-  const [numberOfFeed, setNumberOfFeed] = useState('')
+  const [numberOfFeed, setNumberOfFeed] = useState([])
 
   useEffect(()=>{
     fetch('http://41.190.25.21:3001/users/allfeedbacks')
     .then(res => res.json())
     .then(data =>{
-        setNumberOfFeed(data.feedbacks.length)
+        setNumberOfFeed(data.feedbacks)
     })
   }, [])
+
+
+
 
   const [list] = useState([
 
     {
         name:"Feed Back Portal",
         color:'bg-danger',
+        num: numberOfFeed.length
 
     },
     {
         name:"Aspiring Politicians",
-        color:'bg-primary'
+        color:'bg-primary',
+        num: 0
     },
     {
         name:"Registered Stake Holders",
-        color:'bg-success'
+        color:'bg-success',
+        num: 0
     },
     {
         name:"Politicians To Watch",
-        color:'bg-danger'
+        color:'bg-danger',
+        num: 0
     },
     {
         name:"Forencis",
-        color:'bg-primary'
+        color:'bg-primary',
+        num:0
     },
     {
         name:"E-Voting",
-        color:'bg-success'
+        color:'bg-success',
+        num:0
     }
 
   ]);
@@ -58,33 +67,25 @@ function Cards() {
 
   return (
     <div className="jumbotron" >
-<div class="card-columns">
 
-        { list.map(({name, color}, index)=>{
-             if(index === 0){
-               return <div key={name} className={`card rounded-4  ${color} my-2 py-4 `}>
+    <section >
+    <div className="card-cont">
+        { list.map(({name, color, num})=>{
 
-               <div className="crd  card-body text-justify py-4  text-center">
-
-               <p className=" card-title  text-center text-white">{name}</p>
-
-               </div>
-               <p className='card-text my-1 text-center text-white'> {numberOfFeed } </p>
-               </div>
-             } else {
-               return  <div key={name} className={`card rounded-4  ${color} my-2  py-5 `}>
-
-               <div className="crd card-body text-justify   text-center">
-
-               <p className=" card-title  text-center text-white">{name}</p>
-
-               </div>
-               </div>
-             }
-
+                return(
+             <div key={name} className={`cardi ${color}`}>
+             <p className='spen'>{name}</p>
+             <h4 className='span'>
+                    {num}
+             </h4>
+         </div>
+                )
         }) }
+        </div>
+    </section>
 
-  </div>
+
+
 
       <div className='bg-white my-3 py-1 border-4 rounded'>
       <span className='mx-3' style={tab !== 'chart' ?{color:'gray', fontWeight:'500'} :{color:'red', borderBottom:'2px solid red', fontWeight:'500'}} onClick={chart}>Chart</span>   <span style={tab !== 'feedbacks' ?{color:'gray', fontWeight:'500'} :{color:'red', borderBottom:'2px solid red', fontWeight:'500'}} onClick={feeds} className='mx-3'>Recent Feedback</span>
