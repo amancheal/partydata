@@ -22,7 +22,7 @@ input:focus{
 }
 
 .admin{
-    font-weight: 400;
+    font-weight: 600;
     margin-left: -0.36rem;
     padding-top: 2rem;
 }
@@ -74,7 +74,7 @@ li{
     transition: margin 1s ease-out;
   }
   .sidenav .sidebar-heading{
-      font-size: 1rem;
+      font-size: 0.8rem;
 
   }
   .sidenav .list-group{
@@ -113,7 +113,7 @@ li{
 
     }
     .dash{
-        font-weight: 'light';
+        font-weight: '800';
         margin-left: 3em;
 
       }
@@ -133,6 +133,7 @@ li{
     border-bottom: 1px solid white;
     width: 100%;
 }
+
 
 @media(min-width:920px){
     .sidenav{
