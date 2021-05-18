@@ -46,7 +46,7 @@ function DashBoardNav({ history, changeShow, whattoshow }) {
         </nav>
       </div>
     </React.Fragment>
-  );
+  );  
 }
 
 const mapDispatchToProps = (dispatch) => {
