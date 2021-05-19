@@ -16,7 +16,7 @@ function Login(){
         const [err, setErr] = useState('')
         const onChange = (e)=>{
             let {name, value } = e.target;
-
+// set the state
              setStateValue({...stateValue, [name]:value} )
         }
 
