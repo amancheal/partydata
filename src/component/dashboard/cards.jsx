@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chart from './chart';
 import FeedBacks from './feedBackList';
 
 function Cards() {
 
+  const [numberOfFeed, setNumberOfFeed] = useState('')
+
+  useEffect(()=>{
+    fetch('http://41.190.25.21:3001/users/allfeedbacks')
+    .then(res => res.json())
+    .then(data =>{
+        setNumberOfFeed(data.feedbacks.length)
+    })
+  }, [])
+
   const [list] = useState([
 
     {
         name:"Feed Back Portal",
-        color:'bg-danger'
+        color:'bg-danger',
+
     },
     {
         name:"Aspiring Politicians",
@@ -49,18 +60,28 @@ function Cards() {
     <div className="jumbotron" >
 <div class="card-columns">
 
-        { list.map(({name, color})=>{
+        { list.map(({name, color}, index)=>{
+             if(index === 0){
+               return <div key={name} className={`card rounded-4  ${color} my-2 py-4 `}>
 
-        return(
-        <div key={name} className={`card rounded-4  ${color} my-2  py-5 `}>
+               <div className="crd  card-body text-justify py-4  text-center">
 
-        <div className="crd card-body text-justify   text-center">
+               <p className=" card-title  text-center text-white">{name}</p>
 
-        <p className=" card-title  text-center text-white">{name}</p>
+               </div>
+               <p className='card-text my-1 text-center text-white'> {numberOfFeed } </p>
+               </div>
+             } else {
+               return  <div key={name} className={`card rounded-4  ${color} my-2  py-5 `}>
 
-        </div>
-        </div>
-        )
+               <div className="crd card-body text-justify   text-center">
+
+               <p className=" card-title  text-center text-white">{name}</p>
+
+               </div>
+               </div>
+             }
+
         }) }
 
   </div>
