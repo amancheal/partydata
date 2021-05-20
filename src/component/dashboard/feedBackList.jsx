@@ -1,21 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import {  withRouter } from "react-router-dom";
+import display from '../../action/actions/display';
 
-
-function FeedBackList() {
-
-    const [list, setList] = useState([])
-
-    useEffect(()=>{
-        fetch('http://41.190.25.21:3001/users/allfeedbacks')
-        .then(res => res.json())
-        .then(data =>{
-            if(data.feedbacks.length > 0){
-                setList(
-                    data.feedbacks.slice(0, 5)
-                    )
-            }
-        })
-    }, [])
+function FeedBackList({dashBoardDisplay}) {
 
 
   return (
@@ -32,7 +20,8 @@ function FeedBackList() {
             </thead>
             <tbody className='text-secondary'>
             {
-            list.map((data)=>{
+
+         dashBoardDisplay.length > 0 ? dashBoardDisplay[0].feedbacks.map((data)=>{
                 return (
                 <tr key={data._id} >
                 <td> {data.title.toUpperCase()} </td>
@@ -41,7 +30,7 @@ function FeedBackList() {
                 <td> {data.status.toUpperCase()} </td>
                 </tr>
                 )
-            })
+            }) : ''
         }
             </tbody>
         </table>
@@ -51,4 +40,11 @@ function FeedBackList() {
   );
 }
 
-export default FeedBackList;
+const mapStateToProps =(state)=>{
+    return {
+        dashBoardDisplay: state.dis
+    }
+}
+
+
+export default connect(mapStateToProps, null)(withRouter(FeedBackList));

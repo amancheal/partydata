@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Chart from './chart';
 import FeedBacks from './feedBackList';
-
-function Cards() {
-
-  const [numberOfFeed, setNumberOfFeed] = useState([])
-
-  useEffect(()=>{
-    fetch('http://41.190.25.21:3001/users/allfeedbacks')
-    .then(res => res.json())
-    .then(data =>{
-        setNumberOfFeed(data.feedbacks)
-    })
-  }, [])
+import { connect } from "react-redux";
 
 
+function Cards({dashBoardDisplay }) {
 
 
   const [list] = useState([
@@ -22,13 +12,13 @@ function Cards() {
     {
         name:"Feed Back Portal",
         color:'bg-danger',
-        num: numberOfFeed.length
+
 
     },
     {
         name:"Aspiring Politicians",
         color:'bg-primary',
-        num: 0
+
     },
     {
         name:"Registered Stake Holders",
@@ -38,20 +28,22 @@ function Cards() {
     {
         name:"Politicians To Watch",
         color:'bg-danger',
-        num: 0
+
     },
     {
         name:"Forencis",
         color:'bg-primary',
-        num:0
+
     },
     {
         name:"E-Voting",
         color:'bg-success',
-        num:0
+
     }
 
   ]);
+
+
 
   const [tab, setTab] = useState('chart');
    const [show, setShow] = useState(true);
@@ -70,13 +62,23 @@ function Cards() {
 
     <section >
     <div className="card-cont">
-        { list.map(({name, color, num})=>{
+        { list.map(({name, color}, index)=>{
 
+            if(index === 0){
+              return(
+                <div key={name} className={`cardi ${color}`}>
+                <p className='spen'>{name}</p>
+                <h4 className='span'>
+                 {dashBoardDisplay.length > 0  ? dashBoardDisplay[0].feedbacks.length : <i className="fas fa-spinner fa-spin"></i>}
+                </h4>
+            </div>
+                   )
+              }
                 return(
              <div key={name} className={`cardi ${color}`}>
              <p className='spen'>{name}</p>
              <h4 className='span'>
-                    {num}
+             <i className="fas fa-spinner fa-spin"></i>
              </h4>
          </div>
                 )
@@ -98,5 +100,12 @@ function Cards() {
     </div>
   );
 }
+const mapStateToProps =(state)=>{
+  return {
+      dashBoardDisplay: state.dis
+  }
+}
 
-export default Cards;
+
+export default connect(mapStateToProps, null)(Cards);
+

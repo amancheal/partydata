@@ -17,7 +17,7 @@ function SignUp(){
         state:'',
         lga:'',
         ward:'',
-        district:'',
+        gender:'',
         religion:'',
         dob: new Date(),
         password:'',
@@ -43,7 +43,7 @@ function SignUp(){
                 state: stateValue.state,
                 lga: stateValue.lga,
                 ward: stateValue.ward,
-                district: stateValue.district,
+                gender: stateValue.gender,
                 religion: stateValue.religion,
                 dob: stateValue.dob,
                 password: stateValue.password
@@ -82,7 +82,7 @@ function SignUp(){
                         state:'',
                         lga:'',
                         ward:'',
-                        district:'',
+                        gender:'',
                         religion:'',
                         dob:'',
                         password:'',
@@ -116,7 +116,8 @@ function SignUp(){
 
 
     let onChaneDate = (date)=>{
-        setStateValue({...stateValue, [stateValue.dob]: date })
+
+        setStateValue({...stateValue, dob: date })
     }
 
 
@@ -179,9 +180,13 @@ function SignUp(){
                                 <label htmlFor="Ward" className='text p-2'>Ward</label>
                                 <input type="text" onChange={onChane} value={stateValue.ward} name="ward" className='form-control' required placeholder='Abijo'/>
                             </div>
-                            <div className='col-12 col-lg-6 col-md-6 form-group '>
-                                <label htmlFor="district" className='text p-2'>District</label>
-                                <input type="text" onChange={onChane} value={stateValue.district} name="district" className='form-control' required placeholder='Abijo'/>
+                            <div className='col-12 col-lg-6 col-md-6  form-group '>
+                            <label htmlFor="gender" className='p-2'>Gender</label>
+                            <select name="gender" value={stateValue.gender} selected onChange={onChane}   className=' mb-3 form-control' >
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Others">Others</option>
+                                 </select>
                             </div>
                             <div className='col-12 col-lg-6 col-md-6  form-group '>
                             <label htmlFor="religion" className='p-2'>Select-Religion</label>
@@ -197,6 +202,7 @@ function SignUp(){
                             <DatePicer
                             selected={stateValue.dob}
                             className='form-control'
+                            style={{gridColumn: '5/10', gridRow: '2/4'}}
                             onChange={onChaneDate}
                              />
                              </div>
@@ -215,7 +221,7 @@ function SignUp(){
                          </div>
                          <div className=' d-flex justify-content-between align-items-center my-3 '>
 
-                                <div className='mx-lg-4 mx-2' >
+                                <div className='mx-lg-5 mx-4' >
                                 <label htmlFor="check" className='form-check-label  '>
                                     <input type="checkbox" required className='form-check-input p-2   bg-success' /> i agree to terms and condition
                                 </label>

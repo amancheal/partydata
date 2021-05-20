@@ -1,84 +1,62 @@
-import React from 'react';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import Profile from "../dashboard/profile";
+import DashBoardNav from "../Headers/dashBoardNav";
+import Top from "./displayedStakeHolders";
 
+function RegisteredStakeHolders() {
+  const location = useLocation();
+  const { _id, name, wards } = location.state;
+  return (
+    <React.Fragment>
+      <DashBoardNav />
+      <div className="d-flex" id="wrapper">
+        <Profile  />
+        <div className="container">
+          <div className="jumbotron">
+            {console.log(wards)}
+            <Top name={name} destination='/allStakeHolders' />
 
-function registeredStakeHolders() {
-    return(
+            <div className="bg-white py-2 border border-2 rounded">
+              <p style={{fontSize:'1.2rem', fontWeight:'600'}} className=" mx-3">
+                {" "}
+                {wards.length} Registered Stake-Holders
+              </p>
+            </div>
+            <div className="table-responsive">
+              <table className="table ">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Ward</th>
+                    <th>Pooling Unit</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {wards.length > 0
+                    ? wards.map(({ _id, name, polling_units }) => {
+                          return(
+                            <tr key={_id}>
+                            <td> {name} </td>
+                            <td>Akanbi 1</td>
 
-<div class="container" >
-  <h4>Ilorin South</h4>
-  <p>8 Regiatered StakeHolders</p>            
-  <table class="table ">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Ward</th>
-        <th>Pooling Unit</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Aderogba Ogundele</td>
-        <td>Akanbi 1</td>
-        <td>akanbi junction</td>
-       <td class="float-right"><button type="button" class="btn btn-success">More info</button></td> 
-      </tr>
-      <tr>
-        <td>Olaniyan Tunde</td>
-        <td>Akanbi 2</td>
-        <td>beside junction offa</td>
-        <td class="float-right"><button type="button" class="btn btn-success ">More info</button></td> 
-      </tr>
-      <tr>
-        <td>Michael Nelson</td>
-        <td>akanbi 3</td>
-        <td>erinle road</td>
-        <td class="float-right"><button type="button" class="btn btn-success ">More info</button></td> 
-      </tr>
-      <tr>
-        <td>Isaac Kelvin</td>
-        <td>Akanbi 2</td>
-        <td>beside junction offa</td>
-        <td class="float-right"><button type="button" class="btn btn-success ">More info</button></td> 
-      </tr>
-      <tr>
-        <td>Adeyemi Tosin</td>
-        <td>Akanbi 2</td>
-        <td>beside junction offa</td>
-        <td class="float-right"><button type="button" class="btn btn-success ">More info</button></td> 
-      </tr>
-      <tr>
-        <td>Teslim azeez</td>
-        <td>Akanbi 2</td>
-        <td>beside junction offa</td>
-        <td class="float-right"><button type="button" class="btn btn-success">More info</button></td> 
-      </tr>
-      <tr>
-        <td>Victor Michael</td>
-        <td>Akanbi 2</td>
-        <td>beside junction offa</td>
-        <td class="float-right"><button type="button" class="btn btn-success ">More info</button></td> 
-      </tr>
-      <tr>
-        <td>Aderoju Olatunji</td>
-        <td>Akanbi 5</td>
-        <td>Ijagbo</td>
-        <td class="float-right"><button type="button" class="btn btn-success ">More info</button></td> 
-      </tr>
-    </tbody>
-  </table>
-</div>
+                             <td > {name} </td>
 
+                             <td className="float-right"><button type="button" class="btn btn-success  mx-1 float-right">More info</button></td>
+                            </tr>
+                          );
 
-    )
-
-  
-    
-  
-
+                      })
+                    : console.log("nothing in array")}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+  );
 }
 
-
-
-
-export default registeredStakeHolders;
+export default RegisteredStakeHolders;

@@ -6,6 +6,7 @@ import {
   DASH_BOARD,
   MANAGE_STAKE_HOLDERS,
   ALL_STAKE_HOLDERS,
+  REGISTERED_STAKE_HOLDERS
 } from "../../action/types";
 import { updateNav } from "../../action/actions/nav_actions";
 
@@ -20,6 +21,8 @@ function DashBoardNav({ history, changeShow, whattoshow }) {
         return changeShow(MANAGE_STAKE_HOLDERS);
       case "/feedBack":
         return changeShow(FEED_BACK_PORTAL);
+        case "/registeredStakeHolders":
+          return changeShow(REGISTERED_STAKE_HOLDERS);
       default:
         return changeShow(DASH_BOARD);
     }
@@ -46,7 +49,7 @@ function DashBoardNav({ history, changeShow, whattoshow }) {
         </nav>
       </div>
     </React.Fragment>
-  );  
+  );
 }
 
 const mapDispatchToProps = (dispatch) => {

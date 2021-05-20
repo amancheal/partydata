@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Cards from './cards';
+import { connect } from "react-redux";
 import Profile from './profile';
 import DashBoardNav  from '../Headers/dashBoardNav';
+import display from '../../action/actions/display';
 
-function DashBoard(){
+function DashBoard(props){
+
+    useEffect(()=>{
+        props.getDisplay()
+    }, [])
+
     return(
         <React.Fragment>
            <DashBoardNav />
@@ -26,5 +33,11 @@ function DashBoard(){
         </React.Fragment>
     )
 }
+const mapDispatchToprops = (dispatch)=>{
+    return {
+        getDisplay: ()=> dispatch(display())
+    }
+  }
 
-export default DashBoard
+  export default connect(null, mapDispatchToprops)(DashBoard);
+

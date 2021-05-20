@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Profile from '../dashboard/profile';
-import { connect } from "react-redux";
+import FeedBackTable from './feedbackTable';
 import DashBoardNav from '../Headers/dashBoardNav';
 
 
@@ -9,10 +9,10 @@ function FeedBack(){
 
     return(
         <React.Fragment>
+           <DashBoardNav />
              <div className='d-flex' id='wrapper'>
         <Profile  />
-
-      <DashBoardNav />
+        <FeedBackTable />
         </div>
         </React.Fragment>
     )
