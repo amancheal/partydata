@@ -1,4 +1,4 @@
-import {DISPLAY} from '../types';
+
 import axios from 'axios';
 const display =()=> {
     return(dispatch)=>{

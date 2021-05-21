@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import {Link } from 'react-router-dom';
-import {  withRouter } from "react-router-dom";
 import {updateNav} from '../../action/actions/nav_actions';
 import {connect} from 'react-redux';
 import { REGISTERED_STAKE_HOLDERS} from '../../action/types';
@@ -14,7 +13,7 @@ function StakeHoldersCards({getWhatToShow}){
 
         axios.get('http://41.190.25.21:3001/kwara')
         .then(res =>{
-             setCardList([...cardList, res.data.lgas])
+             setCardList(res.data.lgas)
         })
 
     }, [])

@@ -6,7 +6,7 @@ import Top from "./displayedStakeHolders";
 
 function RegisteredStakeHolders() {
   const location = useLocation();
-  const { _id, name, wards } = location.state;
+  const {  name, wards } = location.state;
   return (
     <React.Fragment>
       <DashBoardNav />
@@ -39,11 +39,11 @@ function RegisteredStakeHolders() {
                           return(
                             <tr key={_id}>
                             <td> {name} </td>
-                            <td>Akanbi 1</td>
+                            <td> Ward </td>
 
-                             <td > {name} </td>
+                             <td >{polling_units.length } </td>
 
-                             <td className="float-right"><button type="button" class="btn btn-success  mx-1 float-right">More info</button></td>
+                             <td className="float-right"><button type="button" className="btn btn-success  mx-1 float-right">More info</button></td>
                             </tr>
                           );
 

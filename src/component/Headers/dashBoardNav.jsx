@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import {  withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import {
   FEED_BACK_PORTAL,
   DASH_BOARD,
   MANAGE_STAKE_HOLDERS,
   ALL_STAKE_HOLDERS,
-  REGISTERED_STAKE_HOLDERS
+  REGISTERED_STAKE_HOLDERS,
+  USER_INFO,
 } from "../../action/types";
 import { updateNav } from "../../action/actions/nav_actions";
 
@@ -21,8 +22,10 @@ function DashBoardNav({ history, changeShow, whattoshow }) {
         return changeShow(MANAGE_STAKE_HOLDERS);
       case "/feedBack":
         return changeShow(FEED_BACK_PORTAL);
-        case "/registeredStakeHolders":
-          return changeShow(REGISTERED_STAKE_HOLDERS);
+      case "/registeredStakeHolders":
+        return changeShow(REGISTERED_STAKE_HOLDERS);
+      case "/feedbackinfo":
+        return changeShow(USER_INFO);
       default:
         return changeShow(DASH_BOARD);
     }

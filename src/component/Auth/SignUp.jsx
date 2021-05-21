@@ -1,244 +1,355 @@
-import React, {useState} from 'react';
-import Head from '../Headers/signUpHeader';
-import axios from 'axios';
-import { Options } from 'react-naija-states';
-import 'react-naija-states/dist/index.css';
-import 'react-datepicker/dist/react-datepicker.css';
-import DatePicer from 'react-datepicker';
+import React, { useState } from "react";
+import Head from "../Headers/signUpHeader";
+import { useHistory } from "react-router";
+import { Options } from "react-naija-states";
+import "react-naija-states/dist/index.css";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicer from "react-datepicker";
 
-function SignUp(){
+function SignUp() {
+  const [stateValue, setStateValue] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    state: "",
+    lga: "",
+    ward: "",
+    gender: "",
+    religion: "",
+    dob: new Date(),
+    password: "",
+    confirmPassword: "",
+  });
+  const history = useHistory();
+  const [load, setLoad] = useState(false);
+  const [err, setErr] = useState("");
+  const onChane = (e) => {
+    let { name, value } = e.target;
 
-    const [stateValue, setStateValue] = useState({
+    setStateValue({ ...stateValue, [name]: value });
+  };
 
-        firstname:'',
-        lastname:'',
-        email:'',
-        phone:'',
-        state:'',
-        lga:'',
-        ward:'',
-        gender:'',
-        religion:'',
-        dob: new Date(),
-        password:'',
-        confirmPassword:''
-    });
+  const submit = (e) => {
+    setLoad(true);
+    e.preventDefault();
+    const newUser = {
+      firstname: stateValue.firstname,
+      lastname: stateValue.lastname,
+      email: stateValue.email,
+      phone: stateValue.phone,
+      state: stateValue.state,
+      lga: stateValue.lga,
+      ward: stateValue.ward,
+      gender: stateValue.gender,
+      religion: stateValue.religion,
+      dob: stateValue.dob,
+      password: stateValue.password,
+    };
+    if (stateValue.password === stateValue.confirmPassword) {
+      fetch("http://41.190.25.21:3001/usermanager/newuser", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newUser),
+      })
+        .then((res) => {
+          console.log(res);
+          return res.json();
+        })
 
-        const [load, setLoad] = useState(false)
-        const [err, setErr] = useState('')
-        const onChane = (e)=>{
-            let {name, value } = e.target;
+        .then((data) => {
+          console.log(data);
+          if (data.status === "success") {
+            console.log(data);
 
-             setStateValue({...stateValue, [name]:value} )
-        }
+            setLoad(false);
+            setErr(data.message);
+          }
+          setStateValue({
+            ...stateValue,
+            firstname: "",
+            lastname: "",
+            email: "",
+            phone: "",
+            state: "",
+            lga: "",
+            ward: "",
+            gender: "",
+            religion: "",
+            dob: "",
+            password: "",
+            confirmPassword: "",
+          });
+          history.push("/dashboard");
+        });
 
-        const submit = (e)=>{
-             setLoad(true)
-            e.preventDefault();
-            const newUser = {
-                firstname: stateValue.firstname,
-                lastname: stateValue.lastname,
-                email: stateValue.email,
-                phone: stateValue.phone,
-                state: stateValue.state,
-                lga: stateValue.lga,
-                ward: stateValue.ward,
-                gender: stateValue.gender,
-                religion: stateValue.religion,
-                dob: stateValue.dob,
-                password: stateValue.password
+      // axios.post('http://41.190.25.21:3001/usermanager/newuser', newUser)
+      // .then(res =>{
+      //     console.log(newUser)
 
-            }
-            if(stateValue.password === stateValue.confirmPassword){
-
-                   fetch('http://41.190.25.21:3001/usermanager/newuser', {
-
-                        method:'POST',
-                        headers:{
-                            'content-type':'application/json'
-                        },
-                        body: JSON.stringify(newUser)
-                    })
-                    .then(res =>{
-                        console.log(res)
-                        return res.json()
-
-                    }
-                         )
-
-                    .then(data => {
-                        console.log(data)
-                         if(data.status === 'success'){
-                        console.log(data)
-
-                        setLoad(false)
-                        setErr(data.message)
-                    }
-                    setStateValue({...stateValue,
-                        firstname:'',
-                        lastname:'',
-                        email:'',
-                        phone:'',
-                        state:'',
-                        lga:'',
-                        ward:'',
-                        gender:'',
-                        religion:'',
-                        dob:'',
-                        password:'',
-                        confirmPassword:''
-                    })
-                    window.location = '/dashboard';
-                }
-                   )
-
-
-                // axios.post('http://41.190.25.21:3001/usermanager/newuser', newUser)
-                // .then(res =>{
-                //     console.log(newUser)
-
-                // })
-                // .catch(err => console.log(err))
-
-            }else{
-                setErr('Password do no match')
-            }
-
-        }
-
-        const myStyle ={
-            paddingTop:'2em',
-            margin: 'auto',
-            color: 'rgb(250, 20, 0)',
-        }
-
-
-
-
-    let onChaneDate = (date)=>{
-
-        setStateValue({...stateValue, dob: date })
+      // })
+      // .catch(err => console.log(err))
+    } else {
+      setErr("Password do no match");
     }
+  };
 
+  const myStyle = {
+    paddingTop: "2em",
+    margin: "auto",
+    color: "rgb(250, 20, 0)",
+  };
 
+  let onChaneDate = (date) => {
+    setStateValue({ ...stateValue, dob: date });
+  };
 
-    return(
-        <React.Fragment>
-            <div>
-            <Head />
+  return (
+    <React.Fragment>
+      <div>
+        <Head />
+      </div>
+      <div>
+        {load ? (
+          <div>
+            <div
+              style={myStyle}
+              className="fa-5x   d-flex justify-content-center align-items-center"
+            >
+              <i className="fas fa-spinner fa-spin"></i>
             </div>
-               <div>
+          </div>
+        ) : (
+          <div className="container">
+            <div className="m-2 m-lg-4 p-1 py-lg-0">
+              <h4>Create an Account</h4>
+              <p>
+                Create an account and start a career as a Politian or
+                Stakeholder.
+              </p>
+            </div>
+            {err ? (
+              <div
+                className="alert py-4 alert-success alert-dismissible fade show"
+                role="alert"
+              >
+                <b> {err} </b>
+                <button
+                  type="button"
+                  className="close btn "
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            ) : (
+              <span></span>
+            )}
+            <form onSubmit={submit}>
+              <div className=" border mx-2 px-4 mx-lg-4">
+                <div className="row">
+                  <div className="col-12 col-lg-6 col-md-6 form-group ">
+                    <label htmlFor="FirstName" className="text p-2">
+                      First-Name
+                    </label>
+                    <input
+                      type="text"
+                      onChange={onChane}
+                      name="firstname"
+                      value={stateValue.firstname}
+                      className="form-control"
+                      required
+                    />
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6 form-group ">
+                    <label htmlFor="LastName" className="text p-2">
+                      Last-Name
+                    </label>
+                    <input
+                      type="text"
+                      onChange={onChane}
+                      name="lastname"
+                      value={stateValue.lastname}
+                      className="form-control"
+                      required
 
-                { load ?  <div  >
-                    <div style={myStyle}  className='fa-5x   d-flex justify-content-center align-items-center'>
-                    <i className="fas fa-spinner fa-spin"></i>
+                    />
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6 form-group ">
+                    <label htmlFor="Email" className="text p-2">
+                      Email-Address
+                    </label>
+                    <input
+                      type="email"
+                      onChange={onChane}
+                      name="email"
+                      value={stateValue.email}
+                      className="form-control"
+                      required
+                      placeholder="**@gmail.com"
+                    />
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6 form-group ">
+                    <label htmlFor="Phone" className="text p-2">
+                      Phone-Nmuber
+                    </label>
+                    <input
+                      type="number"
+                      onChange={onChane}
+                      name="phone"
+                      value={stateValue.phone}
+                      className="form-control"
+                      required
+                      placeholder="070xxxxxxxx"
+                    />
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6  form-group ">
+                    <label htmlFor="State" className="p-2">
+                      State-Of-Origin
+                    </label>
+                    <select
+                      name="state"
+                      selected
+                      onChange={onChane}
+                      value={stateValue.state || ""}
+                      className=" mb-3 form-control"
+                    >
+                      <Options type="state" />
+                    </select>
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6  form-group ">
+                    <label htmlFor="Local-govername" className="p-2">
+                      Local-Government
+                    </label>
+                    <select
+                      name="lga"
+                      selected
+                      onChange={onChane}
+                      value={stateValue.lga || ""}
+                      className=" mb-3 form-control"
+                    >
+                      <Options type="lga" state={stateValue.state} />
+                    </select>
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6 form-group ">
+                    <label htmlFor="Ward" className="text p-2">
+                      Ward
+                    </label>
+                    <input
+                      type="text"
+                      onChange={onChane}
+                      value={stateValue.ward}
+                      name="ward"
+                      className="form-control"
+                      required
+
+                    />
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6  form-group ">
+                    <label htmlFor="gender" className="p-2">
+                      Gender
+                    </label>
+                    <select
+                      name="gender"
+                      value={stateValue.gender}
+                      selected
+                      onChange={onChane}
+                      className=" mb-3 form-control"
+                    >
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Others">Others</option>
+                    </select>
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6  form-group ">
+                    <label htmlFor="religion" className="p-2">
+                      Select-Religion
+                    </label>
+                    <select
+                      name="religion"
+                      value={stateValue.religion}
+                      selected
+                      onChange={onChane}
+                      className=" mb-3 form-control"
+                    >
+                      <option value="Christian">Christiain</option>
+                      <option value="Muslim">Muslim</option>
+                      <option value="Traditional-Worshiper">
+                        Traditional-Worshiper
+                      </option>
+                    </select>
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6 form-group ">
+                    <label htmlFor="date" className="text p-2">
+                      Date of Birth
+                    </label>
+                    <div>
+                      <DatePicer
+                        selected={stateValue.dob}
+                        className="form-control"
+                        style={{ gridColumn: "5/10", gridRow: "2/4" }}
+                        onChange={onChaneDate}
+                      />
                     </div>
-
-                </div> :   <div className='container'>
-                <div className='m-2 m-lg-4 p-1 py-lg-0'>
-                    <h4>Create an Account</h4>
-                    <p>Create an account and start a career as a Politian or Stakeholder.</p>
+                  </div>
+                  <div className="col-12 col-lg-6 col-md-6 form-group ">
+                    <label htmlFor="password" className="text p-2">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      onChange={onChane}
+                      value={stateValue.password}
+                      name="password"
+                      className="form-control"
+                      required
+                      placeholder="*****"
+                    />
+                  </div>
+                  <div className="col-12 my-3 my-lg-3 my-md-3 col-lg-6 col-md-6 form-group ">
+                    <label htmlFor="confrim-password" className="text p-2">
+                      Confrim-Password
+                    </label>
+                    <input
+                      type="password"
+                      onChange={onChane}
+                      value={stateValue.confirmPassword}
+                      name="confirmPassword"
+                      className="form-control"
+                      required
+                      placeholder="*****"
+                    />
+                  </div>
                 </div>
-                    {err ?   <div className="alert py-4 alert-success alert-dismissible fade show" role="alert">
-                                    <b > {err} </b>
-                                    <button type="button" className="close btn " data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div> : <span></span> }
-                    <form onSubmit={submit} >
-                         <div className=' border mx-2 px-4 mx-lg-4'>
-                        <div className='row'>
-                            <div className='col-12 col-lg-6 col-md-6 form-group '>
-                                <label htmlFor="FirstName" className='text p-2' >First-Name</label>
-                                <input type="text" onChange={onChane} name="firstname" value={stateValue.firstname} className='form-control' required placeholder='First-Name'/>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6 form-group '>
-                                <label htmlFor="LastName" className='text p-2'>Last-Name</label>
-                                <input type="text" onChange={onChane} name="lastname" value={stateValue.lastname} className='form-control' required placeholder='Last-Name'/>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6 form-group '>
-                                <label htmlFor="Email" className='text p-2'>Email-Address</label>
-                                <input type="email" onChange={onChane} name="email" value={stateValue.email} className='form-control' required placeholder='zikii@gmail.com'/>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6 form-group '>
-                                <label htmlFor="Phone" className='text p-2'>Phone-Nmuber</label>
-                                <input type="number" onChange={onChane} name="phone" value={stateValue.phone} className='form-control' required placeholder='07028292200'/>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6  form-group '>
-                            <label htmlFor="State" className='p-2'>State-Of-Origin</label>
-                            <select name="state" selected onChange={onChane} value={stateValue.state || ''}   className=' mb-3 form-control' >
-                               <Options type='state'/>
-                                 </select>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6  form-group '>
-                            <label htmlFor="Local-govername" className='p-2'>Local-Government</label>
-                            <select name="lga" selected onChange={onChane} value={stateValue.lga || ''}   className=' mb-3 form-control' >
-                            <Options type='lga' state={stateValue.state} />
-                                 </select>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6 form-group '>
-                                <label htmlFor="Ward" className='text p-2'>Ward</label>
-                                <input type="text" onChange={onChane} value={stateValue.ward} name="ward" className='form-control' required placeholder='Abijo'/>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6  form-group '>
-                            <label htmlFor="gender" className='p-2'>Gender</label>
-                            <select name="gender" value={stateValue.gender} selected onChange={onChane}   className=' mb-3 form-control' >
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                                <option value="Others">Others</option>
-                                 </select>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6  form-group '>
-                            <label htmlFor="religion" className='p-2'>Select-Religion</label>
-                            <select name="religion" value={stateValue.religion} selected onChange={onChane}   className=' mb-3 form-control' >
-                                                <option value="Christian">Christiain</option>
-                                                <option value="Muslim">Muslim</option>
-                                                <option value="Traditional-Worshiper">Traditional-Worshiper</option>
-                                 </select>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6 form-group '>
-                                <label htmlFor="date" className='text p-2'>Date</label>
-                                <div >
-                            <DatePicer
-                            selected={stateValue.dob}
-                            className='form-control'
-                            style={{gridColumn: '5/10', gridRow: '2/4'}}
-                            onChange={onChaneDate}
-                             />
-                             </div>
-                            </div>
-                            <div className='col-12 col-lg-6 col-md-6 form-group '>
-                                <label htmlFor="password" className='text p-2'>Password</label>
-                                <input type="password" onChange={onChane} value={stateValue.password} name="password" className='form-control' required placeholder='*****'/>
-                            </div>
-                            <div className='col-12 my-3 my-lg-3 my-md-3 col-lg-6 col-md-6 form-group '>
-                                <label htmlFor="confrim-password" className='text p-2'>Confrim-Password</label>
-                                <input type="password" onChange={onChane} value={stateValue.confirmPassword} name="confirmPassword"  className='form-control' required placeholder='*****'/>
-                            </div>
-
-                        </div>
-
-                         </div>
-                         <div className=' d-flex justify-content-between align-items-center my-3 '>
-
-                                <div className='mx-lg-5 mx-4' >
-                                <label htmlFor="check" className='form-check-label  '>
-                                    <input type="checkbox" required className='form-check-input p-2   bg-success' /> i agree to terms and condition
-                                </label>
-                                </div>
-                                <div  className='mx-2  mx-lg-4 '>
-                                <input type="submit"  value='Sign Up' className=' px-3 p-1 p-2 px-lg-5 bg-success btn btn-success' />
-                                </div>
-
-                            </div>
-                    </form>
-
-                </div> }
-
-            </div>
-
-        </React.Fragment>
-    )
+              </div>
+              <div className=" d-flex justify-content-between align-items-center my-3 ">
+                <div className="mx-lg-5 mx-4">
+                  <label htmlFor="check" className="form-check-label  ">
+                    <input
+                      type="checkbox"
+                      required
+                      className="form-check-input p-2   bg-success"
+                    />{" "}
+                    i agree to terms and condition
+                  </label>
+                </div>
+                <div className="mx-2  mx-lg-4 ">
+                  <input
+                    type="submit"
+                    value="Sign Up"
+                    className=" px-3 p-2 px-lg-5 bg-success btn btn-success"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        )}
+      </div>
+    </React.Fragment>
+  );
 }
 
-export default SignUp
+export default SignUp;

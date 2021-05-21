@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Chart from './chart';
 import FeedBacks from './feedBackList';
 import { connect } from "react-redux";
@@ -27,17 +27,17 @@ function Cards({dashBoardDisplay }) {
     },
     {
         name:"Politicians To Watch",
-        color:'bg-danger',
+        color:'bg-success',
 
     },
     {
         name:"Forencis",
-        color:'bg-primary',
+        color:'bg-danger',
 
     },
     {
         name:"E-Voting",
-        color:'bg-success',
+        color:'bg-primary',
 
     }
 

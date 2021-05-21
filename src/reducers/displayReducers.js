@@ -1,4 +1,4 @@
-import {DISPLAY} from '../action/types';
+
 
 const initState = []
 

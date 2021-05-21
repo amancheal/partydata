@@ -1,14 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import Cards from './cards';
 import { connect } from "react-redux";
 import Profile from './profile';
+import {withRouter} from 'react-router-dom';
 import DashBoardNav  from '../Headers/dashBoardNav';
 import display from '../../action/actions/display';
 
-function DashBoard(props){
+
+function DashBoard({getDisplay}){
 
     useEffect(()=>{
-        props.getDisplay()
+        getDisplay()
     }, [])
 
     return(
@@ -39,5 +41,6 @@ const mapDispatchToprops = (dispatch)=>{
     }
   }
 
-  export default connect(null, mapDispatchToprops)(DashBoard);
+  export default connect(null, mapDispatchToprops)(withRouter(DashBoard));
+
 
