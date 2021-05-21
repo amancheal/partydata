@@ -1,10 +1,11 @@
-import React from 'react';
+import { useContext } from 'react';
 import { Redirect , Route } from 'react-router-dom';
+import { authContext } from '../../contexts/auth_context';
 
-function Protect({isAuth: isAuth, component: Component, ...rest}){
-
+function Protect({ component: Component, ...rest }) {
+  const { auth } = useContext(authContext);
   return <Route {...rest} render={({location})=> {
-      if(isAuth === 'Go'){
+    if (auth) {
         return  <Component />
       }else {
          return <Redirect to={{pathname:'/', state:{from: location} } }  />
@@ -12,5 +13,4 @@ function Protect({isAuth: isAuth, component: Component, ...rest}){
   }}  />
 
 }
-
 export default Protect;
