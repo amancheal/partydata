@@ -7,6 +7,7 @@ import FeedBack from './component/feedback/feedback';
 import ManageStakeHolders from './component/manageStakeHolders/manageStakeHolders';
 import AllStakeHolders from './component/stackholders/allStakeHolders';
 import RegisteredStakeHolders from './component/stackholders/registeredStakeHolders';
+import Login from './component/Auth/login';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route component={ManageStakeHolders} path="/manageAllStakeHolders" />
         <Route component={FeedBack} path="/feedBack" />
         <Route component={RegisteredStakeHolders} path="/registeredStakeHolders" />
+        <Route component={Login} path="/" />
       </Switch>
 
     </Router>
