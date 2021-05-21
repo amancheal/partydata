@@ -8,7 +8,7 @@ import display from '../../action/actions/display';
 
 
 function DashBoard({getDisplay}){
-
+       
     useEffect(()=>{
         getDisplay()
     }, [])

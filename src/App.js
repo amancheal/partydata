@@ -20,12 +20,11 @@ function App() {
         <Switch>
           <Route exact component={SignUp} path="/" />
           <Protected path='/dashboard' component={DashBoard} />
-          {/* <Route component={DashBoard} path="/dashboard" /> */}
-          <Route component={AllStakeHolders} path="/allStakeHolders" />
-          <Route component={ManageStakeHolders} path="/manageAllStakeHolders" />
-          <Route component={FeedBack} path="/feedBack" />
-          <Route component={FeedBackInfo} path="/feedbackinfo" />
-          <Route component={RegisteredStakeHolders} path="/registeredStakeHolders" />
+          <Protected component={AllStakeHolders} path="/allStakeHolders" />
+          <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />
+          <Protected component={FeedBack} path="/feedBack" />
+          <Protected component={FeedBackInfo} path="/feedbackinfo" />
+          <Protected component={RegisteredStakeHolders} path="/registeredStakeHolders" />
         </Switch>
 
       </Router>
