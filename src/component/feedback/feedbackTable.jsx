@@ -17,11 +17,12 @@ function FeedBackTable({ getwhattoshow }) {
   const myStyle = {
     paddingTop: "2em",
     marginLeft: "3em",
-    color: "rgb(140, 240, 160)",
+    color: "rgb(255, 7, 2)",
   };
 
   return (
     <div className="container">
+      <div className='jumbotron'>
       <div className="py-3">
         <Link
           style={{
@@ -116,6 +117,7 @@ function FeedBackTable({ getwhattoshow }) {
             )}
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   );
