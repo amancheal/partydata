@@ -22,7 +22,7 @@ function AllInfo() {
 
   const treat = (id) => {
     axios
-      .post(`http://41.190.25.21:3001/users/allfeedbacks/${id}`)
+      .post(`http://192.168.6.100:3001/users/allfeedbacks/${id}`)
       .then((res) => {
         history.push("/feedback");
       });
@@ -30,7 +30,7 @@ function AllInfo() {
 
   const closeCase = (id) => {
     axios
-      .post(`http://41.190.25.21:3001/users/allfeedbacks/${id}/close`)
+      .post(`http://192.168.6.100:3001/users/allfeedbacks/${id}/close`)
       .then((res) => {
         history.push("/feedback");
       });

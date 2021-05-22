@@ -47,7 +47,7 @@ function SignUp() {
       password: stateValue.password,
     };
     if (stateValue.password === stateValue.confirmPassword) {
-      fetch("http://41.190.25.21:3001/usermanager/newuser", {
+      fetch("http://192.168.6.100:3001/usermanager/newuser", {
         method: "POST",
         headers: {
           "content-type": "application/json",
