@@ -24,7 +24,20 @@ function AllInfo() {
     axios
       .post(`http://41.190.25.21:3001/users/allfeedbacks/${id}`)
       .then((res) => {
-        history.push("/feedback");
+        const status = 'IN-PROGRESS';
+        //console.log(res.data.feeds._id)
+        history.push('/feedbackinfo', {
+          _id,
+          title,
+          complaintype,
+          status,
+          localgovernment,
+          PoolingUnit,
+          ward,
+          number,
+          feedback,
+          username,
+        });
       });
   };
 
@@ -32,7 +45,19 @@ function AllInfo() {
     axios
       .post(`http://41.190.25.21:3001/users/allfeedbacks/${id}/close`)
       .then((res) => {
-        history.push("/feedback");
+        const status = 'CLOSED';
+        history.push("/feedbackinfo", {
+          _id,
+          title,
+          complaintype,
+          status,
+          localgovernment,
+          PoolingUnit,
+          ward,
+          number,
+          feedback,
+          username,
+        });
       });
   };
 
