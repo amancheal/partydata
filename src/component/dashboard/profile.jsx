@@ -4,11 +4,16 @@ import {connect} from 'react-redux';
 import { FEED_BACK_PORTAL, DASH_BOARD, MANAGE_STAKE_HOLDERS, ALL_STAKE_HOLDERS} from '../../action/types';
 import {updateNav} from '../../action/actions/nav_actions';
 import {  withRouter } from "react-router-dom";
+import axios from 'axios';
 
   function Profile({getWhatToShow, history}){
 
 const [tab, setTab] = useState('dashboard')
 useEffect(() => {
+
+  axios.post('')
+
+
     switch (history.location.pathname) {
       case "/dashboard" :
         return setTab('dashboard');

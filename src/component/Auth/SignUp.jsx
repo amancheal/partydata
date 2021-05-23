@@ -124,8 +124,8 @@ function SignUp() {
         ) : (
           <div className="container">
             <div className="m-2 m-lg-4 p-1 py-lg-0">
-              <h4>Create an Account</h4>
-              <p>
+              <h4 style={{fontWeight:'bold'}} >Create an Account</h4>
+              <p style={{fontWeight:'bold'}}>
                 Create an account and start a career as a Politian or
                 Stakeholder.
               </p>
@@ -323,6 +323,13 @@ function SignUp() {
                       placeholder="*****"
                     />
                   </div>
+                  <div className="mx-2 col-12 d-lg-none d-md-none d-sm-block d-block mx-lg-4 form-group">
+                  <input
+                    type="submit"
+                    value="Sign Up"
+                    className=" px-3 p-2 px-lg-5 bg-success btn btn-success form-control"
+                  />
+                </div>
                 </div>
               </div>
               <div className=" d-flex justify-content-between align-items-center my-3 ">
@@ -336,7 +343,7 @@ function SignUp() {
                     i agree to terms and condition
                   </label>
                 </div>
-                <div className="mx-2  mx-lg-4 ">
+                <div className="mx-2 d-lg-flex d-md-flex d-sm-none d-none mx-lg-4 ">
                   <input
                     type="submit"
                     value="Sign Up"
