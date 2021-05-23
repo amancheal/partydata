@@ -8,17 +8,19 @@ import FeedBack from './component/feedback/feedback';
 import ManageStakeHolders from './component/manageStakeHolders/manageStakeHolders';
 import AllStakeHolders from './component/stackholders/allStakeHolders';
 import RegisteredStakeHolders from './component/stackholders/registeredStakeHolders';
+ //newlogin
 import FeedBackInfo from './component/feedback/allInfo/userInfo';
 import Protected from './component/Auth/protect';
 import AuthContextProvider from './contexts/auth_context';
-
+import Login from './component/Auth/login';
 
 function App() {
   return (
     <AuthContextProvider>
       <Router>
         <Switch>
-          <Route exact component={SignUp} path="/" />
+          <Route exact component={SignUp} path="/signUp" />
+           <Route component={Login} path="/" />
           <Protected path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />
@@ -29,6 +31,7 @@ function App() {
 
       </Router>
     </AuthContextProvider>
+
 
 
   );
