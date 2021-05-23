@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Chart from './chart';
 import FeedBacks from './feedBackList';
+import {useHistory} from 'react-router-dom'
 import { connect } from "react-redux";
 
 
 function Cards({dashBoardDisplay }) {
 
-
+const history = useHistory();
   const [list] = useState([
 
     {
@@ -27,22 +28,25 @@ function Cards({dashBoardDisplay }) {
     },
     {
         name:"Politicians To Watch",
-        color:'bg-danger',
+        color:'bg-success',
 
     },
     {
         name:"Forencis",
-        color:'bg-primary',
+        color:'bg-danger',
 
     },
     {
         name:"E-Voting",
-        color:'bg-success',
+        color:'bg-primary',
 
     }
 
   ]);
 
+  const feds = ()=>{
+      history.push('/feedback')
+  }
 
 
   const [tab, setTab] = useState('chart');
@@ -66,7 +70,7 @@ function Cards({dashBoardDisplay }) {
 
             if(index === 0){
               return(
-                <div key={name} className={`cardi ${color}`}>
+                <div onClick={feds} key={name} className={`cardi ${color}`}>
                 <p className='spen'>{name}</p>
                 <h4 className='span'>
                  {dashBoardDisplay.length > 0  ? dashBoardDisplay[0].feedbacks.length : <i className="fas fa-spinner fa-spin"></i>}

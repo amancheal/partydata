@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import {  withRouter } from "react-router-dom";
-import display from '../../action/actions/display';
+
 
 function FeedBackList({dashBoardDisplay}) {
 

@@ -4,11 +4,16 @@ import {connect} from 'react-redux';
 import { FEED_BACK_PORTAL, DASH_BOARD, MANAGE_STAKE_HOLDERS, ALL_STAKE_HOLDERS} from '../../action/types';
 import {updateNav} from '../../action/actions/nav_actions';
 import {  withRouter } from "react-router-dom";
+import axios from 'axios';
 
   function Profile({getWhatToShow, history}){
 
 const [tab, setTab] = useState('dashboard')
 useEffect(() => {
+
+  axios.post('')
+
+
     switch (history.location.pathname) {
       case "/dashboard" :
         return setTab('dashboard');
@@ -40,7 +45,7 @@ useEffect(() => {
                            <li className='lin'> <Link id='link' style={tab !== 'manageAllStakeHolders' ? {color:'gray'} : {color:'red'} } className='mx-1 text-center'   to='/manageAllStakeHolders' onClick={()=>getWhatToShow(MANAGE_STAKE_HOLDERS)} > <i className="far fa-tasks mx-2"></i> Manage Stakeholders</Link> </li>
                            <li  className='lin'> <Link  id='link' style={tab !== 'feedBack' ? {color:'gray'} : {color:'red'} } className='mx-1 text-center'   to='/feedBack' onClick={()=>getWhatToShow(FEED_BACK_PORTAL)}><i className="far fa-plus mx-2"></i> Feedbacks</Link> </li>
                            <li  className='set'> <Link  id='link' style={tab !== 'feedBack' ? {color:'gray'} : {color:'red'} } className='mx-1 text-center'   to='/feedBack' onClick={()=>getWhatToShow(FEED_BACK_PORTAL)}><i className="far fa-cogs mx-2"></i> Setting</Link> </li>
-                           <li  className='set'> <Link  id='link' style={tab !== 'feedBack' ? {color:'gray'} : {color:'red'} } className='mx-1 text-center'   to='/feedBack' onClick={()=>getWhatToShow(FEED_BACK_PORTAL)}><i className="fas fa-sign-out-alt mx-2"> </i> Log out </Link> </li>
+                           <li  className='set'> <Link  id='link' to='/'><i className="fas fa-sign-out-alt mx-2"> </i> Log out </Link> </li>
 
 
                 </div>
