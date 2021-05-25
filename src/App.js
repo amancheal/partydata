@@ -19,8 +19,8 @@ function App() {
     <AuthContextProvider>
       <Router>
         <Switch>
-          <Route exact component={SignUp} path="/signUp" />
-           <Route component={Login} path="/" />
+          <Route  component={SignUp} path="/signUp" />
+           <Route exact component={Login} path="/" />
           <Protected path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />

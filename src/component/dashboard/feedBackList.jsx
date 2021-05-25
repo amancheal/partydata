@@ -9,7 +9,7 @@ function FeedBackList({dashBoardDisplay}) {
   return (
     <div className="feeds my-2 table-responsive" >
 
-        <table className='table '>
+        <table className='table'>
             <thead className='text-secondary border border-2 border-dark mx-3'>
                 <tr>
                     <th>REPORT TITLE</th>
@@ -20,7 +20,6 @@ function FeedBackList({dashBoardDisplay}) {
             </thead>
             <tbody className='text-secondary'>
             {
-
          dashBoardDisplay.length > 0 ? dashBoardDisplay[0].feedbacks.map((data)=>{
                 return (
                 <tr key={data._id} >

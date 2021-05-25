@@ -196,6 +196,7 @@ li {
 	#wrapper .nerv {
 		margin-left: 1em;
 	}
+
 }
 	@media (min-width: 920px) {
 		.sidenav {
@@ -214,5 +215,202 @@ li {
 		#wrapper .nerv {
 			margin-left: 1em;
 		}
+
 	}
+
+	.fom{
+	max-width:70%;
+	border: 0;
+	margin-left: -0.1em;
+	margin-top: 1em;
+}
+
+@media screen and (width: 320px) {
+	.fom{
+
+		min-width: 100%;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.btns{
+		width: 95%;
+	}
+   }
+
+@media screen and (width: 375px) {
+ .fom{
+	 min-width: 100%;
+	 margin-left: -1em;
+ }
+ .reme{
+	 margin-left: -0.14em !important;
+
+ }
+ .btns{
+	 width: 98%;
+ }
+}
+
+@media screen and (width: 280px) {
+	.fom{
+		min-width: 100%;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+	}
+	.btns{
+		width: 98%;
+	}
+   }
+
+@media screen and (width: 540px) {
+	.fom{
+		min-width: 100%;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.btns{
+		width: 98%;
+	}
+   }
+
+@media screen and (width: 414px) {
+	.fom{
+		min-width: 100% ;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.btns{
+		width: 95%;
+	}
+   }
+   @media screen and (width: 411px) {
+	.fom{
+		min-width: 100% ;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.btns{
+		width: 95%;
+	}
+   }
+   @media screen and (width: 360px) {
+	.fom{
+		min-width: 100% ;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.btns{
+		width: 95%;
+	}
+   }
+
+   @media screen and (min-width: 617px) {
+	.fom{
+		max-width: 70%;
+		border: 0;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.passwrd{
+		margin-left: 4em;
+	}
+	.sign{
+		margin-left: 19em ;
+	}
+	.btns{
+		width: 70%;
+	}
+
+   }
+
+   @media screen and (min-width: 768px) {
+	.fom{
+
+		max-width: 70%;
+		border: 0;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.passwrd{
+		margin-left: 4em;
+	}
+	.sign{
+		margin-left: 19em ;
+	}
+	.btns{
+		width: 126%;
+	}
+
+   }
+
+
+   @media screen and (min-width: 992px) {
+
+	.passwrd{
+		margin-left: 14em;
+	}
+	.sign{
+		margin-left: 32em ;
+	}
+
+   }
+
+
+.passwrd{
+	font-weight: bold;
+}
+.pass{
+	margin-left: 5em;
+}
+
+
+@media screen and (max-width: 1366px) {
+	.fom{
+		max-width:70%;
+		border: 1px solid rgb(204, 198, 198);
+		border-radius: 6px;
+
+	}
+	.passwrd{
+		margin-right: 19em;
+	}
+
+
+   }
+   @media screen and (min-width: 1200px) {
+	.passwrd{
+		margin-right: 19em;
+
+	}
+	.sign{
+		margin-left: 38em;
+	}
+
+   }
+
+
+
 

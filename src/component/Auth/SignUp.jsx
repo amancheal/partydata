@@ -5,6 +5,7 @@ import { Options } from "react-naija-states";
 import "react-naija-states/dist/index.css";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicer from "react-datepicker";
+import axios from 'axios';
 
 function SignUp() {
   const [stateValue, setStateValue] = useState({
@@ -30,7 +31,7 @@ function SignUp() {
     setStateValue({ ...stateValue, [name]: value });
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     setLoad(true);
     e.preventDefault();
     const newUser = {
@@ -47,23 +48,10 @@ function SignUp() {
       password: stateValue.password,
     };
     if (stateValue.password === stateValue.confirmPassword) {
-      fetch("http://192.168.6.100:3001/usermanager/newuser", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      })
-        .then((res) => {
-          console.log(res);
-          return res.json();
-        })
-
+       await axios.post('http://41.190.25.21:3001/usermanager/newuser', newUser)
         .then((data) => {
-          console.log(data);
-          if (data.status === "success") {
-            console.log(data);
-
+          console.log(data.data);
+          if (data.data.status === "success") {
             setLoad(false);
             setErr(data.message);
           }
@@ -82,15 +70,9 @@ function SignUp() {
             password: "",
             confirmPassword: "",
           });
-          history.push("/dashboard");
-        });
-
-      // axios.post('http://41.190.25.21:3001/usermanager/newuser', newUser)
-      // .then(res =>{
-      //     console.log(newUser)
-
-      // })
-      // .catch(err => console.log(err))
+          history.push("/");
+         })
+      .catch(err => console.log(err))
     } else {
       setErr("Password do no match");
     }

@@ -9,7 +9,7 @@ function FeedBackTable({ getwhattoshow }) {
 
   useEffect(() => {
     axios
-      .get("http://192.168.6.100:3001/users/allfeedbacks")
+      .get("http://41.190.25.21:3001/users/allfeedbacks")
       .then((response) => {
         setFeedList(response.data.feedbacks);
       });
