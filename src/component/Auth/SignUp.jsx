@@ -24,7 +24,7 @@ function SignUp() {
   });
   const history = useHistory();
   const [load, setLoad] = useState(false);
-  const [err, setErr] = useState("");
+  const [err, setErr] = useState(null);
   const onChane = (e) => {
     let { name, value } = e.target;
 
@@ -74,6 +74,7 @@ function SignUp() {
          })
       .catch(err => console.log(err))
     } else {
+      
       setErr("Password do no match");
     }
   };
@@ -83,6 +84,9 @@ function SignUp() {
     margin: "auto",
     color: "rgb(250, 20, 0)",
   };
+  const cans = ()=>{
+    setErr(null);
+  }
 
   let onChaneDate = (date) => {
     setStateValue({ ...stateValue, dob: date });
@@ -114,17 +118,17 @@ function SignUp() {
             </div>
             {err ? (
               <div
-                className="alert py-4 alert-success alert-dismissible fade show"
+                className="alert py-2 alert-success alert-dismissible fade show"
                 role="alert"
               >
-                <b> {err} </b>
+                <b className='text-nowrap'> {err} </b>
                 <button
                   type="button"
                   className="close btn "
                   data-dismiss="alert"
                   aria-label="Close"
                 >
-                  <span aria-hidden="true">&times;</span>
+                  <span onClick={ cans} aria-hidden="true">&times;</span>
                 </button>
               </div>
             ) : (

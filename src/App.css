@@ -279,7 +279,13 @@ li {
 	.btns{
 		width: 98%;
 	}
+	.pdpname{
+		font-size:1rem;
+		margin-left: 5em !important;
+
+	}
    }
+
 
 @media screen and (width: 414px) {
 	.fom{
@@ -291,7 +297,13 @@ li {
 
 	}
 	.btns{
-		width: 95%;
+		width: 99%;
+	}
+	.pdpname{
+		margin-left:3em !important;
+		font-size:1rem;
+		margin-top: 2px;
+
 	}
    }
    @media screen and (width: 411px) {
@@ -411,6 +423,10 @@ li {
 
    }
 
+.pdpname{
+	margin-left:2em;
+	font-size:1rem;
 
+}
 
 

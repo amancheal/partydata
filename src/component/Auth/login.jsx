@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router';
+import Head from '../Headers/signInHeader';
 
 
 function Login(){
@@ -14,7 +15,7 @@ function Login(){
         const history = useHistory()
 
         const [load, setLoad] = useState(false)
-        const [err, setErr] = useState('')
+        const [err, setErr] = useState(null)
         const onChane = (e)=>{
             let {name, value } = e.target;
 
@@ -56,18 +57,17 @@ function Login(){
             color: 'rgb(250, 20, 0)',
         }
 
-        const wrap = {
-            backgroundcolor:'green',
-        }
-        const largeBtn = {
-            width: '300px'
+        const cans = ()=>{
+          setErr(null);
         }
 
 // // float-lg-right float-md-right
 
     return(
         <React.Fragment>
-
+          <div>
+            <Head />
+          </div>
             <div className="container py-4">
                 {load ? (
           <div>
@@ -82,24 +82,24 @@ function Login(){
         <div>
                {err ? (
               <div
-                className="alert my-2 alert-danger w-50 mx-auto alert-dismissible fade show"
+                className="alert  alert-danger  mx-n2 alert-dismissible fade show"
                 role="alert"
               >
-                <b> {err} </b>
+                <b className='text-nowrap'> {err} </b>
                 <button
                   type="button"
                   className="close btn "
                   data-dismiss="alert"
                   aria-label="Close"
                 >
-                  <span aria-hidden="true">&times;</span>
+                  <span onClick={cans} aria-hidden="true">&times;</span>
                 </button>
               </div>
             ) : (
               <span></span>
-            )}  <div className='py-5 mx-5'>
-                  <h4 className='mx-n2'>Sign In</h4>
-                 <p className='mx-n2'>Sign into your account</p>
+            )}  <div className=' mx-5'>
+                  <h4 style={{fontWeight:'bold'}} className='mx-n2'>Sign In</h4>
+                 <p  className='mx-n2'>Sign into your account</p>
                   <div className="btns mx-n4">
                   <button className="btn btn-success  p-2 m-2 col-md-3 text-center">
                     <i className="fab fa-google"></i> Google
