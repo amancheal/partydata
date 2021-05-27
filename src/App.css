@@ -236,7 +236,21 @@ li {
 
 	}
 	.btns{
-		width: 95%;
+		width: 97%;
+	}
+   }
+   @media screen and (width: 320px) {
+	.fom{
+
+		min-width: 100%;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.btns{
+		width: 97%;
 	}
    }
 
@@ -253,6 +267,20 @@ li {
 	 width: 98%;
  }
 }
+
+@media screen and (width: 360px) {
+	.fom{
+		min-width: 100%;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.btns{
+		width: 100%;
+	}
+   }
 
 @media screen and (width: 280px) {
 	.fom{
@@ -288,6 +316,25 @@ li {
 
 
 @media screen and (width: 414px) {
+	.fom{
+		min-width: 100% ;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.btns{
+		width: 99%;
+	}
+	.pdpname{
+		margin-left:3em !important;
+		font-size:1rem;
+		margin-top: 2px;
+
+	}
+   }
+   @media screen and (width: 412px) {
 	.fom{
 		min-width: 100% ;
 		margin-left: -1em;
@@ -354,6 +401,33 @@ li {
 	}
 
    }
+   @media screen and (min-width: 600px) {
+	.fom{
+		max-width: 70%;
+		border: 0;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.passwrd{
+		margin-left: 4em;
+	}
+	.sign{
+		margin-left: 19em ;
+	}
+	.btns{
+		width: 72%;
+	}
+	.pdpname{
+		margin-left:5em !important;
+		font-size:1rem;
+		margin-top: 2px;
+
+	}
+
+   }
 
    @media screen and (min-width: 768px) {
 	.fom{
@@ -408,6 +482,22 @@ li {
 	}
 	.passwrd{
 		margin-right: 19em;
+	}
+
+
+   }
+   @media screen and (width: 1440px) {
+	.fom{
+		max-width:70%;
+		border: 1px solid rgb(204, 198, 198);
+		border-radius: 6px;
+
+	}
+	.passwrd{
+		margin-right: 24em !important;
+	}
+	.sign{
+		margin-left: 45em !important;
 	}
 
 
