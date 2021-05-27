@@ -52,7 +52,7 @@ function Login(){
         }
 
         const myStyle ={
-            paddingTop:'3em',
+            paddingTop:'0em',
             margin: 'auto',
             color: 'rgb(250, 20, 0)',
         }
@@ -73,7 +73,7 @@ function Login(){
           <div>
             <div
               style={myStyle}
-              className="fa-5x   d-flex justify-content-center align-items-center"
+              className="fa-5x  d-flex justify-content-center align-items-center"
             >
               <i className="fas fa-spinner fa-spin"></i>
             </div>
