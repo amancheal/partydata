@@ -11,7 +11,7 @@ const display =()=> {
     })
     .then(data =>{
         localStorage.setItem('username', data.data.user.firstname)
-        
+    
         dispatch({
             type: 'DISPLAY',
             payload: data.data

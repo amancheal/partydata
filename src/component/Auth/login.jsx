@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router';
 import Head from '../Headers/signInHeader';
+import {GoogleLogin} from 'react-google-login';
 
 
 function Login(){
@@ -60,6 +61,22 @@ function Login(){
         const cans = ()=>{
           setErr(null);
         }
+        const success = response =>{
+          console.log(response)
+            axios({
+              method: 'POST',
+              url:'http://41.190.25.21:3001/googleLogin',
+              data: {tokenId: response.tokenId}
+            })
+
+          .then(res =>{
+            localStorage.setItem("token", res.data.token);
+            window.location = '/dashboard';
+          })
+        }
+        const fail = response =>{
+          console.log(response)
+        }
 
 // // float-lg-right float-md-right
 
@@ -100,15 +117,19 @@ function Login(){
             )}  <div className=' mx-5'>
                   <h4 style={{fontWeight:'bold'}} className='mx-n2'>Sign In</h4>
                  <p  className='mx-n2'>Sign into your account</p>
-                  <div className="btns mx-n4">
-                  <button className="btn btn-success  p-2 m-2 col-md-3 text-center">
-                    <i className="fab fa-google"></i> Google
-                  </button>
-                  <button className="btn btn-success btn-sm p-2 m-2  col-md-3 text-center">
-                    {" "}
-                    <i className="fab fa-facebook"></i>{" "}
-                    Facebook
-                  </button>
+                  <div className="btns mx-n3">
+                    <GoogleLogin
+                      clientId='415856485253-kf4k22oebqedc3jaovtegurl3rmip6qj.apps.googleusercontent.com'
+                      onSuccess={success}
+                      onFailure={fail}
+                      className='btn bg-success rounded mx-2 col-md-3'
+                    />
+                      <GoogleLogin
+                      clientId='415856485253-kf4k22oebqedc3jaovtegurl3rmip6qj.apps.googleusercontent.com'
+                      onSuccess={success}
+                      onFailure={fail}
+                      className='btn bg-success rounded mx-2 my-2 col-md-3'
+                    />
                 </div>
                                 <div className='row col-md-8 mx-4 d-lg-flex d-md-flex d-none'>
                         <div className='justify-content-center col-sm-5 col-sm'>
