@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { FEED_BACK_PORTAL, DASH_BOARD, MANAGE_STAKE_HOLDERS, ALL_STAKE_HOLDERS} from '../../action/types';
 import {updateNav} from '../../action/actions/nav_actions';
-import {  withRouter } from "react-router-dom";
-import axios from 'axios';
+
 
   function Profile({getWhatToShow, history}){
 
     const [profile, setProfile] = useState('')
     const logout = ()=>{
       localStorage.removeItem('token');
-      localStorage.removeItem('id');
+      localStorage.removeItem('username');
     }
 
-
 const [tab, setTab] = useState('dashboard')
+
 useEffect(() => {
 
-    setProfile(localStorage.getItem('firstname'));
+  setProfile(localStorage.getItem('username'));
 
     switch (history.location.pathname) {
       case "/dashboard" :
-        return setTab('dashboard');
+
+        return setTab('dashboard') ;
+
       case "/allStakeHolders" :
         return setTab('allStakeHolders');
       case "/manageAllStakeHolders":
@@ -36,8 +37,8 @@ useEffect(() => {
 
     return (
         <React.Fragment>
-           <div id="mySidenav" className="sidenav ">
-                <div className='sidebar-heading text-center py-5 primary-text fs-4 fw-bold '>
+           <div id="mySidenav" className="sidenav">
+                <div className='sidebar-heading text-center py-5 primary-text fs-4 fw-bold'>
                     {profile !== '' ? profile : ''}
                 </div>
                 <div className='list-group list-group-flush  my-3'>
@@ -57,12 +58,13 @@ useEffect(() => {
                 </div>
            </div>
         </React.Fragment>
-    ) 
+    )
 }
 
 const mapDispatchToprops =(dispatch)=>{
         return {
             getWhatToShow: (val)=> dispatch(updateNav(val))
+           // disPlayName: ()=> dispatch(display())
         }
 }
 

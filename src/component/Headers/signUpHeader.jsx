@@ -9,7 +9,7 @@ function SignUpHead(){
         <React.Fragment>
             <div className='container'>
             <div className=' clearfix a m-2 m-lg-4 m-md-4 p-3 '>
-            <Link to='/signin'  style={{textDecoration:'none'}}  className=' float-left d-sm-none d-lg-flex d-md-flex d-none' > <i style={{fontSize:'1.2rem', fontWeight:'bold'}} className="fa fa-chevron-left mx-1 text-success " aria-hidden="true"></i> <span className='text-success' style={{fontSize:'1rem', fontWeight:'500'}}>Sign In</span> </Link>
+            <Link to='/'  style={{textDecoration:'none'}}  className=' float-left d-sm-none d-lg-flex d-md-flex d-none' > <i style={{fontSize:'1.2rem', fontWeight:'bold'}} className="fa fa-chevron-left mx-1 text-success " aria-hidden="true"></i> <span className='text-success' style={{fontSize:'1rem', fontWeight:'500'}}>Sign In</span> </Link>
             <span style={{fontSize:'1rem', fontWeight:'bold'}} className=' float-right' >Having troubles? <Link to='help' style={{fontSize:'1rem', textDecoration:'none'}}   className='text-success ' >Get help</Link> </span>
             </div>
             <div>

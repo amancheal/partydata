@@ -9,7 +9,12 @@ function FeedBackTable({ getwhattoshow }) {
 
   useEffect(() => {
     axios
-      .get("http://41.190.25.21:3001/users/allfeedbacks")
+      .get("http://41.190.25.21:3001/users/allfeedbacks", {
+        headers:{
+            "Content-Type": "application/json",
+             Authorization: `Bearer ${localStorage.getItem("token")}`,
+            }
+      })
       .then((response) => {
         setFeedList(response.data.feedbacks);
       });

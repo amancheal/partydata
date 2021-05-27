@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {useHistory} from 'react-router';
 
 
 function Login(){
@@ -10,6 +11,7 @@ function Login(){
         password:'',
 
     });
+        const history = useHistory()
 
         const [load, setLoad] = useState(false)
         const [err, setErr] = useState('')
@@ -30,18 +32,20 @@ function Login(){
             axios.post("http://41.190.25.21:3001/login", loginUser)
             .then((res) => {
               if (res.data.status === true) {
-
                 localStorage.setItem("token", res.data.token);
-                localStorage.setItem('firstname', res.data.user.firstname)
-                window.location = "/dashboard";
+               // history.push('/dashboard');
+                window.location = '/dashboard';
               } else {
                 console.log('Something went wrong')
 
               }
             })
             .catch(err => {
+              if(err){
+                setLoad(false)
                 setErr('Incorrect login or network Error')
-                setTimeout(()=>{ setErr('')}, 2500)
+              }
+
             })
 
         }
@@ -98,14 +102,23 @@ function Login(){
                  <p className='mx-n2'>Sign into your account</p>
                   <div className="btns mx-n4">
                   <button className="btn btn-success  p-2 m-2 col-md-3 text-center">
-                    <i className="fal fa-google"></i> Google
+                    <i className="fab fa-google"></i> Google
                   </button>
                   <button className="btn btn-success btn-sm p-2 m-2  col-md-3 text-center">
                     {" "}
-                    <i className="fal fa-facebook"></i>{" "}
+                    <i className="fab fa-facebook"></i>{" "}
                     Facebook
                   </button>
                 </div>
+                                <div className='row col-md-8 mx-4 d-lg-flex d-md-flex d-none'>
+                        <div className='justify-content-center col-sm-5 col-sm'>
+                        <hr />
+                      </div>
+                    0r
+                      <div className='col-sm-5 col-sm'>
+                        <hr />
+                      </div>
+                      </div>
                 <div className='clearfix '>
                 <form className='' onSubmit={submit}>
                     <div  className=" fom  p-4 ">
@@ -155,7 +168,6 @@ function Login(){
                     <label htmlFor="check" className="reme form-check-label  ">
                     <input
                       type="checkbox"
-                      required
                       className="form-check-input p-2   bg-success"
                     />{" "}
                     Remember me
