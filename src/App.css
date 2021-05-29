@@ -225,87 +225,121 @@ li {
 	margin-top: 1em;
 }
 
-@media screen and (width: 320px) {
-	.fom{
 
-		min-width: 100%;
-		margin-left: -1em;
-	}
-	.reme{
-		margin-left: -0.14em !important;
-
-	}
-	.btns{
-		width: 97%;
-	}
-   }
    @media screen and (width: 320px) {
 	.fom{
 
-		min-width: 100%;
+		max-width: 100%;
 		margin-left: -1em;
 	}
 	.reme{
 		margin-left: -0.14em !important;
+	}
+	.face{
+		margin-left: -0.4em !important;
+		max-width: 93% !important;
+	}
+	.gool{
+		margin-left: 0.3em;
+		max-width: 93% !important;
+	}
 
-	}
-	.btns{
-		width: 97%;
-	}
    }
 
 @media screen and (width: 375px) {
  .fom{
-	 min-width: 100%;
+	 max-width: 100%;
 	 margin-left: -1em;
  }
  .reme{
 	 margin-left: -0.14em !important;
 
  }
- .btns{
-	 width: 98%;
- }
+ .btnGoogle{
+	max-width: 95% !important;
+}
+.btnFacebook{
+	max-width: 95% !important;
+	margin-left: -1em !important;
+}
 }
 
 @media screen and (width: 360px) {
 	.fom{
-		min-width: 100%;
+		max-width: 100%;
 		margin-left: -1em;
 	}
 	.reme{
 		margin-left: -0.14em !important;
 
 	}
-	.btns{
-		width: 100%;
+	.face{
+		margin-left: -0.6em !important;
+		max-width: 93% !important;
+	}
+	.gool{
+		margin-left: -0.3em !important;
+		max-width: 93% !important;
 	}
    }
 
 @media screen and (width: 280px) {
 	.fom{
-		min-width: 100%;
+		max-width: 100%;
 		margin-left: -1em;
 	}
 	.reme{
 		margin-left: -0.14em !important;
 	}
-	.btns{
-		width: 98%;
+	.face{
+		margin-left: -0.3em !important;
+		max-width: 93% !important;
+	}
+	.gool{
+		margin-left: 0.7em;
+		max-width: 93% !important;
+	}
+   }
+   @media screen and (width: 384px) {
+	.fom{
+		min-width: 100%;
+		margin-left: -0.1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.btnGoogle{
+		width: 70% !important;
+		margin-left: -0.1em !important;
+	}
+	.btnFacebook{
+		width: 70% !important;
+
+	}
+	.pdpname{
+		font-size:1rem;
+		margin-left: 2.6em !important;
+
 	}
    }
 
 @media screen and (width: 540px) {
 	.fom{
-		min-width: 100%;
-		margin-left: -1em;
+		max-width: 100%;
+		margin-left: -0.2em;
 	}
 	.reme{
-		margin-left: -0.14em !important;
+		margin-left: -0.10em !important;
 
 	}
-	.btns{
-		width: 98%;
+	.btnGoogle{
+		min-width: 97% !important;
+		margin-left: -0.1em !important;
+	}
+	.btnFacebook{
+		min-width: 97% !important;
+		margin-left: -1.2em;
 	}
 	.pdpname{
 		font-size:1rem;
@@ -317,15 +351,19 @@ li {
 
 @media screen and (width: 414px) {
 	.fom{
-		min-width: 100% ;
+		max-width: 100% ;
 		margin-left: -1em;
 	}
 	.reme{
 		margin-left: -0.14em !important;
 
 	}
-	.btns{
-		width: 99%;
+	.btnGoogle{
+		max-width: 95% !important;
+	}
+	.btnFacebook{
+		max-width: 95% !important;
+		margin-left: -1.2em !important;
 	}
 	.pdpname{
 		margin-left:3em !important;
@@ -336,15 +374,20 @@ li {
    }
    @media screen and (width: 412px) {
 	.fom{
-		min-width: 100% ;
+		max-width: 100% ;
 		margin-left: -1em;
 	}
 	.reme{
 		margin-left: -0.14em !important;
 
 	}
-	.btns{
-		width: 99%;
+	.face{
+		margin-left: -0.4em !important;
+		min-width: 90% !important;
+	}
+	.gool{
+		margin-left: 0.3em;
+		min-width: 90% !important;
 	}
 	.pdpname{
 		margin-left:3em !important;
@@ -353,30 +396,64 @@ li {
 
 	}
    }
-   @media screen and (width: 411px) {
+   @media screen and (width: 480px) {
 	.fom{
-		min-width: 100% ;
+		max-width: 100%;
 		margin-left: -1em;
 	}
 	.reme{
 		margin-left: -0.14em !important;
 
 	}
-	.btns{
-		width: 95%;
+	.face{
+		margin-left: -0.2em !important;
+		max-width: 90% !important;
 	}
+	.gool{
+		margin-left: 0.1em;
+		max-width: 90% !important;
+	}
+	.pdpname{
+		font-size:1rem;
+		margin-left: 5em !important;
+
+	}
+   }
+   @media screen and (width: 411px) {
+	.fom{
+		max-width: 100% ;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+	}
+	.face{
+		margin-left: -0.4em !important;
+		min-width: 90% !important;
+	}
+	.gool{
+		margin-left: 0.7em;
+		min-width: 90% !important;
+	}
+
    }
    @media screen and (width: 360px) {
 	.fom{
-		min-width: 100% ;
+		max-width: 100% ;
 		margin-left: -1em;
 	}
 	.reme{
 		margin-left: -0.14em !important;
 
 	}
-	.btns{
-		width: 95%;
+
+	.face{
+		margin-left: -2em;
+		max-width: 93% !important;
+	}
+	.gool{
+		margin-left: 0.7em;
+		max-width: 93% !important;
 	}
    }
 
@@ -385,6 +462,12 @@ li {
 		max-width: 70%;
 		border: 0;
 		margin-left: -1em;
+	}
+	.btnGoogle{
+		width: 95%;
+	}
+	.btnFacebook{
+		width: 95%;
 	}
 	.reme{
 		margin-left: -0.14em !important;
@@ -403,7 +486,7 @@ li {
    }
    @media screen and (min-width: 600px) {
 	.fom{
-		max-width: 70%;
+		max-width: 100%;
 		border: 0;
 		margin-left: -1em;
 	}
@@ -417,9 +500,49 @@ li {
 	.sign{
 		margin-left: 19em ;
 	}
-	.btns{
-		width: 72%;
+	.face{
+		margin-left: -0.3em !important;
+		max-width: 90% !important;
 	}
+	.gool{
+		margin-left: 0.3em;
+		max-width: 90% !important;
+	}
+	.pdpname{
+		margin-left:5em !important;
+		font-size:1rem;
+		margin-top: 2px;
+
+	}
+
+   }
+   @media screen and (width: 640px) {
+	.fom{
+		min-width: 100% ;
+		border: 0;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.face{
+		margin-left: -0.4em !important;
+
+	}
+	.gool{
+		margin-left: 0.7em;
+
+	}
+	.btnGoogle{
+		min-width: 100% !important;
+
+	}
+	.btnFacebook{
+		min-width: 100% !important;
+
+	}
+
 	.pdpname{
 		margin-left:5em !important;
 		font-size:1rem;
@@ -446,20 +569,51 @@ li {
 	.sign{
 		margin-left: 19em ;
 	}
-	.btns{
-		width: 126%;
+	.btnGoogle{
+		min-width: 100% !important;
+		margin-left: -2em !important;
+	}
+	.btnFacebook{
+		min-width: 100% !important;
+		margin-left: 1em;
+	}
+
+   }
+   @media screen and (width: 800px) {
+	.fom{
+
+		max-width: 80%;
+		border: 0;
+		margin-left: -1em;
+	}
+	.reme{
+		margin-left: -0.14em !important;
+
+	}
+	.passwrd{
+		margin-left: 9em;
+	}
+	.sign{
+		margin-left: 24em ;
+	}
+	.btnGoogle{
+		width: 100% !important;
+		margin-left: -1em !important;
+	}
+	.btnFacebook{
+		width: 100% !important;
+		margin-left: 1em !important;
 	}
 
    }
 
-
    @media screen and (min-width: 992px) {
 
 	.passwrd{
-		margin-left: 14em;
+		margin-left: 15em;
 	}
 	.sign{
-		margin-left: 32em ;
+		margin-left: 30em ;
 	}
 
    }
@@ -475,36 +629,75 @@ li {
 
 @media screen and (max-width: 1366px) {
 	.fom{
-		max-width:70%;
+		min-width:70%;
 		border: 1px solid rgb(204, 198, 198);
 		border-radius: 6px;
 
 	}
 	.passwrd{
-		margin-right: 19em;
+		margin-right: 19em !important;
 	}
-
+	.face{
+		margin-left: 1em;
+		max-width: 100% !important;
+	}
+	.gool{
+		margin-left: 0.9em;
+		max-width: 100% !important;
+	}
 
    }
    @media screen and (width: 1440px) {
 	.fom{
-		max-width:70%;
+		min-width:70% !important;
 		border: 1px solid rgb(204, 198, 198);
 		border-radius: 6px;
 
 	}
-	.passwrd{
-		margin-right: 24em !important;
-	}
-	.sign{
-		margin-left: 45em !important;
+	.pass{
+		margin-right: 3em;
 	}
 
+	.sign{
+		margin-left: 46em !important;
+	}
+	.btnGoogle{
+		min-width: 100% !important;
+		margin-left: -1em !important;
+	}
+	.btnFacebook{
+		min-width: 100% !important;
+		margin-left: 1em !important;
+	}
+
+   }
+   @media screen and (width: 1280px) {
+	.fom{
+		min-width:70% !important;
+		border: 1px solid rgb(204, 198, 198);
+		border-radius: 6px;
+
+	}
+	.pass{
+		margin-left: 12em;
+	}
+
+	.sign{
+		margin-left: 38em !important;
+	}
+	.btnGoogle{
+		min-width: 100% !important;
+		margin-left: -1em !important;
+	}
+	.btnFacebook{
+		min-width: 100% !important;
+		margin-left: 1em !important;
+	}
 
    }
    @media screen and (min-width: 1200px) {
 	.passwrd{
-		margin-right: 19em;
+		margin-right: 20em !important;
 
 	}
 	.sign{
@@ -519,4 +712,27 @@ li {
 
 }
 
+.btnFacebook{
+	width: 100% !important;
+	height:35px;
+	border-radius: 7px;
+	background: #3b5998;
+	color:white;
+	border:0px transparent;
+	text-align: center !important;
+	display: inline-block;
+}
+.btnGoogle{
+	width: 100% !important;
+	height:35px;
+	border-radius: 9px !important;
+	background: #db3236 !important;
+	color:white !important;
+	border:0px transparent;
+	text-align: center;
+	font-weight: bolder !important;
 
+}
+.pass{
+	text-decoration: none;
+}

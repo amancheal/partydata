@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {useHistory} from 'react-router';
+import {useHistory, Redirect} from 'react-router';
 import Head from '../Headers/signInHeader';
 import {GoogleLogin} from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 
 function Login(){
@@ -77,8 +78,24 @@ function Login(){
         const fail = response =>{
           console.log(response)
         }
+        const responseFacebook = response =>{
+          console.log(response)
+          axios({
+            method: 'POST',
+            url:'http://41.190.25.21:3001/facebookLogin',
+            data: {accessToken: response.accessToken, userID: response.userID}
+          })
 
-// // float-lg-right float-md-right
+        .then(res =>{
+          console.log(res.data)
+          localStorage.setItem("token", res.data.token);
+          window.location = '/dashboard';
+        })
+        .catch(err =>{
+          <Redirect to='/' />
+        })
+        }
+
 
     return(
         <React.Fragment>
@@ -117,29 +134,29 @@ function Login(){
             )}  <div className=' mx-5'>
                   <h4 style={{fontWeight:'bold'}} className='mx-n2'>Sign In</h4>
                  <p  className='mx-n2'>Sign into your account</p>
-                  <div className="btns mx-n3">
-                    <GoogleLogin
-                      clientId='415856485253-kf4k22oebqedc3jaovtegurl3rmip6qj.apps.googleusercontent.com'
-                      onSuccess={success}
-                      onFailure={fail}
-                      className='btn bg-success rounded mx-2 col-md-3'
-                    />
+                  <div className="btns row mx-n3 mx-lg-n4 mx-md-n4">
+                      <div className="col-12 my-2 mx-lg-n3 gool  col-lg-6 col-md-6">
                       <GoogleLogin
-                      clientId='415856485253-kf4k22oebqedc3jaovtegurl3rmip6qj.apps.googleusercontent.com'
+                      clientId='415856485253-enh1a9l3d64ln1sqa62sj3mr4llkdms2.apps.googleusercontent.com'
                       onSuccess={success}
                       onFailure={fail}
-                      className='btn bg-success rounded mx-2 my-2 col-md-3'
+
+                      className='btnGoogle  mx-n2 mx-lg-3 mx-md-3 '
                     />
+                      </div>
+                      <div className="col-12 my-2 face col-lg-6 col-md-6">
+                      <FacebookLogin
+                        appId="1222634194857309"
+                        autoLoad={false}
+                        className='rounded mx-2 '
+                        cssClass="btnFacebook"
+                        callback={responseFacebook}
+                        icon={<i className="fab fa-facebook mx-2" style={{marginLeft:'2px'}}>
+                        </i>}
+                        />
+                      </div>
                 </div>
-                                <div className='row col-md-8 mx-4 d-lg-flex d-md-flex d-none'>
-                        <div className='justify-content-center col-sm-5 col-sm'>
-                        <hr />
-                      </div>
-                    0r
-                      <div className='col-sm-5 col-sm'>
-                        <hr />
-                      </div>
-                      </div>
+
                 <div className='clearfix '>
                 <form className='' onSubmit={submit}>
                     <div  className=" fom  p-4 ">
@@ -195,7 +212,7 @@ function Login(){
                   </label>
                        </div>
                        <div  className='passwrd d-lg-flex d-md-flex d-sm-none d-none '>
-                  <a href="#" style={{ textDecoration:'none'}} className=" pass text-success deco-none">
+                  <a href="#" className=" pass text-success deco-none">
                     Forgot password?
                   </a>
                 </div>
