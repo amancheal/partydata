@@ -77,6 +77,7 @@ function Login(){
         }
         const fail = response =>{
           console.log(response)
+          setErr('Incorrect login or network Error')
         }
         const responseFacebook = response =>{
           console.log(response)
@@ -141,7 +142,7 @@ function Login(){
                       onSuccess={success}
                       onFailure={fail}
 
-                      className='btnGoogle  mx-n2 mx-lg-3 mx-md-3 '
+                      className='btnGoogle  mx-n2 mx-lg-2 mx-md-2'
                     />
                       </div>
                       <div className="col-12 my-2 face col-lg-6 col-md-6">
