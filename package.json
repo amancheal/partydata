@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
     "chart.js": "^3.2.1",
+    "gh-pages": "^3.2.0",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.0.3",
     "react-datepicker": "^3.8.0",
@@ -23,11 +24,13 @@
     "redux-thunk": "^2.3.0",
     "web-vitals": "^1.0.1"
   },
+  "homepage":"https://ozikelvin.github.io/Party-data",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
