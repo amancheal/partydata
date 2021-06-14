@@ -74,7 +74,7 @@ function SignUp() {
          })
       .catch(err => console.log(err))
     } else {
-      
+
       setErr("Password do no match");
     }
   };
@@ -155,7 +155,7 @@ function SignUp() {
                       Last-Name
                     </label>
                     <input
-                      type="text"
+                      type="text" 
                       onChange={onChane}
                       name="lastname"
                       value={stateValue.lastname}
