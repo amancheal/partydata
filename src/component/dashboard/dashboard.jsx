@@ -9,9 +9,10 @@ import display from "../../action/actions/display";
 
 function DashBoard({ getDisplay }) {
 
-  useEffect(() => {
-    getDisplay();
-  }, []);
+  // useEffect(() => {
+  //   getDisplay();
+  // }, []);
+  useEffect(getDisplay(), []);
 
   return (
     <React.Fragment>

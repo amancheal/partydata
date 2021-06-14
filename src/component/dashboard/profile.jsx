@@ -33,7 +33,7 @@ useEffect(() => {
       default:
         return setTab('dashboard');
     }
-  }, [tab]);
+  }, [tab]);// eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <React.Fragment>

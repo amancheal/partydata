@@ -212,7 +212,7 @@ function Login(){
                   </label>
                        </div>
                        <div  className='passwrd d-lg-flex d-md-flex d-sm-none d-none '>
-                  <a href="#" className=" pass text-success deco-none">
+                  <a href="/forgot" className=" pass text-success deco-none">
                     Forgot password?
                   </a>
                 </div>
