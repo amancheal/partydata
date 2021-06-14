@@ -35,7 +35,7 @@ function Login(){
             .then((res) => {
               if (res.data.status === true) {
                 localStorage.setItem("token", res.data.token);
-               
+
                 window.location = '/dashboard';
               } else {
                 console.log('Something went wrong')
@@ -92,7 +92,7 @@ function Login(){
           window.location = '/dashboard';
         })
         .catch(err =>{
-          <Redirect to='/' />
+         console.log('an error has occured')
         })
         }
 
