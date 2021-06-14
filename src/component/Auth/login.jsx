@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {useHistory, Redirect} from 'react-router';
 import Head from '../Headers/signInHeader';
 import {GoogleLogin} from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
@@ -14,7 +13,7 @@ function Login(){
         password:'',
 
     });
-        const history = useHistory()
+
 
         const [load, setLoad] = useState(false)
         const [err, setErr] = useState(null)
@@ -36,7 +35,7 @@ function Login(){
             .then((res) => {
               if (res.data.status === true) {
                 localStorage.setItem("token", res.data.token);
-               // history.push('/dashboard');
+               
                 window.location = '/dashboard';
               } else {
                 console.log('Something went wrong')
