@@ -140,7 +140,8 @@ function Login(){
                       clientId='415856485253-enh1a9l3d64ln1sqa62sj3mr4llkdms2.apps.googleusercontent.com'
                       onSuccess={success}
                       onFailure={fail}
-
+                      isSignedIn={false}
+                      autoLoad={false}
                       className='btnGoogle  mx-n2 mx-lg-2 mx-md-2'
                     />
                       </div>
