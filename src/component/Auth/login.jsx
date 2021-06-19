@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Head from '../Headers/signInHeader';
-import {GoogleLogin} from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
 
 
 function Login(){
@@ -31,7 +29,7 @@ function Login(){
                 password: stateValue.password
             }
 
-            axios.post("http://192.168.6.100:3000/login", loginUser)
+            axios.post("http://41.190.25.21:3001/login", loginUser)
             .then((res) => {
               if (res.data.status === true) {
                 localStorage.setItem("token", res.data.token);
@@ -66,7 +64,7 @@ function Login(){
         //   console.log(response)
         //     axios({
         //       method: 'POST',
-        //       url:'http://192.168.6.100:3000/googleLogin',
+        //       url:'http://41.190.25.21:3001/googleLogin',
         //       data: {tokenId: response.tokenId}
         //     })
 
@@ -83,7 +81,7 @@ function Login(){
         //   console.log(response)
         //   axios({
         //     method: 'POST',
-        //     url:'http://192.168.6.100:3000/facebookLogin',
+        //     url:'http://41.190.25.21:3001/facebookLogin',
         //     data: {accessToken: response.accessToken, userID: response.userID}
         //   })
 

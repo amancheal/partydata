@@ -11,7 +11,7 @@ function StakeHoldersCards({getWhatToShow}){
 
     useEffect(()=>{
 
-        axios.get('http://192.168.6.100:3000/kwara',{
+        axios.get('http://41.190.25.21:3001/kwara',{
             headers:{
                 "Content-Type": "application/json",
                  Authorization: `Bearer ${localStorage.getItem("token")}`,

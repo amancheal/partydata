@@ -29,7 +29,7 @@ function DashBoardNav({ history, changeShow, whattoshow }) {
       default:
         return changeShow(DASH_BOARD);
     }
-  }, []);
+  }, []); // eslint-disable-next-line
 
   let openNav = () => {
     let el = document.getElementById("wrapper");
