@@ -11,7 +11,7 @@ function DashBoard({ getDisplay }) {
 
   useEffect(() => {
     getDisplay();
-  }, []); // eslint-disable-next-line
+  }, [getDisplay]); // eslint-disable-next-line
 
   return (
     <React.Fragment>
