@@ -29,9 +29,9 @@ function Login(){
             const loginUser = {
                 email: stateValue.email,
                 password: stateValue.password
-
             }
-            axios.post("http://41.190.25.21:3001/login", loginUser)
+
+            axios.post("http://192.168.6.100:3000/login", loginUser)
             .then((res) => {
               if (res.data.status === true) {
                 localStorage.setItem("token", res.data.token);
@@ -44,6 +44,7 @@ function Login(){
             })
             .catch(err => {
               if(err){
+                console.log(err)
                 setLoad(false)
                 setErr('Incorrect login or network Error')
               }
@@ -61,40 +62,40 @@ function Login(){
         const cans = ()=>{
           setErr(null);
         }
-        const success = response =>{
-          console.log(response)
-            axios({
-              method: 'POST',
-              url:'http://41.190.25.21:3001/googleLogin',
-              data: {tokenId: response.tokenId}
-            })
+        // const success = response =>{
+        //   console.log(response)
+        //     axios({
+        //       method: 'POST',
+        //       url:'http://192.168.6.100:3000/googleLogin',
+        //       data: {tokenId: response.tokenId}
+        //     })
 
-          .then(res =>{
-            localStorage.setItem("token", res.data.token);
-            window.location = '/dashboard';
-          })
-        }
-        const fail = response =>{
-          console.log(response)
-          setErr('Incorrect login or network Error')
-        }
-        const responseFacebook = response =>{
-          console.log(response)
-          axios({
-            method: 'POST',
-            url:'http://41.190.25.21:3001/facebookLogin',
-            data: {accessToken: response.accessToken, userID: response.userID}
-          })
+        //   .then(res =>{
+        //     localStorage.setItem("token", res.data.token);
+        //     window.location = '/dashboard';
+        //   })
+        // }
+        // const fail = response =>{
+        //   console.log(response)
+        //   setErr('Incorrect login or network Error')
+        // }
+        // const responseFacebook = response =>{
+        //   console.log(response)
+        //   axios({
+        //     method: 'POST',
+        //     url:'http://192.168.6.100:3000/facebookLogin',
+        //     data: {accessToken: response.accessToken, userID: response.userID}
+        //   })
 
-        .then(res =>{
-          console.log(res.data)
-          localStorage.setItem("token", res.data.token);
-          window.location = '/dashboard';
-        })
-        .catch(err =>{
-         console.log('an error has occured')
-        })
-        }
+        // .then(res =>{
+        //   console.log(res.data)
+        //   localStorage.setItem("token", res.data.token);
+        //   window.location = '/dashboard';
+        // })
+        // .catch(err =>{
+        //  console.log('an error has occured')
+        // })
+        // }
 
 
     return(
@@ -131,32 +132,11 @@ function Login(){
               </div>
             ) : (
               <span></span>
-            )}  <div className=' mx-5'>
+            )}  
+            <div className=' mx-5'>
                   <h4 style={{fontWeight:'bold'}} className='mx-n2'>Sign In</h4>
                  <p  className='mx-n2'>Sign into your account</p>
-                  <div className="btns row mx-n3 mx-lg-n4 mx-md-n4">
-                      <div className="col-12 my-2 mx-lg-n3 gool  col-lg-6 col-md-6">
-                      <GoogleLogin
-                      clientId='415856485253-enh1a9l3d64ln1sqa62sj3mr4llkdms2.apps.googleusercontent.com'
-                      onSuccess={success}
-                      onFailure={fail}
-                      isSignedIn={false}
-                      autoLoad={false}
-                      className='btnGoogle  mx-n2 mx-lg-2 mx-md-2'
-                    />
-                      </div>
-                      <div className="col-12 my-2 face col-lg-6 col-md-6">
-                      <FacebookLogin
-                        appId="1222634194857309"
-                        autoLoad={false}
-                        className='rounded mx-2 '
-                        cssClass="btnFacebook"
-                        callback={responseFacebook}
-                        icon={<i className="fab fa-facebook mx-2" style={{marginLeft:'2px'}}>
-                        </i>}
-                        />
-                      </div>
-                </div>
+                 
 
                 <div className='clearfix '>
                 <form className='' onSubmit={submit}>
@@ -221,7 +201,7 @@ function Login(){
                     <div className="sign d-lg-flex d-md-flex d-sm-none d-none">
                   <input
                     type="submit"
-                    value="Sign Up"
+                    value="Sign In"
                     className="sig px-3 bg-success btn btn-success"
                   />
                 </div>
