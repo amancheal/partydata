@@ -228,8 +228,7 @@ li {
 
    @media screen and (width: 320px) {
 	.fom{
-
-		max-width: 100%;
+		max-width: 165%;
 		margin-left: -1em;
 	}
 	.reme{
@@ -248,26 +247,47 @@ li {
 
 @media screen and (width: 375px) {
  .fom{
-	 max-width: 100%;
+	 max-width: 155%;
 	 margin-left: -1em;
+
  }
  .reme{
 	 margin-left: -0.14em !important;
-
  }
+
  .btnGoogle{
-	max-width: 95% !important;
-	margin-left: -1.2em !important;
+	max-width: 98% !important;
+	margin-left: -1.3em !important;
 }
 .btnFacebook{
-	max-width: 95% !important;
-	margin-left: -1.2em !important;
+	max-width: 98% !important;
+	margin-left: -1.3em !important;
 }
 }
+@media screen and (width: 390px) {
+	.fom{
+		max-width: 165%;
+		margin-left: -1em;
+
+	}
+	.reme{
+		margin-left: -0.14em !important;
+	}
+
+	.btnGoogle{
+	   max-width: 98% !important;
+	   margin-left: -1.3em !important;
+   }
+   .btnFacebook{
+	   max-width: 98% !important;
+	   margin-left: -1.3em !important;
+   }
+   }
+
 
 @media screen and (width: 360px) {
 	.fom{
-		max-width: 100%;
+		max-width: 160% !important;
 		margin-left: -1em;
 	}
 	.reme{
@@ -276,12 +296,32 @@ li {
 	}
 	.face{
 		margin-left: -0.6em !important;
-		max-width: 93% !important;
+		max-width: 95% !important;
 	}
 	.gool{
 		margin-left: -0.3em !important;
-		max-width: 93% !important;
+		max-width: 95% !important;
 	}
+   }
+
+   @media screen and (width: 428px) {
+	.fom{
+		max-width: 165%;
+		margin-left: -1em;
+
+	}
+	.reme{
+		margin-left: -0.14em !important;
+	}
+
+	.btnGoogle{
+	   max-width: 98% !important;
+	   margin-left: -1.3em !important;
+   }
+   .btnFacebook{
+	   max-width: 98% !important;
+	   margin-left: -1.3em !important;
+   }
    }
 
 @media screen and (width: 280px) {
@@ -303,19 +343,25 @@ li {
    }
    @media screen and (width: 384px) {
 	.fom{
-		min-width: 100%;
+		max-width: 100%;
 		margin-left: -0.1em;
 	}
 	.reme{
 		margin-left: -0.14em !important;
+	}
+	.face{
 
+		max-width: 93% !important;
+	}
+	.gool{
+		max-width: 93% !important;
 	}
 	.btnGoogle{
-		width: 70% !important;
-		margin-left: -0.1em !important;
+
+		margin-left: -1.2em !important;
 	}
 	.btnFacebook{
-		width: 70% !important;
+		margin-left: -1.2em !important;
 
 	}
 	.pdpname{
@@ -352,7 +398,7 @@ li {
 
 @media screen and (width: 414px) {
 	.fom{
-		max-width: 100% ;
+		max-width: 160% !important ;
 		margin-left: -1em;
 	}
 	.reme{
@@ -361,6 +407,7 @@ li {
 	}
 	.btnGoogle{
 		max-width: 95% !important;
+		margin-left: -1.2em !important;
 	}
 	.btnFacebook{
 		max-width: 95% !important;

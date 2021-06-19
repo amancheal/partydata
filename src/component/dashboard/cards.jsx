@@ -10,6 +10,7 @@ function Cards({ dashBoardDisplay }) {
     {
       name: "Feed Back Portal",
       color: "bg-danger",
+      url: "/feedback"
     },
     {
       name: "Aspiring Politicians",
@@ -18,7 +19,7 @@ function Cards({ dashBoardDisplay }) {
     {
       name: "Registered Stake Holders",
       color: "bg-success",
-      num: 0,
+      url: "/allStakeHolders"
     },
     {
       name: "Politicians To Watch",
@@ -34,8 +35,8 @@ function Cards({ dashBoardDisplay }) {
     },
   ]);
 
-  const feds = () => {
-    history.push("/feedback");
+  const setUri = (url) => {
+    history.push(`${url}`);
   };
 
   const [tab, setTab] = useState("chart");
@@ -54,10 +55,11 @@ function Cards({ dashBoardDisplay }) {
     <div className="jumbotron">
       <section>
         <div className="card-cont">
-          {list.map(({ name, color }, index) => {
-            if (index === 0) {
+          {list.map(({ name, color, url }, index) => {
+          console.log(dashBoardDisplay)
+            if (index < list.length) {
               return (
-                <div onClick={feds} key={name} className={`cardi ${color}`}>
+                <div onClick={() => setUri(url)} key={name} className={`cardi ${color}`}>
                   <p className="spen">{name}</p>
                   <h4 className="span">
                     {dashBoardDisplay.length > 0 ? (
