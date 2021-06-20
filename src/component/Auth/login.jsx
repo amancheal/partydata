@@ -29,14 +29,13 @@ function Login(){
                 password: stateValue.password
             }
 
-            axios.post("/login", loginUser)
+            axios.post("https://quiet-temple-20315.herokuapp.com/login", loginUser)
             .then((res) => {
               if (res.data.status === true) {
-                localStorage.setItem("token", res.data.token);
                 console.log(res)
+                localStorage.setItem("token", res.data.token);
                 window.location = '/dashboard';
               } else {
-                window.location = '/dashboard';
                 console.log('Something went wrong')
 
               }
