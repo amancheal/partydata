@@ -5,6 +5,7 @@ import {GoogleLogin} from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
 
+
 function Login(){
 
     const [stateValue, setStateValue] = useState({
@@ -31,7 +32,9 @@ function Login(){
                 password: stateValue.password
 
             }
+            console.log(loginUser)
             axios.post("http://41.190.25.21:3001/login", loginUser)
+
             .then((res) => {
               if (res.data.status === true) {
                 localStorage.setItem("token", res.data.token);
@@ -44,6 +47,7 @@ function Login(){
             })
             .catch(err => {
               if(err){
+                console.log(err)
                 setLoad(false)
                 setErr('Incorrect login or network Error')
               }
@@ -101,6 +105,7 @@ function Login(){
         <React.Fragment>
           <div>
             <Head />
+
           </div>
             <div className="container py-4">
                 {load ? (

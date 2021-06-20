@@ -12,7 +12,10 @@ function DashBoard({ getDisplay }) {
   // useEffect(() => {
   //   getDisplay();
   // }, []);
-  useEffect(getDisplay(), []);
+  useEffect(() =>{
+
+    getDisplay()
+  }, []);
 
   return (
     <React.Fragment>
