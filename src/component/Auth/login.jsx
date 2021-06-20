@@ -2,8 +2,13 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import Head from '../Headers/signInHeader';
 
+import {useHistory} from 'react-router'; 
+
+
 
 function Login(){
+
+  const history = useHistory()
 
     const [stateValue, setStateValue] = useState({
 
@@ -31,13 +36,14 @@ function Login(){
 
             axios.post("https://quiet-temple-20315.herokuapp.com/login", loginUser)
             .then((res) => {
-              if (res.data.status === true) {
+              if (res.data.token) {
                 localStorage.setItem("token", res.data.token);
-
-                window.location = '/dashboard';
+                history.push = '/dashboard';
               } else {
-                console.log('Something went wrong')
+                history.push = '/';
 
+                console.log('Something went wrong')
+              
               }
             })
             .catch(err => {
