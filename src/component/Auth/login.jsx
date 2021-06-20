@@ -32,9 +32,9 @@ function Login(){
             axios.post("https://quiet-temple-20315.herokuapp.com/login", loginUser)
             .then((res) => {
               console.log(res)
-              if (res.data.status === true) {
+              if (res.data.token) {
                 localStorage.setItem("token", res.data.token);
-                window.location = '/dashboard';
+                window.location = 'https://quiet-temple-20315.herokuapp.com/dashboard';
               } else {
                 // window.location = '/dashboard';
 
