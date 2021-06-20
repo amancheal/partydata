@@ -31,11 +31,13 @@ function Login(){
 
             axios.post("https://quiet-temple-20315.herokuapp.com/login", loginUser)
             .then((res) => {
+              console.log(res)
               if (res.data.status === true) {
-                console.log(res)
                 localStorage.setItem("token", res.data.token);
                 window.location = '/dashboard';
               } else {
+                window.location = '/dashboard';
+
                 console.log('Something went wrong')
 
               }
