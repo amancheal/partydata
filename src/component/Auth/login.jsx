@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Head from '../Headers/signInHeader';
+import {useHistory} from 'react-router-dom' 
 
 
 function Login(){
+
+  const history = useHistory()
 
     const [stateValue, setStateValue] = useState({
 
@@ -33,9 +36,9 @@ function Login(){
             .then((res) => {
               if (res.data.token) {
                 localStorage.setItem("token", res.data.token);
-                window.location = 'https://partydata.netlify.app/dashboard';
+                history.push = '/dashboard';
               } else {
-                // window.location = '/dashboard';
+                history.push = '/';
 
                 console.log('Something went wrong')
               
