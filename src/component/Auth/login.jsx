@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Head from '../Headers/signInHeader';
-import {GoogleLogin} from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
 
 
 function Login(){
