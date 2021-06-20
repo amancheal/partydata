@@ -9,7 +9,7 @@ function FeedBackTable({ getwhattoshow }) {
 
   useEffect(() => {
     axios
-      .get("http://192.168.6.100:3000/users/allfeedbacks", {
+      .get("https://quiet-temple-20315.herokuapp.com/users/allfeedbacks", {
         headers:{
             "Content-Type": "application/json",
              Authorization: `Bearer ${localStorage.getItem("token")}`,
