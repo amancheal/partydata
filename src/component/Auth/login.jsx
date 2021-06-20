@@ -38,7 +38,7 @@ function Login(){
             .then((res) => {
               if (res.data.token) {
                 localStorage.setItem("token", res.data.token);
-                history.push = '/dashboard';
+                history.push('/dashboard');
               } else {
                 history.push = '/';
 
