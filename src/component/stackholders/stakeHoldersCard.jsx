@@ -11,7 +11,7 @@ function StakeHoldersCards({getWhatToShow}){
 
     useEffect(()=>{
 
-        axios.get('https://quiet-temple-20315.herokuapp.com/kwara',{
+        axios.get('http://41.190.25.21:3001/kwara',{
             headers:{
                 "Content-Type": "application/json",
                  Authorization: `Bearer ${localStorage.getItem("token")}`,

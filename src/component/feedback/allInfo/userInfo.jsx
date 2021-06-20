@@ -22,7 +22,7 @@ function AllInfo() {
 
   const treat = async(id) => {
    await axios
-      .post(`https://quiet-temple-20315.herokuapp.com/users/allfeedbacks/${id}`,"", {
+      .post(`http://41.190.25.21:3001/users/allfeedbacks/${id}`,"", {
         headers:{
           "Content-Type": "application/json",
            Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -49,7 +49,7 @@ function AllInfo() {
 
   const closeCase = (id) => {
     axios
-      .post(`https://quiet-temple-20315.herokuapp.com/users/allfeedbacks/${id}/close`, "",{
+      .post(`http://41.190.25.21:3001/users/allfeedbacks/${id}/close`, "",{
         headers:{
           "Content-Type": "application/json",
            Authorization: `Bearer ${localStorage.getItem("token")}`,

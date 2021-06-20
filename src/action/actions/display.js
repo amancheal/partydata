@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const display =()=> {
     return(dispatch)=>{
-    axios.get('https://quiet-temple-20315.herokuapp.com/dashboard', {
+    axios.get('http://41.190.25.21:3001/dashboard', {
         headers:{
             "Content-Type": "application/json",
              Authorization: `Bearer ${localStorage.getItem("token")}`,
