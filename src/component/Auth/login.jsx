@@ -65,7 +65,7 @@ function Login(){
         //   console.log(response)
         //     axios({
         //       method: 'POST',
-        //       url:'http://41.190.25.21:3001/googleLogin',
+        //       url:'https://quiet-temple-20315.herokuapp.com/googleLogin',
         //       data: {tokenId: response.tokenId}
         //     })
 
@@ -82,7 +82,7 @@ function Login(){
         //   console.log(response)
         //   axios({
         //     method: 'POST',
-        //     url:'http://41.190.25.21:3001/facebookLogin',
+        //     url:'https://quiet-temple-20315.herokuapp.com/facebookLogin',
         //     data: {accessToken: response.accessToken, userID: response.userID}
         //   })
 
