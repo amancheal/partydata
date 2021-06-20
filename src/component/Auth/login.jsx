@@ -36,7 +36,7 @@ function Login(){
                 localStorage.setItem("token", res.data.token);
                 window.location = '/dashboard';
               } else {
-                window.location = '/dashboard';
+                // window.location = '/dashboard';
 
                 console.log('Something went wrong')
 
