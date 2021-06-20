@@ -10,7 +10,7 @@ function Cards({ dashBoardDisplay }) {
     {
       name: "Feed Back Portal",
       color: "bg-danger",
-      url: "/feedback"
+      url: "https://quiet-temple-20315.herokuapp.com/feedback"
     },
     {
       name: "Aspiring Politicians",
@@ -19,7 +19,7 @@ function Cards({ dashBoardDisplay }) {
     {
       name: "Registered Stake Holders",
       color: "bg-success",
-      url: "/allStakeHolders"
+      url: "https://quiet-temple-20315.herokuapp.com/allStakeHolders"
     },
     {
       name: "Politicians To Watch",
