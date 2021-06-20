@@ -31,15 +31,14 @@ function Login(){
 
             axios.post("https://quiet-temple-20315.herokuapp.com/login", loginUser)
             .then((res) => {
-              console.log(res)
               if (res.data.token) {
                 localStorage.setItem("token", res.data.token);
-                window.location = 'https://quiet-temple-20315.herokuapp.com/dashboard';
+                window.location = 'https://partydata.netlify.app/dashboard';
               } else {
                 // window.location = '/dashboard';
 
                 console.log('Something went wrong')
-
+              
               }
             })
             .catch(err => {
