@@ -29,13 +29,14 @@ function Login(){
                 password: stateValue.password
             }
 
-            axios.post("http://41.190.25.21:3001/login", loginUser)
+            axios.post("/login", loginUser)
             .then((res) => {
               if (res.data.status === true) {
                 localStorage.setItem("token", res.data.token);
-
+                console.log(res)
                 window.location = '/dashboard';
               } else {
+                window.location = '/dashboard';
                 console.log('Something went wrong')
 
               }
