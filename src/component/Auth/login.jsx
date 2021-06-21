@@ -181,7 +181,7 @@ function Login(){
                     <div className=" col-12 d-lg-none d-md-none  d-block  form-group">
                   <input
                     type="submit"
-                    value="Sign Up"
+                    value="Sign In"
                     className=" px-3 p-2 px-lg-5 bg-success btn btn-success form-control"
                   />
                 </div>
