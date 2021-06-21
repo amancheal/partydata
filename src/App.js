@@ -14,6 +14,7 @@ import Protected from './component/Auth/protect';
 import AuthContextProvider from './contexts/auth_context';
 import Login from './component/Auth/login';
 
+
 function App() {
   return (
     <AuthContextProvider>
@@ -27,6 +28,7 @@ function App() {
           <Protected component={FeedBack} path="/feedBack" />
           <Protected component={FeedBackInfo} path="/feedbackinfo" />
           <Protected component={RegisteredStakeHolders} path="/registeredStakeHolders" />
+       
         </Switch>
 
       </Router>
