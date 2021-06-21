@@ -33,7 +33,7 @@ useEffect(() => {
       default:
         return setTab('dashboard');
     }
-  }, [tab]);
+  }, [history.location.pathname, tab]); // eslint-disable-next-line
 
     return (
         <React.Fragment>

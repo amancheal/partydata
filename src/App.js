@@ -22,7 +22,7 @@ function App() {
         <Switch>
           <Route  component={SignUp} path="/signUp" />
            <Route exact component={Login} path="/" />
-          <Protected path='/dashboard' component={DashBoard} />
+          <Route path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />
           <Protected component={FeedBack} path="/feedBack" />
