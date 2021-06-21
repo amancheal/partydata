@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const display =()=> {
@@ -11,7 +10,7 @@ const display =()=> {
 
     })
     .then(data =>{
-        localStorage.setItem('username', data.data.user.firstname)
+        localStorage.setItem('username', data.data.firstname)
     
         dispatch({
             type: 'DISPLAY',
