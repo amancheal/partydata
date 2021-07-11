@@ -13,6 +13,7 @@ import FeedBackInfo from './component/feedback/allInfo/userInfo';
 import Protected from './component/Auth/protect';
 import AuthContextProvider from './contexts/auth_context';
 import Login from './component/Auth/login';
+import Evoting from './component/E-Voting/vote';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Switch>
           <Route  component={SignUp} path="/signUp" />
            <Route exact component={Login} path="/" />
+           <Route component={Evoting} path='/evote' />
           <Protected path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />

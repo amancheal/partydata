@@ -13,7 +13,7 @@ function SignInHeader(){
             <span style={{fontSize:'1rem', fontWeight:'bold'}} className=' float-right' >Having troubles? <Link to='help' style={{fontSize:'1rem', textDecoration:'none'}}   className='text-success ' >Get help</Link> </span>
             </div>
             <div className=''>
-                <img src={require('./pdp.png')} style={{maxWidth:'30%'}} className='mx-auto d-block d-lg-none d-md-none  img-fluid rounded-circle'  alt={"pdp"} />
+                <img src={'./pdp.png'} style={{maxWidth:'30%'}} className='mx-auto d-block d-lg-none d-md-none  img-fluid rounded-circle'  alt={"pdp"} />
                     <p  className='pdpname d-block d-lg-none d-md-none' > <b className='pdpname'>People's Democratic Party</b></p>
          </div>
             </div>

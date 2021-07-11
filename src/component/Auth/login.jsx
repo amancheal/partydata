@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Head from '../Headers/signInHeader';
-
+import  { Link } from 'react-router-dom';
 import {useHistory} from 'react-router';
 
 
@@ -201,6 +201,9 @@ function Login(){
                   <a href="/forgot" className=" pass text-success deco-none">
                     Forgot password?
                   </a>
+                </div>
+                <div className=" col-12 d-lg-none d-md-none  d-block  form-group">
+                 <span>Got and account? <Link to='/signUp' className='text-success deco-none mx-4' >Sign-Up</Link></span>
                 </div>
                     </div>
                     <div className="sign d-lg-flex d-md-flex d-sm-none d-none">
