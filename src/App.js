@@ -14,6 +14,9 @@ import Protected from './component/Auth/protect';
 import AuthContextProvider from './contexts/auth_context';
 import Login from './component/Auth/login';
 import Evoting from './component/E-Voting/vote';
+// Users Routes
+import ElectionDashBoard from './component/UserComponent/ElectionDashboard/ElectionDashboard';
+import FeedbackForm from './component/UserComponent/Feedback/Feedbackform';
 
 function App() {
   return (
@@ -23,7 +26,9 @@ function App() {
           <Route  component={SignUp} path="/signUp" />
            <Route exact component={Login} path="/" />
            <Route component={Evoting} path='/evote' />
-          <Protected path='/dashboard' component={DashBoard} />
+           <Route component={ElectionDashBoard} path='/electionDashboard' />
+           <Route component={FeedbackForm} path='/createfeedback' />
+          <Route path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />
           <Protected component={FeedBack} path="/feedBack" />

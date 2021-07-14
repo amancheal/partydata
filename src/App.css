@@ -9,6 +9,8 @@ input:focus {
 	outline: none !important;
 }
 
+
+
 .divgrop #link {
 	text-decoration: none;
 	color: black;
@@ -794,4 +796,11 @@ li {
 }
 .pass{
 	text-decoration: none;
+}
+.bod{
+	border-radius: 15px !important;
+
+}
+.bnd{
+	border-radius: 15px 15px 0 0px !important;
 }

@@ -1,0 +1,376 @@
+   <div className="nav-right nav-menu">
+      <a href="/signIn" className="nav-item is-tab is-hidden-tablet">
+        <span className="icon"><i className="fa fa-home"></i></span> Home
+      </a>
+      <a href="/signIn" className="nav-item is-tab is-hidden-tablet">
+        <span className="icon"><i className="fa fa-table"></i></span> Links
+      </a>
+      <a href="/signIn" className="nav-item is-tab is-hidden-tablet">
+        <span className="icon"><i className="fa fa-info"></i></span> About
+      </a>
+
+      <a href="/signIn" className="nav-item is-tab is-active">
+        <span className="icon"><i className="fa fa-user"></i></span>
+      </a>
+      <a href="/signIn" className="nav-item is-tab">
+        <span className="icon"><i className="fa fa-sign-out"></i></span>
+      </a>
+    </div>
+=============================================================================================================================================
+=============================================================================================================================================
+
+<div className='hero is-fullheight is-narrow-mobile  is-hidden-mobile has-shadow my-4 mx-5'>
+                    <div className='columns'>
+                    <aside className='column is-2'>
+                            <div className="menu">
+                                <p className="menu-label">
+                                    General
+                                </p>
+                                <ul className='menu-list'>
+                                    <li style={{fontSize:'1rem'}} className='my-4 py-2' > <i className='fa fa-home'></i> DashBoard </li>
+                                    <li style={{fontSize:'1rem'}} className='' > <i class="fas fa-vote-yea"></i> Register to Vote </li>
+                                </ul>
+                                <p class="menu-label py-3">
+                                    Administration
+                                </p>
+                            </div>
+                    </aside>
+                    </div>
+                </div>
+========================================================================================================================================================
+========================================================================================================================================================
+
+        import React, {useState} from 'react';
+        import ReactRoundedImage from "react-rounded-image";
+        import ballot from '../../../asset/ballot.svg';
+        import feedback from '../../../asset/feedback.svg';
+        import user from '../../../asset/user.svg';
+        import reg from '../../../asset/reg.png';
+
+
+        function UserCard(){
+            const image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_m6thHZVvjapVuXDuQ75lOMGoQwec8H6tOqBGtZtxi_aBCU0XRT09j-zEToK2lxYtpac&usqp=CAU';
+
+            const [comment, setComment] = useState([
+                {
+                    name:'bolu',
+                    imageIcon: user,
+                    message:'Hello',
+                    likes:2
+                },
+                {
+                    name:'tolu',
+                    imageIcon: user,
+                    message:'Hello',
+                    likes:2
+                },
+                {
+                    name:'folu',
+                    imageIcon: user,
+                    message:'Hello',
+                    likes:2
+                },
+                {
+                    name:'solu',
+                    imageIcon: user,
+                    message:'Hello',
+                    likes:2
+                }
+            ]
+
+            )
+
+            return(
+
+                            <div className="column is-9">
+
+                                <div className="columns">
+                                    <div className="column is-3">
+
+                                    <ReactRoundedImage image={image}
+                               imageWidth="118"
+                                imageHeight="118"
+                                roundedSize="15"
+                                roundedColor="white"
+                                />
+
+                                <div className="media-content">
+                                    <p className="title is-4">Olusegun O.B.J</p>
+                                    <b className="subtitle is-6"><i className="fas fa-phone-square mx-2"></i> 08138393399 </b> <br />
+                                    <a href='https://gmail.com' style={{textDecoration:'none'}} className="subtitle is-6"><i class="fas fa-envelope-open-text mx-2"></i>Bola@gmail.com</a>
+                                </div>
+                                </div>
+                                <div className="column is-3 my-4">
+                                <div class="card">
+                                <div class="card-content">
+                                    <div class="content">
+                                        <h4>Register To vote</h4>
+                                        <p className='mx-6'>
+                                        <ReactRoundedImage image={reg}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="white"
+                                />
+                                        </p>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div className="column is-3 my-4">
+                                <div class="card">
+                                <div class="card-content">
+                                    <div class="content">
+                                        <h4>Vote Now</h4>
+                                        <p className='mx-6'>
+                                        <ReactRoundedImage image={ballot}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="white"
+                                />
+                                        </p>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div className='column is-3 my-4 px-3'>
+                                    <div className='card'>
+                                    <div className="card-header">
+                                    <p className="card-header-title">
+                                    {comment.length} <b className='mx-2'>Comments</b>
+                                    </p>
+                                    </div>
+
+                                        {
+                                            comment && comment.map(({name, imageIcon, likes, message})=>{
+                                                return(
+                                                    <div key={name}>
+                                                         <div className="media px-2">
+                                                        <figure className='media-left'>
+                                                        <ReactRoundedImage image={imageIcon}
+                                                            imageWidth="45"
+                                                                imageHeight="45"
+                                                                roundedSize="9"
+                                                                roundedColor="white"
+                                                                />
+                                                        </figure>
+                                                        <div className="media-content px-2">
+                                                                <div className="content">
+                                                                    <p> <strong>{name}</strong> <br />
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, culpa.
+                                                                     </p>
+                                                                </div>
+                                                        </div>
+                                                        </div>
+                                                         </div>
+                                                )
+                                            })
+                                        }
+
+                                    </div>
+                                </div>
+                                </div>
+
+                            </div>
+            )
+        }
+
+        export default UserCard;
+=====================================================================================================================================================================
+=====================================================================================================================================================================
+        import React, {useState} from 'react';
+        import ReactRoundedImage from "react-rounded-image";
+        import ballot from '../../../asset/ballot.svg';
+        import feedback from '../../../asset/feedback.svg';
+        import user from '../../../asset/user.svg';
+        import reg from '../../../asset/reg.png';
+
+
+        function UserCard(){
+            const image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_m6thHZVvjapVuXDuQ75lOMGoQwec8H6tOqBGtZtxi_aBCU0XRT09j-zEToK2lxYtpac&usqp=CAU';
+
+            const [comment, setComment] = useState([
+                {
+                    name:'bolu',
+                    imageIcon: user,
+                    message:'Hello',
+                    likes:2
+                },
+                {
+                    name:'tolu',
+                    imageIcon: user,
+                    message:'Hello',
+                    likes:2
+                },
+                {
+                    name:'folu',
+                    imageIcon: user,
+                    message:'Hello',
+                    likes:2
+                },
+                {
+                    name:'solu',
+                    imageIcon: user,
+                    message:'Hello',
+                    likes:2
+                }
+            ]
+
+            )
+
+            return(
+
+                            <div className="column is-9">
+
+                                <div className="columns">
+                                    <div className="column is-3">
+
+                                    <ReactRoundedImage image={image}
+                               imageWidth="118"
+                                imageHeight="118"
+                                roundedSize="15"
+                                roundedColor="white"
+                                />
+
+                                <div className="media-content">
+                                    <p className="title is-4">Olusegun O.B.J</p>
+                                    <b className="subtitle is-6"><i className="fas fa-phone-square mx-2"></i> 08138393399 </b> <br />
+                                    <a href='https://gmail.com' style={{textDecoration:'none'}} className="subtitle is-6"><i class="fas fa-envelope-open-text mx-2"></i>Bola@gmail.com</a>
+                                </div>
+                                </div>
+                                <div className="column is-9">
+                                <div className="columns">
+                                <div className="column  my-4">
+                                <div class="card">
+                                <div class="card-content">
+                                    <div class="content">
+                                        <h4>Register To vote</h4>
+                                        <p className='mx-6'>
+                                        <ReactRoundedImage image={reg}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="white"
+                                />
+                                        </p>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+
+                                <div className="column  my-4">
+                                <div class="card">
+                                <div class="card-content">
+                                    <div class="content">
+                                        <h4>Vote Now</h4>
+                                        <p className='mx-6'>
+                                        <ReactRoundedImage image={ballot}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="white"
+                                />
+                                        </p>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div className='column  my-4 px-3'>
+                                    <div className='card'>
+                                    <div className="card-header">
+                                    <p className="card-header-title">
+                                    {comment.length} <b className='mx-2'>Comments</b>
+                                    </p>
+                                    </div>
+
+                                        {
+                                            comment && comment.map(({name, imageIcon, likes, message})=>{
+                                                return(
+                                                    <div key={name}>
+                                                         <div className="media px-2">
+                                                        <figure className='media-left'>
+                                                        <ReactRoundedImage image={imageIcon}
+                                                            imageWidth="45"
+                                                                imageHeight="45"
+                                                                roundedSize="9"
+                                                                roundedColor="white"
+                                                                />
+                                                        </figure>
+                                                        <div className="media-content px-2">
+                                                                <div className="content">
+                                                                    <p> <strong>{name}</strong> <br />
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, culpa.
+                                                                     </p>
+                                                                </div>
+                                                        </div>
+                                                        </div>
+                                                         </div>
+                                                )
+                                            })
+                                        }
+
+                                    </div>
+                                </div>
+
+                                </div>
+                                </div>
+                                </div>
+
+                            </div>
+            )
+        }
+
+        export default UserCard;
+
+=========================================================================================================================================================
+========================================================================================================================================================
+
+this is the previous voting card design
+=====================================================================================
+=====================================================================================
+
+ <div className="container ">
+              <div className="jumbotron  my-5 mx-5">
+                  <div className='row'>
+                  {
+                      candidate && candidate.map(function ({id, image, username, disable, status, pop}) {
+                          return (
+
+                              <div key={id} className="col-12 col-md-6 col-lg-4 my-2">
+                                  <div  className="card">
+                        <div className='bg-success px-5 py-5'>
+                                  <h3 style={{display:'none'}} >hello</h3>
+                                  </div>
+                              <div className='card-body px-3 my-4' >
+                                  <div style={{width:'70%', borderRadius:'60em', position:'absolute', top:'0', left:'0', zIndex:'5', marginTop:'3rem', marginLeft:'4rem'}}>
+                                  <ReactRoundedImage image={image}
+                               imageWidth="98"
+                                imageHeight="98"
+                                roundedSize="9"
+                                roundedColor="white"
+                                />
+                                  </div>
+                                  <h4 className="card-title my-1 mx-5 d-inline-flex d-md-inline-flex d-lg-inline-flex">{username}</h4>
+                                  <Button disabled={disable} className="btn vtn mx-5 my-4" onClick={()=> vote(id)} >{ status}</Button>
+                                  <div  id={'pop' + id}>
+                                  <span onClick={()=> dispa(id)} className='btn text-success'>View Profile</span>
+                                  <Popover placement="bottom" isOpen={pop} target={'pop' + id} toggle={()=> toggle(id)}>
+                                <PopoverHeader>{userDis && userDis} Profile </PopoverHeader>
+                                <PopoverBody>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. </PopoverBody>
+                            </Popover>
+                                 </div>
+                              </div>
+                          </div>
+
+                              </div>
+
+
+                          )
+                      })
+                  }
+
+                  </div>
+              </div>
+            </div>
+=====================================================================================

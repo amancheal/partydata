@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import ReactRoundedImage from "react-rounded-image";
 import {Button, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
+import correct from '../../asset/correct.svg';
 
 function CandidateCard(){
+    //const img = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_m6thHZVvjapVuXDuQ75lOMGoQwec8H6tOqBGtZtxi_aBCU0XRT09j-zEToK2lxYtpac&usqp=CAU';
     const [candidate, setCandidate] = useState([
 
         {
@@ -28,14 +30,16 @@ function CandidateCard(){
             username:'Obasanjo',
             pop: false,
             image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_m6thHZVvjapVuXDuQ75lOMGoQwec8H6tOqBGtZtxi_aBCU0XRT09j-zEToK2lxYtpac&usqp=CAU'
-        }
+        },
+
     ])
     const vote = (ide)=>{
 
             setCandidate([...(candidate.map((c) => {
                     c.disable = true;
                     if(c.id === ide){
-                        c.status = 'Voted'
+                        c.status = 'Voted';
+                        c.image = correct;
                     }
                     return c;
                 }))])
@@ -61,50 +65,47 @@ function CandidateCard(){
 
     }
     return(
-        <div>
-            <div className="container ">
-              <div className="jumbotron  my-5 mx-5">
-                  <div className='row'>
-                  {
-                      candidate && candidate.map(function ({id, image, username, disable, status, pop}) {
-                          return (
+        <div className='column is-9'>
+                <sectio className="section">
+                    <div className="jumbotron">
+                        <div className="row">
+                     {
+                         candidate && candidate.map(function ({id, image, username, disable, status, pop}) {
+                                return (
+                                    <div key={id} className="col-12 col-md-6 col-lg-4 my-2">
+                                    <div  className="card bod">
+                          <div className='bg-success px-5 py-6 bnd'>
+                                    <h3 style={{display:'none'}}  >hello</h3>
+                                    </div>
+                                <div className='card-body px-3 my-4' >
+                                    <div style={{width:'70%', borderRadius:'60em', position:'absolute', top:'0', left:'0', zIndex:'5', marginTop:'3rem', marginLeft:'4rem'}}>
+                                    <ReactRoundedImage image={image}
+                                 imageWidth="98"
+                                  imageHeight="98"
+                                  roundedSize="9"
+                                  roundedColor="white"
+                                  />
+                                    </div>
+                                    <h4 className="card-title my-4 mx-5 d-inline-flex d-md-inline-flex d-lg-inline-flex">{username}</h4> <br />
+                                    <Button disabled={disable} className={`btn ${status === 'Voted' ? 'btn-success' : ''}  mx-5 my-0`} onClick={()=> vote(id)} >{ status}</Button>
+                                    <div  id={'pop' + id}>
+                                    <span onClick={()=> dispa(id)} className='btn text-success'>View Profile</span>
+                                    <Popover placement="bottom" isOpen={pop} target={'pop' + id} toggle={()=> toggle(id)}>
+                                  <PopoverHeader>{userDis && userDis} Profile </PopoverHeader>
+                                  <PopoverBody>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. </PopoverBody>
+                              </Popover>
+                                   </div>
+                                </div>
+                            </div>
 
-                              <div key={id} className="col-12 col-md-6 col-lg-4 my-2">
-                                  <div  className="card">
-                        <div className='bg-success px-5 py-5'>
-                                  <h3 style={{display:'none'}} >hello</h3>
-                                  </div>
-                              <div className='card-body px-3 my-4' >
-                                  <div style={{width:'70%', borderRadius:'60em', position:'absolute', top:'0', left:'0', zIndex:'5', marginTop:'3rem', marginLeft:'4rem'}}>
-                                  <ReactRoundedImage image={image}
-                               imageWidth="98"
-                                imageHeight="98"
-                                roundedSize="9"
-                                roundedColor="white"
-                                />
-                                  </div>
-                                  <h4 className="card-title my-1 mx-5 d-inline-flex d-md-inline-flex d-lg-inline-flex">{username}</h4>
-                                  <Button disabled={disable} className="btn vtn mx-5 my-4" onClick={()=> vote(id)} >{ status}</Button>
-                                  <div  id={'pop' + id}>
-                                  <span onClick={()=> dispa(id)} className='btn text-success'>View Profile</span>
-                                  <Popover placement="bottom" isOpen={pop} target={'pop' + id} toggle={()=> toggle(id)}>
-                                <PopoverHeader>{userDis && userDis} Profile </PopoverHeader>
-                                <PopoverBody>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. </PopoverBody>
-                            </Popover>
-                                 </div>
-                              </div>
-                          </div>
+                                </div>
 
-                              </div>
-
-
-                          )
-                      })
-                  }
-
-                  </div>
-              </div>
-            </div>
+                                )
+                         })
+                     }
+                        </div>
+                    </div>
+                </sectio>
         </div>
     )
 }

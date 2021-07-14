@@ -1,0 +1,11 @@
+.bar:hover{
+    background-color: rgb(189, 210, 157) !important;
+    color: white !important;
+    border-radius: 10px !important;
+}
+
+.acti{
+    background-color: rgb(111, 106, 106) !important;
+    color: white !important;
+    border-radius: 10px !important;
+}
