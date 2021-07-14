@@ -13,6 +13,7 @@ import FeedBackInfo from './component/feedback/allInfo/userInfo';
 import Protected from './component/Auth/protect';
 import AuthContextProvider from './contexts/auth_context';
 import Login from './component/Auth/login';
+import Userreg from './component/userside/userreg'
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Protected component={FeedBack} path="/feedBack" />
           <Protected component={FeedBackInfo} path="/feedbackinfo" />
           <Protected component={RegisteredStakeHolders} path="/registeredStakeHolders" />
+          <Protected component={Userreg} path="/userreg" />
        
         </Switch>
 
