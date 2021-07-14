@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import  "bootstrap/dist/css/bootstrap.css";
+import 'bulma/css/bulma.css';
 import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducers from './reducers/rootReducers';
 import thunk from 'redux-thunk'

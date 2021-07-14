@@ -13,8 +13,15 @@ import FeedBackInfo from './component/feedback/allInfo/userInfo';
 import Protected from './component/Auth/protect';
 import AuthContextProvider from './contexts/auth_context';
 import Login from './component/Auth/login';
+<<<<<<< HEAD
 import Userreg from './component/userside/userreg'
 
+=======
+import Evoting from './component/E-Voting/vote';
+// Users Routes
+import ElectionDashBoard from './component/UserComponent/ElectionDashboard/ElectionDashboard';
+import FeedbackForm from './component/UserComponent/Feedback/Feedbackform';
+>>>>>>> 7c5466745d8c158f4d937c3756d057058a33f951
 
 function App() {
   return (
@@ -23,6 +30,9 @@ function App() {
         <Switch>
           <Route  component={SignUp} path="/signUp" />
            <Route exact component={Login} path="/" />
+           <Route component={Evoting} path='/evote' />
+           <Route component={ElectionDashBoard} path='/electionDashboard' />
+           <Route component={FeedbackForm} path='/createfeedback' />
           <Route path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />
