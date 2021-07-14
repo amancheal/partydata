@@ -4,7 +4,7 @@ import FeedBacks from "./feedBackList";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
-function Cards({ dashBoardDisplay }) {
+function DashboardCards({ dashBoardDisplay }) {
   const history = useHistory();
   const [list] = useState([
     {
@@ -57,7 +57,7 @@ function Cards({ dashBoardDisplay }) {
         <div className="card-cont">
           {list.map(({ name, color, url }, index) => {
           console.log(dashBoardDisplay)
-            if (index < list.length) {
+
               return (
                 <div onClick={() => setUri(url)} key={name} className={`cardi ${color}`}>
                   <p className="spen">{name}</p>
@@ -69,60 +69,15 @@ function Cards({ dashBoardDisplay }) {
                     )}
                   </h4>
                 </div>
-              );
-            }
-            return (
-              <div key={name} className={`cardi ${color}`}>
-                <p className="spen">{name}</p>
-                <h4 className="span">
-                  <i className="fas fa-spinner fa-spin"></i>
-                </h4>
-              </div>
-            );
+              )
           })}
         </div>
       </section>
-
-      <div className="bg-white my-3 py-1 border-4 rounded">
-        <span
-          className="mx-3"
-          style={
-            tab !== "chart"
-              ? { color: "gray", fontWeight: "500" }
-              : {
-                  color: "red",
-                  borderBottom: "2px solid red",
-                  fontWeight: "500",
-                }
-          }
-          onClick={chart}
-        >
-          Chart
-        </span>{" "}
-        <span
-          style={
-            tab !== "feedbacks"
-              ? { color: "gray", fontWeight: "500" }
-              : {
-                  color: "red",
-                  borderBottom: "2px solid red",
-                  fontWeight: "500",
-                }
-          }
-          onClick={feeds}
-          className="mx-3"
-        >
-          Recent Feedback
-        </span>
-      </div>
-      <div className="my-2">{show ? <Chart /> : <FeedBacks />}</div>
+      <div className="my-2"> <Chart /> </div>
     </div>
+    
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    dashBoardDisplay: state.dis,
-  };
-};
 
-export default connect(mapStateToProps, null)(Cards);
+
+export default DashboardCards;

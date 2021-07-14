@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Head from '../Headers/signInHeader';
-
-import {useHistory} from 'react-router'; 
+import  { Link } from 'react-router-dom';
+import {useHistory} from 'react-router';
 
 
 
@@ -38,12 +38,12 @@ function Login(){
             .then((res) => {
               if (res.data.token) {
                 localStorage.setItem("token", res.data.token);
-                history.push = '/dashboard';
+                history.push('/dashboard');
               } else {
                 history.push = '/';
 
                 console.log('Something went wrong')
-              
+
               }
             })
             .catch(err => {
@@ -106,6 +106,7 @@ function Login(){
         <React.Fragment>
           <div>
             <Head />
+
           </div>
             <div className="container py-4">
                 {load ? (
@@ -136,11 +137,11 @@ function Login(){
               </div>
             ) : (
               <span></span>
-            )}  
+            )}
             <div className=' mx-5'>
                   <h4 style={{fontWeight:'bold'}} className='mx-n2'>Sign In</h4>
                  <p  className='mx-n2'>Sign into your account</p>
-                 
+
 
                 <div className='clearfix '>
                 <form className='' onSubmit={submit}>
@@ -180,7 +181,7 @@ function Login(){
                     <div className=" col-12 d-lg-none d-md-none  d-block  form-group">
                   <input
                     type="submit"
-                    value="Sign Up"
+                    value="Sign In"
                     className=" px-3 p-2 px-lg-5 bg-success btn btn-success form-control"
                   />
                 </div>
@@ -200,6 +201,9 @@ function Login(){
                   <a href="/forgot" className=" pass text-success deco-none">
                     Forgot password?
                   </a>
+                </div>
+                <div className=" col-12 d-lg-none d-md-none  d-block  form-group">
+                 <span>Got and account? <Link to='/signUp' className='text-success deco-none mx-4' >Sign-Up</Link></span>
                 </div>
                     </div>
                     <div className="sign d-lg-flex d-md-flex d-sm-none d-none">
