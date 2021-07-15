@@ -374,3 +374,24 @@ this is the previous voting card design
               </div>
             </div>
 =====================================================================================
+        <ReactRoundedImage image={image}
+                               imageWidth="118"
+                                imageHeight="118"
+                                roundedSize="15"
+                                roundedColor="white"
+                                />
+
+                                <div className="media-content">
+                                    <p className="title is-4">Olusegun O.B.J</p>
+                                    <button className="button is-small is-info is-rounded mb-2 px-5">Edit Profile</button>
+                                    <b className="subtitle is-6 text-nowrap" ><i className="icon fas fa-phone-square  fa-1x has-text-success"></i> 08138393399 </b> <br />
+                                    <a href='https://gmail.com' style={{textDecoration:'none'}} className=" subtitle is-6 text-nowrap "><i class="icon fas fa-envelope-open-text  has-text-info"></i>Bola@gmail.com</a>
+                                </div>
+=========================================================================================================
+==========================================================================================================
+ <div className="modal is-active">
+                    <div className="modal-background"></div>
+                    <div className="modal-content">
+                        <p>uhuhhuohcuhohouhhhh</p>
+                    </div>
+                    </div>

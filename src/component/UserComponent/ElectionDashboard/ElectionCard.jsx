@@ -11,7 +11,6 @@
         import {useHistory} from 'react-router';
 
         function UserCard(){
-            const image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_m6thHZVvjapVuXDuQ75lOMGoQwec8H6tOqBGtZtxi_aBCU0XRT09j-zEToK2lxYtpac&usqp=CAU';
             const history = useHistory();
 
             const gotToVote = () =>{
@@ -51,24 +50,8 @@
 
                             <div className="column is-9 pal">
                                      <div className="columns">
-                                    <div className="column is-one-thrid">
-
-                                    <ReactRoundedImage image={image}
-                               imageWidth="118"
-                                imageHeight="118"
-                                roundedSize="15"
-                                roundedColor="white"
-                                />
-
-                                <div className="media-content">
-                                    <p className="title is-4">Olusegun O.B.J</p>
-                                    <button className="button is-small is-info is-rounded mb-2 px-5">Edit Profile</button>
-                                    <b className="subtitle is-6 text-nowrap" ><i className="icon fas fa-phone-square  fa-1x has-text-success"></i> 08138393399 </b> <br />
-                                    <a href='https://gmail.com' style={{textDecoration:'none'}} className=" subtitle is-6 text-nowrap "><i class="icon fas fa-envelope-open-text  has-text-info"></i>Bola@gmail.com</a>
-                                </div>
-                                </div>
-                                <div className="column  my-4 car">
-                                <div class="card">
+                                    <div className="column car my-4 is-one-thrid">
+                                    <div class="card">
                                 <div class="card-content">
                                     <div class="content">
                                         <h4>Register To vote</h4>
@@ -83,12 +66,13 @@
                                     </div>
                                 </div>
                                 </div>
+
                                 </div>
                                 <div className="column  my-4 car">
-                                <div onClick={gotToVote} class="card">
+                                <div  onClick={gotToVote} class="card">
                                 <div class="card-content">
                                     <div class="content">
-                                        <h4 className='mx-5'>Vote Now</h4>
+                                        <h4 className='mx-4'>Vote Now</h4>
                                         <p className='mx-6'>
                                         <ReactRoundedImage image={ballot}
                                imageWidth="65"
@@ -106,6 +90,23 @@
                                 <div class="card-content">
                                     <div class="content">
                                         <h4 className='mx-5'>View Result</h4>
+                                        <p className='mx-6'>
+                                        <ReactRoundedImage image={result}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="white"
+                                />
+                                        </p>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div className="column  my-4 car">
+                                <div class="card">
+                                <div class="card-content">
+                                    <div class="content">
+                                        <h4 className='mx-5'>Observation</h4>
                                         <p className='mx-6'>
                                         <ReactRoundedImage image={result}
                                imageWidth="65"
