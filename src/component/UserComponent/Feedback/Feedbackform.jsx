@@ -45,7 +45,7 @@ function FeedBack(){
             feedback: form.feedback
         };
         console.log(newFeedback);
-       await axios.post('https://quiet-temple-20315.herokuapp.com/createfeedback', newFeedback)
+       await axios.post('https://quiet-temple-20315.herokuapp.com/feedback/createfeedback', newFeedback)
         .then(res =>{
             const {data} = res;
             setForm({
