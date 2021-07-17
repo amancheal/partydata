@@ -7,6 +7,7 @@ import { Options } from "react-naija-states";
 import { Form, FormGroup, Label, Input} from 'reactstrap';
 import axios from 'axios';
 import '../../../asset/css/feedback.css';
+import Footer from "../../Headers/footer";
 
 function FeedBack(){
     const [form, setForm] = useState({
@@ -163,9 +164,11 @@ function FeedBack(){
                     </Form>
                              </section>
                </div>
+
              </div>
          </div>
          </div>
+          <Footer />
         </div>
     </React.Fragment>
     )

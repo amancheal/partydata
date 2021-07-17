@@ -1,0 +1,59 @@
+.crdcol{
+    background-color: rgb(200, 40, 10) !important;
+}
+.ico{
+    color:white;
+    font-size:2rem;
+    margin-left: 4em !important;
+}
+.h4{
+    color:white !important;
+}
+.crdcol1{
+    background-color: rgb(20, 230, 30) !important;
+}
+.icon1{
+    color:white;
+    font-size:2rem;
+    margin-left: 4em;
+}
+.h5{
+    color:white !important;
+    margin-left: 5em !important;
+}
+.card:hover .h5{
+    margin-left: 4em !important;
+}
+
+.pol{
+    color:white !important;
+    margin-left: 2em !important;
+}
+.card:hover{
+    font-size:20px !important;
+}
+.card:hover .icon1{
+    margin-left: 4em !important;
+}
+
+.crdpol{
+    background-color: rgb(60, 20, 240) !important;
+}
+.crdfor{
+    background-color: rgb(150, 90, 200) !important;
+}
+.fore{
+    color:white !important;
+    margin-left: 5em !important;
+}
+.card:hover .icofore{
+    margin-left: 4em !important;
+}
+.icofore{
+    color:white !important;
+    font-size:2rem !important;
+    margin-left: 4em !important;
+}
+.card:hover .fore{
+    margin-left: 4em !important;
+}

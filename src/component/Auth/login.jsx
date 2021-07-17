@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Head from '../Headers/signInHeader';
-import  { Link } from 'react-router-dom';
+import Footer from '../Headers/footer';
 import {useHistory} from 'react-router';
-
+import { Form, FormGroup, Label, Input} from 'reactstrap';
+import '../../asset/css/login.css';
 
 
 function Login(){
@@ -17,9 +18,13 @@ function Login(){
 
     });
 
+        const [mesg, setMesg] = useState('');
+        const [loading, setLoading] = useState(false);
+         const [noti, setNoti] = useState(false);
+            const dele =()=>{
+                    setNoti(true)
+                  }
 
-        const [load, setLoad] = useState(false)
-        const [err, setErr] = useState(null)
         const onChane = (e)=>{
             let {name, value } = e.target;
 
@@ -27,7 +32,7 @@ function Login(){
         }
 
         const submit = (e)=>{
-             setLoad(true)
+             setLoading(true);
             e.preventDefault();
             const loginUser = {
                 email: stateValue.email,
@@ -37,8 +42,12 @@ function Login(){
             axios.post("https://quiet-temple-20315.herokuapp.com/login", loginUser)
             .then((res) => {
               if (res.data.token) {
+                   setLoading(false);
+                    console.log(res)
+                    setMesg(res.data.message);
+                    setNoti(false);
                 localStorage.setItem("token", res.data.token);
-                history.push('/dashboard');
+                history.push('/overview');
               } else {
                 history.push = '/';
 
@@ -49,23 +58,13 @@ function Login(){
             .catch(err => {
               if(err){
                 console.log(err)
-                setLoad(false)
-                setErr('Incorrect login or network Error')
+               setLoading(true);
               }
 
             })
 
         }
 
-        const myStyle ={
-            paddingTop:'0em',
-            margin: 'auto',
-            color: 'rgb(250, 20, 0)',
-        }
-
-        const cans = ()=>{
-          setErr(null);
-        }
         // const success = response =>{
         //   console.log(response)
         //     axios({
@@ -107,120 +106,50 @@ function Login(){
           <div>
             <Head />
 
-          </div>
-            <div className="container py-4">
-                {load ? (
-          <div>
-            <div
-              style={myStyle}
-              className="fa-5x  d-flex justify-content-center align-items-center"
-            >
-              <i className="fas fa-spinner fa-spin"></i>
+                    <section className='section is-hidden-mobile has-shadow '>
+                         { mesg !== ''? <div className={`${noti === true ? 'remove': 'notification'} is-primary ${mesg !== ''? 'my-3': ''}`}>
+                                <button onClick={dele} className="delete"></button>
+                                            { mesg  }
+                                </div> : <span></span>
+                                    }
+                                                {
+                                                    loading === true ? <div className="modal is-active">
+                                                    <div className="modal-background spinn"></div>
+                                                    {/* <i style={{color:'white'}} className="fas fa-circle-notch fa-spin fa-7x "></i> */}
+                                                        <i className="fad fa-spinner-third fa-spin fa-pulse fa-5x  colo"></i>
+
+                                                  </div> : <span></span>
+                                                }
+                     <div className='signin'>
+                  <h4 style={{fontWeight:'bold'}} className='mx-n2 is-size-3'>Sign In</h4>
+                   <p  className='mx-n2'>Sign into your account</p>
+                   </div>
+                      <Form className={`jumbotron jumb my-5`} onSubmit={submit}>
+                        <div className='row'>
+                          <div className='col-12 '>
+                          <FormGroup>
+                            <Label for="email"  > <em className='labe'> Email </em></Label>
+                            <Input type='text'  value={stateValue.email} name='email' onChange={onChane}/>
+                           </FormGroup>
+                          </div>
+                          <div className='col-12'>
+                          <FormGroup>
+                            <Label for="Password"> <em className='labe'>Password </em> </Label>
+                            <Input type='password' value={stateValue.password} name='password' onChange={onChane}/>
+                           </FormGroup>
+                         </div>
+                          <div className="col-4">
+                            <FormGroup>
+                            <Input type="submit" value='Submit' className='btn btn-success ' />
+                            </FormGroup>
+                            </div>
+                        </div>
+                       </Form>
+                     </section>
+
+
+              <Footer />
             </div>
-          </div>
-        ):
-        <div>
-               {err ? (
-              <div
-                className="alert  alert-danger  mx-n2 alert-dismissible fade show"
-                role="alert"
-              >
-                <b className='text-nowrap'> {err} </b>
-                <button
-                  type="button"
-                  className="close btn "
-                  data-dismiss="alert"
-                  aria-label="Close"
-                >
-                  <span onClick={cans} aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            ) : (
-              <span></span>
-            )}
-            <div className=' mx-5'>
-                  <h4 style={{fontWeight:'bold'}} className='mx-n2'>Sign In</h4>
-                 <p  className='mx-n2'>Sign into your account</p>
-
-
-                <div className='clearfix '>
-                <form className='' onSubmit={submit}>
-                    <div  className=" fom  p-4 ">
-                    <div className="row">
-                    <div className="col-12  form-group ">
-                      <label htmlFor="Email" className="text ">
-                        Email-Address
-                      </label>{" "}
-                      <br />
-                      <input
-                        type="email"
-                        onChange={onChane}
-                        name="email"
-                        value={stateValue.email}
-                        className="form-control"
-                        required
-                        placeholder="zikii@gmail.com"
-                      />
-                    </div>
-
-                    <div className="col-12 form-group ">
-                      <label htmlFor="password" className="text ">
-                        Password
-                      </label>
-                      <br />
-                      <input
-                        type="password"
-                        onChange={onChane}
-                        value={stateValue.password}
-                        name="password"
-                        className="form-control"
-                        required
-                        placeholder="*****"
-                      />
-                    </div>
-                    <div className=" col-12 d-lg-none d-md-none  d-block  form-group">
-                  <input
-                    type="submit"
-                    value="Sign In"
-                    className=" px-3 p-2 px-lg-5 bg-success btn btn-success form-control"
-                  />
-                </div>
-                  </div>
-                    </div>
-                    <div className=' d-flex justify-content-between align-items-center my-3 text-nowrap'>
-                    <div className=' mx-2'>
-                    <label htmlFor="check" className="reme form-check-label  ">
-                    <input
-                      type="checkbox"
-                      className="form-check-input p-2   bg-success"
-                    />{" "}
-                    Remember me
-                  </label>
-                       </div>
-                       <div  className='passwrd d-lg-flex d-md-flex d-sm-none d-none '>
-                  <a href="/forgot" className=" pass text-success deco-none">
-                    Forgot password?
-                  </a>
-                </div>
-                <div className=" col-12 d-lg-none d-md-none  d-block  form-group">
-                 <span>Got and account? <Link to='/signUp' className='text-success deco-none mx-4' >Sign-Up</Link></span>
-                </div>
-                    </div>
-                    <div className="sign d-lg-flex d-md-flex d-sm-none d-none">
-                  <input
-                    type="submit"
-                    value="Sign In"
-                    className="sig px-3 bg-success btn btn-success"
-                  />
-                </div>
-
-                </form>
-                </div>
-            </div>
-        </div>
-        }
-            </div>
-
         </React.Fragment>
     )
 }

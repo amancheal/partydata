@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 function OverviewChart() {
 
@@ -29,7 +29,7 @@ function OverviewChart() {
   return (
     <div   className=" py-3 m-3 chart" >
 
-            <Pie data={stateData} options={{
+            <Bar data={stateData} options={{
                 responsive:true,
                 elements:{
                     point:{

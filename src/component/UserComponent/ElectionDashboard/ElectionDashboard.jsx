@@ -3,6 +3,7 @@ import NavBar from '../Headers/DashboardHeaders';
 import SideBar from '../Headers/SideBar';
 import DesktopHeader from '../Headers/DesktopHeader';
 import ElectionCard from './ElectionCard';
+ import Footer from "../../Headers/footer";
 
 function UserDashboard(){
     return (
@@ -15,9 +16,11 @@ function UserDashboard(){
                  <div className="columns">
                  <SideBar />
                  <ElectionCard />
+
                  </div>
              </div>
              </div>
+              <Footer />
             </div>
         </React.Fragment>
     )

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import '../../../asset/css/sideBar.css';
 import {withRouter} from 'react-router-dom';
 // import {connect} from 'react-redux';
- import {FEED_BACK_FORM, ELECTION_DASHBOARD} from '../../../action/types';
+ import {FEED_BACK_FORM, ELECTION_DASHBOARD,OVER_VIEW} from '../../../action/types';
 // import userNav from '../../../action/actions/userDisplay';
 
 function SideBar({ history}){
@@ -10,6 +10,8 @@ function SideBar({ history}){
 
     useEffect(() => {
       switch(history.location.pathname){
+           case '/overview':
+          return setTab(OVER_VIEW);
         case '/electionDashboard':
           return setTab(ELECTION_DASHBOARD);
           case '/createfeedback':
@@ -27,8 +29,8 @@ function SideBar({ history}){
                                     General
                                 </p>
                                 <div className='menu-list'>
-                                    <a style={{fontSize:'1rem', textDecoration:'none'}} href='/' className='my-4 py-2 bar' > <i className='fa fa-home'></i> Overview </a>
-                                    <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/electionDashboard' onClick={()=>setTab(ELECTION_DASHBOARD)} className={`text-nowrap bar ${tab === ELECTION_DASHBOARD ? 'acti' : '' }`} > <i class="fas fa-vote-yea"></i> Election Dashboard </a>
+                                    <a style={{fontSize:'1rem', textDecoration:'none'}} href='/overview' onClick={()=>setTab(OVER_VIEW)} className={`my-4 py-2 bar  ${tab === OVER_VIEW ? 'acti' : ''} `} > <i className='fa fa-home'></i> Overview </a>
+                                    <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/electionDashboard' onClick={()=>setTab(ELECTION_DASHBOARD)} className={`text-nowrap bar ${tab === ELECTION_DASHBOARD ? 'acti' : '' }`} > <i class="fas fa-vote-yea"></i> E-Voting </a>
                                 </div>
                                 <p class="menu-label py-3">
                                     Administration

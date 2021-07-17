@@ -1,4 +1,4 @@
-import {FEED_BACK_FORM, OVER_VIEW, ELECTION_DASHBOARD, VOTE} from '../action/types';
+import {FEED_BACK_FORM, OVER_VIEW, ELECTION_DASHBOARD, VOTE, REGISTER_TO_VOTE} from '../action/types';
 
 const initState  = 'OVER-VIEW';
 
@@ -13,6 +13,8 @@ switch(action.type){
             return 'FEED-BACK FORM';
             case VOTE:
                 return 'E-VOTING';
+                case REGISTER_TO_VOTE:
+                return 'REGISTER-TO-VOTE';
             default:
                 return state;
 

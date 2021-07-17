@@ -1,81 +1,74 @@
-import React, { useState } from "react";
-import Chart from "./chart";
-import FeedBacks from "./feedBackList";
+import React from "react";
+import Chart from "./Chart";
 import { useHistory } from "react-router-dom";
-import { connect } from "react-redux";
+import '../../../asset/css/overview.css';
 
 function DashboardCards({ dashBoardDisplay }) {
   const history = useHistory();
-  const [list] = useState([
-    {
-      name: "Feed Back Portal",
-      color: "bg-danger",
-      url: "https://quiet-temple-20315.herokuapp.com/feedback"
-    },
-    {
-      name: "Aspiring Politicians",
-      color: "bg-primary",
-    },
-    {
-      name: "Registered Stake Holders",
-      color: "bg-success",
-      url: "https://quiet-temple-20315.herokuapp.com/allStakeHolders"
-    },
-    {
-      name: "Politicians To Watch",
-      color: "bg-success",
-    },
-    {
-      name: "Forencis",
-      color: "bg-danger",
-    },
-    {
-      name: "E-Voting",
-      color: "bg-primary",
-    },
-  ]);
 
-  const setUri = (url) => {
-    history.push(`${url}`);
+
+  const url = () => {
+    history.push(`/electionDashboard`);
   };
 
-  const [tab, setTab] = useState("chart");
-  const [show, setShow] = useState(true);
 
-  const feeds = (e) => {
-    setTab("feedbacks");
-    setShow(false);
-  };
-  const chart = (e) => {
-    setTab("chart");
-    setShow(true);
-  };
 
   return (
     <div className="jumbotron">
       <section>
-        <div className="card-cont">
-          {list.map(({ name, color, url }, index) => {
-          console.log(dashBoardDisplay)
+        <div className="columns">
+                <div  className={`column py-3  `}>
+                <div className='card crdcol'>
+                  <div className="card-content">
+                      <div className="content">
+                     <h4 className='mx-2 text-nowrap mx-6 h4'>Aspiring Politicians</h4>
+                      <i className="fas fa-spinner fa-spin my-3 ico"></i>
+                  </div>
+                  </div>
 
-              return (
-                <div onClick={() => setUri(url)} key={name} className={`cardi ${color}`}>
-                  <p className="spen">{name}</p>
-                  <h4 className="span">
-                    {dashBoardDisplay.length > 0 ? (
-                      dashBoardDisplay[0].feedbacks.length
-                    ) : (
-                      <i className="fas fa-spinner fa-spin"></i>
-                    )}
-                  </h4>
+                 </div>
                 </div>
-              )
-          })}
+                  <div  className={`column py-3  `}>
+                <div onClick={url} className='card crdcol1'>
+                  <div className="card-content">
+                      <div className="content">
+                     <h4 className=' h5 text-nowrap'>E-Voting</h4>
+                      <i className="fas fa-spinner fa-spin my-3 icon1"></i>
+                  </div>
+                  </div>
+
+                 </div>
+                </div>
+        </div>
+
+         <div className="columns">
+                <div  className={`column py-3  `}>
+                <div className='card crdfor'>
+                  <div className="card-content">
+                      <div className="content">
+                     <h4 className='text-nowrap fore'> Forencis</h4>
+                      <i className="fas fa-spinner fa-spin my-3 icofore"></i>
+                  </div>
+                  </div>
+
+                 </div>
+                </div>
+                  <div  className={`column py-3  `}>
+                <div className='card crdpol'>
+                  <div className="card-content">
+                      <div className="content">
+                     <h4 className=' pol text-nowrap'>Politicians To Watch</h4>
+                      <i className="fas fa-spinner fa-spin my-3 icon1"></i>
+                  </div>
+                  </div>
+
+                 </div>
+                </div>
         </div>
       </section>
       <div className="my-2"> <Chart /> </div>
     </div>
-    
+
   );
 }
 

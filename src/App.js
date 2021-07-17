@@ -17,7 +17,8 @@ import Evoting from './component/E-Voting/vote';
 // Users Routes
 import ElectionDashBoard from './component/UserComponent/ElectionDashboard/ElectionDashboard';
 import FeedbackForm from './component/UserComponent/Feedback/Feedbackform';
-
+import RegisterToVote from './component/UserComponent/RegisterToVote/register';
+import OverView from './component/UserComponent/Overview/UserDashboard';
 function App() {
   return (
     <AuthContextProvider>
@@ -25,9 +26,11 @@ function App() {
         <Switch>
           <Route  component={SignUp} path="/signUp" />
            <Route exact component={Login} path="/" />
+            <Route component={OverView} path='/overview' />
            <Route component={Evoting} path='/evote' />
            <Route component={ElectionDashBoard} path='/electionDashboard' />
            <Route component={FeedbackForm} path='/createfeedback' />
+            <Route component={RegisterToVote} path='/registerToVote' />
           <Route path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />

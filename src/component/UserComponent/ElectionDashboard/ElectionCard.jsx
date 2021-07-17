@@ -10,11 +10,14 @@
         import '../../../asset/css/election.css';
         import {useHistory} from 'react-router';
 
+
         function UserCard(){
             const history = useHistory();
-
+            const toReg =()=>{
+                history.push('/registerToVote');
+            }
             const gotToVote = () =>{
-                history.push('/evote')
+                history.push('/evote');
             }
 
             const [comment] = useState([
@@ -51,10 +54,10 @@
                             <div className="column is-9 pal">
                                      <div className="columns">
                                     <div className="column car my-4 is-one-thrid">
-                                    <div class="card">
+                                    <div onClick={toReg} class="card">
                                 <div class="card-content">
                                     <div class="content">
-                                        <h4>Register To vote</h4>
+                                        <h4 className='text-nowrap'>Register To vote</h4>
                                         <p className='mx-6'>
                                         <ReactRoundedImage image={reg}
                                imageWidth="65"
@@ -89,7 +92,7 @@
                                 <div class="card">
                                 <div class="card-content">
                                     <div class="content">
-                                        <h4 className='mx-5'>View Result</h4>
+                                        <h4 className='mx-5 text-nowrap'>View Result</h4>
                                         <p className='mx-6'>
                                         <ReactRoundedImage image={result}
                                imageWidth="65"
@@ -162,7 +165,7 @@
                                     <Chart />
                                 </div>
                                 </div>
-
+                           
                             </div>
             )
         }

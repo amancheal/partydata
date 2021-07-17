@@ -395,3 +395,19 @@ this is the previous voting card design
                         <p>uhuhhuohcuhohouhhhh</p>
                     </div>
                     </div>
+=============================================================================================================
+=============================================================================================================
+
+  <div onClick={() => setUri(url)} key={name} className={`col-6  ${color}`}>
+                <div className='card-body'>
+                  <p className="card-title">{name}</p>
+                   <h4 className="card-text">
+
+                      <i className="fas fa-spinner fa-spin"></i>
+
+                  </h4>
+                 </div>
+
+                </div>
+
+                    <i className="fas fa-spinner fa-spin"></i>

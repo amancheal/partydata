@@ -3,7 +3,7 @@ import CandidateCard from './candidateCard';
 import DesktopHeader from '../UserComponent/Headers/DesktopHeader';
 import MobileHeader from '../UserComponent/Headers/DashboardHeaders';
 import SideBar from '../UserComponent/Headers/SideBar';
-
+import Footer from '../Headers/footer';
 
 function FeedBack(){
 
@@ -20,6 +20,7 @@ function FeedBack(){
              </div>
          </div>
          </div>
+         <Footer />
         </div>
     </React.Fragment>
     )

@@ -9,3 +9,4 @@ export const FEED_BACK_FORM = 'FEED_BACK_FORM';
 export const OVER_VIEW = 'OVER_VIEW';
 export const ELECTION_DASHBOARD = 'ELECTION_DASHBOARD';
 export const VOTE = 'E-VOTING';
+export const REGISTER_TO_VOTE = 'REGISTER-TO-VOTE';

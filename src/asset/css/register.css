@@ -1,0 +1,26 @@
+.reg{
+    color:white !important;
+    margin-left:9em !important;
+}
+
+.tet{
+    margin-left:1em !important;
+}
+
+.subm{
+    color:white !important;
+    margin-left:13em;
+}
+
+
+.remove{
+    display: none;
+}
+
+.spinn{
+    background-color: rgba(92, 92, 88, 0.379) !important;
+}
+.colo{
+    color: rgb(230, 230, 213) !important;
+
+}
