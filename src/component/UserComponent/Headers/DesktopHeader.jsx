@@ -4,6 +4,7 @@ import prof from '../../../asset/noprof.svg';
 import ReactRoundedImage from "react-rounded-image";
 import { withRouter} from 'react-router-dom';
 import { connect } from "react-redux";
+import { decipherJwt } from 'decipher-jwt';
 import {updateUserNav} from '../../../action/actions/userDisplay';
 import {FEED_BACK_FORM, ELECTION_DASHBOARD, OVER_VIEW, VOTE, REGISTER_TO_VOTE} from '../../../action/types';
 
@@ -14,7 +15,14 @@ const [loc, setLoc] = useState(null);
 const bug =()=>{
     setMenue(!menue);
 }
+  const logout = ()=>{
+      localStorage.removeItem('token');
+
+    }
+    const [username, setUsername] = useState('');
         useEffect(() => {
+           let {result} = decipherJwt(localStorage.getItem('token'))
+           setUsername(result.firstname);
 
             setLoc(localStorage.getItem('token'));
             switch (history.location.pathname) {
@@ -72,10 +80,10 @@ const bug =()=>{
                             </span>
                         <div className=' my-4 mx-1' role="navigation" aria-label="dropdown navigation" >
                         <div className="navbar-item  has-dropdown is-hoverable">
-                         <b className='navbar-link is-3'>Olusegun O.B.J</b>
+                         <b className='navbar-link is-3'>{username}</b>
                              <div className="navbar-dropdown">
                                     <a style={{textDecoration:'none'}}  href="/signIn" className='navbar-item'> <i className='fa fa-user mx-1 '></i> Edit Profile</a>
-                                    <a style={{textDecoration:'none'}}  href="/signIn" className='navbar-item'> <i className='fa fa-user mx-1 '></i> Logout</a>
+                                    <a style={{textDecoration:'none'}} onClick={logout} href="/" className='navbar-item'> <i className='fa fa-user mx-1 '></i> Logout</a>
                               </div>
                         </div>
                         </div>

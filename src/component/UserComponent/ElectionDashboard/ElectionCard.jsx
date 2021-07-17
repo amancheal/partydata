@@ -58,14 +58,14 @@
                                 <div class="card-content">
                                     <div class="content">
                                         <h4 className='text-nowrap'>Register To vote</h4>
-                                        <p className='mx-6'>
+                                        <div className='mx-6'>
                                         <ReactRoundedImage image={reg}
                                imageWidth="65"
                                 imageHeight="65"
                                 roundedSize="9"
                                 roundedColor="white"
                                 />
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -76,14 +76,14 @@
                                 <div class="card-content">
                                     <div class="content">
                                         <h4 className='mx-4'>Vote Now</h4>
-                                        <p className='mx-6'>
+                                        <div className='mx-3'>
                                         <ReactRoundedImage image={ballot}
                                imageWidth="65"
                                 imageHeight="65"
                                 roundedSize="9"
                                 roundedColor="white"
                                 />
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -93,14 +93,14 @@
                                 <div class="card-content">
                                     <div class="content">
                                         <h4 className='mx-5 text-nowrap'>View Result</h4>
-                                        <p className='mx-6'>
+                                        <div className='mx-3'>
                                         <ReactRoundedImage image={result}
                                imageWidth="65"
                                 imageHeight="65"
                                 roundedSize="9"
                                 roundedColor="white"
                                 />
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -110,14 +110,14 @@
                                 <div class="card-content">
                                     <div class="content">
                                         <h4 className='mx-5'>Observation</h4>
-                                        <p className='mx-6'>
+                                        <div className='mx-3'>
                                         <ReactRoundedImage image={result}
                                imageWidth="65"
                                 imageHeight="65"
                                 roundedSize="9"
                                 roundedColor="white"
                                 />
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -127,9 +127,9 @@
                              <div className='column is-two-fifths my-4 px-3'>
                                     <div className='card'>
                                     <div className="card-header">
-                                    <p className="card-header-title mx-6">
+                                    <div className="card-header-title mx-6">
                                     {comment.length} <em className='mx-2'>News/Comment</em>
-                                    </p>
+                                    </div>
                                     </div>
 
                                         {
@@ -165,7 +165,7 @@
                                     <Chart />
                                 </div>
                                 </div>
-                           
+
                             </div>
             )
         }

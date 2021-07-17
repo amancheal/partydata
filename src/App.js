@@ -26,12 +26,12 @@ function App() {
         <Switch>
           <Route  component={SignUp} path="/signUp" />
            <Route exact component={Login} path="/" />
-            <Route component={OverView} path='/overview' />
-           <Route component={Evoting} path='/evote' />
-           <Route component={ElectionDashBoard} path='/electionDashboard' />
-           <Route component={FeedbackForm} path='/createfeedback' />
-            <Route component={RegisterToVote} path='/registerToVote' />
-          <Route path='/dashboard' component={DashBoard} />
+            <Protected component={OverView} path='/overview' />
+           <Protected component={Evoting} path='/evote' />
+           <Protected component={ElectionDashBoard} path='/electionDashboard' />
+           <Protected component={FeedbackForm} path='/createfeedback' />
+            <Protected component={RegisterToVote} path='/registerToVote' />
+          <Protected path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />
           <Protected component={FeedBack} path="/feedBack" />
