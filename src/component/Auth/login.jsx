@@ -2,14 +2,12 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import Head from '../Headers/signInHeader';
 import Footer from '../Headers/footer';
-import {useHistory} from 'react-router-dom';
 import { Form, FormGroup, Label, Input} from 'reactstrap';
 import '../../asset/css/login.css';
 
 
 function Login({location}){
 
-  const history = useHistory()
 
     const [stateValue, setStateValue] = useState({
 
@@ -23,7 +21,7 @@ function Login({location}){
          const [noti, setNoti] = useState(false);
             const dele =()=>{
                     setNoti(true)
-                
+
                   }
 
         const onChane = (e)=>{
@@ -48,7 +46,7 @@ function Login({location}){
                     setMesg(res.data.message);
                     setNoti(false);
                 localStorage.setItem("token", res.data.token);
-                 history.push('/overview');
+                window.open('/overview', 'self');
               } else {
                   console.log(res)
                    setLoading(false);
