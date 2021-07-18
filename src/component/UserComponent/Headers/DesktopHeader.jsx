@@ -11,7 +11,7 @@ import {FEED_BACK_FORM, ELECTION_DASHBOARD, OVER_VIEW, VOTE, REGISTER_TO_VOTE} f
 function DesktopHeader({history, whatShow, changeShow}){
 const [menue, setMenue]= useState(false);
 //const image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_m6thHZVvjapVuXDuQ75lOMGoQwec8H6tOqBGtZtxi_aBCU0XRT09j-zEToK2lxYtpac&usqp=CAU';
-const [loc, setLoc] = useState(null);
+
 const bug =()=>{
     setMenue(!menue);
 }
@@ -24,7 +24,6 @@ const bug =()=>{
            let {result} = decipherJwt(localStorage.getItem('token'))
            setUsername(result.firstname);
 
-            setLoc(localStorage.getItem('token'));
             switch (history.location.pathname) {
                  case '/overview':
                     return changeShow(OVER_VIEW);
@@ -67,7 +66,7 @@ const bug =()=>{
         <div className="navbar-end">
 
             {
-                loc === null ? <React.Fragment> <a style={{textDecoration:'none'}}  href="/" className='navbar-item button is-warning is-rounded my-3 mx-2'> <i className='fa fa-user mx-1 '></i> Sign-In</a>
+               username && username === '' ? <React.Fragment> <a style={{textDecoration:'none'}}  href="/" className='navbar-item button is-warning is-rounded my-3 mx-2'> <i className='fa fa-user mx-1 '></i> Sign-In</a>
                 <a style={{textDecoration:'none'}}  href="/signUp" className='navbar-item button is-warning is-rounded my-3'> <i className='fas fa-sign-out-alt mx-1'></i> Sign Up</a> </React.Fragment>
                 : <React.Fragment>
                             <span className='my-3'>

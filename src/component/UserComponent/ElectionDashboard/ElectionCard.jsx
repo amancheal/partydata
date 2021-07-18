@@ -76,7 +76,7 @@
                                 <div class="card-content">
                                     <div class="content">
                                         <h4 className='mx-4'>Vote Now</h4>
-                                        <div className='mx-3'>
+                                        <div className='mx-6'>
                                         <ReactRoundedImage image={ballot}
                                imageWidth="65"
                                 imageHeight="65"
@@ -93,7 +93,7 @@
                                 <div class="card-content">
                                     <div class="content">
                                         <h4 className='mx-5 text-nowrap'>View Result</h4>
-                                        <div className='mx-3'>
+                                        <div className='mx-6'>
                                         <ReactRoundedImage image={result}
                                imageWidth="65"
                                 imageHeight="65"
@@ -110,7 +110,7 @@
                                 <div class="card-content">
                                     <div class="content">
                                         <h4 className='mx-5'>Observation</h4>
-                                        <div className='mx-3'>
+                                        <div className='mx-6'>
                                         <ReactRoundedImage image={result}
                                imageWidth="65"
                                 imageHeight="65"

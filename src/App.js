@@ -19,6 +19,10 @@ import ElectionDashBoard from './component/UserComponent/ElectionDashboard/Elect
 import FeedbackForm from './component/UserComponent/Feedback/Feedbackform';
 import RegisterToVote from './component/UserComponent/RegisterToVote/register';
 import OverView from './component/UserComponent/Overview/UserDashboard';
+
+// Time out page
+import TimeOut from "./component/TimeOut";
+
 function App() {
   return (
     <AuthContextProvider>
@@ -26,17 +30,18 @@ function App() {
         <Switch>
           <Route  component={SignUp} path="/signUp" />
            <Route exact component={Login} path="/" />
-            <Protected component={OverView} path='/overview' />
+           <Protected component={OverView} path='/overview' />
            <Protected component={Evoting} path='/evote' />
            <Protected component={ElectionDashBoard} path='/electionDashboard' />
            <Protected component={FeedbackForm} path='/createfeedback' />
-            <Protected component={RegisterToVote} path='/registerToVote' />
+           <Protected component={RegisterToVote} path='/registerToVote' />
           <Protected path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />
           <Protected component={FeedBack} path="/feedBack" />
           <Protected component={FeedBackInfo} path="/feedbackinfo" />
           <Protected component={RegisteredStakeHolders} path="/registeredStakeHolders" />
+            <Route path="/**" component={TimeOut} />
         </Switch>
 
       </Router>
