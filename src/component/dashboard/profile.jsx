@@ -17,7 +17,7 @@ const [tab, setTab] = useState('dashboard')
 
 useEffect(() => {
 
-  setProfile(localStorage.getItem('username'));
+  setProfile(localStorage.getItem('Admin Panel'));
 
     switch (history.location.pathname) {
       case "/dashboard" :

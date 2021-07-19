@@ -6,20 +6,24 @@ import "react-naija-states/dist/index.css";
 import { Options } from "react-naija-states";
 import { Form, FormGroup, Label, Input} from 'reactstrap';
 import axios from 'axios';
+import { decipherJwt } from 'decipher-jwt';
 import '../../../asset/css/feedback.css';
 import Footer from "../../Headers/footer";
 
 function FeedBack(){
     const [form, setForm] = useState({
+        owner:'',
+        username:'',
         title:'',
         state: '',
         lga:'',
-        poolingunit:'',
+        poolingUnit:'',
         ward: '',
         complaintype:'',
         number:'',
         feedback:''
     });
+    const {result} = decipherJwt(localStorage.getItem('token'));
 
     const [mesg, setMesg] = useState('');
     const [loading, setLoading] = useState(false);
@@ -36,10 +40,12 @@ function FeedBack(){
         e.preventDefault();
         setLoading(true);
         let newFeedback = {
+            owner: result.role,
+            username:result.firstname,
             title: form.title,
             state: form.state,
             lga: form.lga,
-            poolingunit: form.poolingunit,
+            poolingUnit: form.poolingUnit,
             ward: form.ward,
             complaintype: form.complaintype,
             number: form.number,
@@ -53,7 +59,7 @@ function FeedBack(){
                 title: '',
                 state: '',
                 lga: '',
-                poolingunit: '',
+                poolingUnit: '',
                 ward: '',
                 complaintype: '',
                 number: '',
@@ -128,7 +134,7 @@ function FeedBack(){
                             <div className="col-6">
                             <FormGroup>
                             <Label for="pooling">Pooling-Unit</Label>
-                            <Input type="text" name="poolingunit" onChange={handleChange} value={form.poolingunit} placeholder="Input here..." />
+                            <Input type="text" name="poolingUnit" onChange={handleChange} value={form.poolingUnit} placeholder="Input here..." />
                             </FormGroup>
                             </div>
                             <div className="col-6">

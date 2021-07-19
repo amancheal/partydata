@@ -9,17 +9,32 @@
         import Chart from '../../dashboard/chart';
         import '../../../asset/css/election.css';
         import {useHistory} from 'react-router';
-
+        import { decipherJwt } from 'decipher-jwt';
 
         function UserCard(){
             const history = useHistory();
             const toReg =()=>{
-                history.push('/registerToVote');
-            }
-            const gotToVote = () =>{
-                history.push('/evote');
+
+                if(checkElegibility() === true){
+                    history.push('/registerToVote');
+                }
+
             }
 
+            const checkElegibility = () =>{
+                const {result} = decipherJwt(localStorage.getItem('token'))
+                if(result.age < 18){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+            const gotToVote = () =>{
+                if(checkElegibility() === true){
+                    history.push('/evote');
+                }
+
+            }
             const [comment] = useState([
                 {
                     name:'bolu',
@@ -52,18 +67,18 @@
             return(
 
                             <div className="column is-9 pal">
-                                     <div className="columns">
-                                    <div className="column car my-4 is-one-thrid">
-                                    <div onClick={toReg} class="card">
-                                <div class="card-content">
-                                    <div class="content">
-                                        <h4 className='text-nowrap'>Register To vote</h4>
-                                        <div className='mx-6'>
+                                     <div className="row">
+                                    <div className="col-4 car my-4 is-one-thrid">
+                                    <div onClick={toReg} className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='wrd text-nowrap'>Register To vote</h4>
+                                        <div className='elcrd'>
                                         <ReactRoundedImage image={reg}
                                imageWidth="65"
                                 imageHeight="65"
                                 roundedSize="9"
-                                roundedColor="white"
+                                roundedColor="green"
                                 />
                                         </div>
                                     </div>
@@ -71,12 +86,12 @@
                                 </div>
 
                                 </div>
-                                <div className="column  my-4 car">
-                                <div  onClick={gotToVote} class="card">
-                                <div class="card-content">
-                                    <div class="content">
-                                        <h4 className='mx-4'>Vote Now</h4>
-                                        <div className='mx-6'>
+                                <div className="col-4  my-4 car">
+                                <div  onClick={gotToVote} className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='wrd'>Vote Now</h4>
+                                        <div className='elcrd '>
                                         <ReactRoundedImage image={ballot}
                                imageWidth="65"
                                 imageHeight="65"
@@ -88,27 +103,27 @@
                                 </div>
                                 </div>
                                 </div>
-                                <div className="column  my-4 car">
-                                <div class="card">
-                                <div class="card-content">
-                                    <div class="content">
-                                        <h4 className='mx-5 text-nowrap'>View Result</h4>
-                                        <div className='mx-6'>
+                                <div className="col-4  my-4 car">
+                                <div className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='wrd text-nowrap'>View Result</h4>
+                                        <div className='elcrd '>
                                         <ReactRoundedImage image={result}
                                imageWidth="65"
                                 imageHeight="65"
                                 roundedSize="9"
-                                roundedColor="white"
+                                roundedColor="red"
                                 />
                                         </div>
                                     </div>
                                 </div>
                                 </div>
                                 </div>
-                                <div className="column  my-4 car">
-                                <div class="card">
-                                <div class="card-content">
-                                    <div class="content">
+                                {/* <div className="column  my-4 car">
+                                <div className="card">
+                                <div className="card-content">
+                                    <div className="content">
                                         <h4 className='mx-5'>Observation</h4>
                                         <div className='mx-6'>
                                         <ReactRoundedImage image={result}
@@ -121,10 +136,10 @@
                                     </div>
                                 </div>
                                 </div>
+                                </div> */}
                                 </div>
-                                </div>
-                                <div className="columns">
-                             <div className='column is-two-fifths my-4 px-3'>
+                                <div className="row">
+                             <div className='col-4  my-4 px-3'>
                                     <div className='card'>
                                     <div className="card-header">
                                     <div className="card-header-title mx-6">
@@ -160,7 +175,7 @@
 
                                     </div>
                                 </div>
-                                <div className="column is-two-third my-4">
+                                <div className="col-8  my-4">
                                     <b className='is-2'>Election Chart flow</b>
                                     <Chart />
                                 </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Head from "../Headers/signUpHeader";
-import { useHistory } from "react-router";
+
 import { Options } from "react-naija-states";
 import "react-naija-states/dist/index.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -22,7 +22,7 @@ function SignUp() {
     password: "",
     confirmPassword: "",
   });
-  const history = useHistory();
+
   const [load, setLoad] = useState(false);
   const [err, setErr] = useState(null);
   const onChane = (e) => {
@@ -50,7 +50,7 @@ function SignUp() {
     if (stateValue.password === stateValue.confirmPassword) {
        await axios.post('https://quiet-temple-20315.herokuapp.com/usermanager/newuser', newUser)
         .then((data) => {
-          console.log(data.data);
+          console.log(data)
           if (data.data.status === "success") {
             setLoad(false);
             setErr(data.message);
@@ -70,7 +70,7 @@ function SignUp() {
             password: "",
             confirmPassword: "",
           });
-          history.push("/dashboard");
+         window.open('/', '_self')
          })
       .catch(err => console.log(err))
     } else {
@@ -155,7 +155,7 @@ function SignUp() {
                       Last-Name
                     </label>
                     <input
-                      type="text" 
+                      type="text"
                       onChange={onChane}
                       name="lastname"
                       value={stateValue.lastname}

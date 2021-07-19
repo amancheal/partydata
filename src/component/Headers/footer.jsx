@@ -41,7 +41,7 @@ function Footer(){
     <section className="">
       <form action="">
 
-        <div class="row d-flex justify-content-center">
+        <div className="row d-flex justify-content-center">
         <div className='col-auto'>
                 <span className=''>
             <ReactRoundedImage image={imag}
@@ -52,8 +52,8 @@ function Footer(){
                                 />
             </span>
          </div>
-          <div class="col-auto">
-            <p class="pt-2">
+          <div className="col-auto">
+            <p className="pt-2">
               <em style={{color:'white', fontSize:'1em'}} >  Sign up for our newsletter</em>
             </p>
           </div>

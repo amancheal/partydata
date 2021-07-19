@@ -411,3 +411,121 @@ this is the previous voting card design
                 </div>
 
                     <i className="fas fa-spinner fa-spin"></i>
+==============================================================================================================================================
+==============================================================================================================================================
+ <div className="column is-9 pal">
+                                     <div className="columns">
+                                    <div className="column car my-4 is-one-thrid">
+                                    <div onClick={toReg} className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='text-nowrap'>Register To vote</h4>
+                                        <div className='mx-6'>
+                                        <ReactRoundedImage image={reg}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="green"
+                                />
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                </div>
+                                <div className="column  my-4 car">
+                                <div  onClick={gotToVote} className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='mx-4'>Vote Now</h4>
+                                        <div className='mx-6 '>
+                                        <ReactRoundedImage image={ballot}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="white"
+                                />
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div className="column  my-4 car">
+                                <div className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='mx-5 text-nowrap'>View Result</h4>
+                                        <div className='mx-6 '>
+                                        <ReactRoundedImage image={result}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="red"
+                                />
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                {/* <div className="column  my-4 car">
+                                <div className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='mx-5'>Observation</h4>
+                                        <div className='mx-6'>
+                                        <ReactRoundedImage image={result}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="white"
+                                />
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </div> */}
+                                </div>
+                                <div className="row">
+                             <div className='col-4  my-4 px-3'>
+                                    <div className='card'>
+                                    <div className="card-header">
+                                    <div className="card-header-title mx-6">
+                                    {comment.length} <em className='mx-2'>News/Comment</em>
+                                    </div>
+                                    </div>
+
+                                        {
+                                            comment && comment.map(({name, imageIcon, likes, message})=>{
+                                                return(
+                                                    <div key={name}>
+                                                         <div className="media px-2 my-2">
+                                                        <figure className='media-left'>
+                                                        <ReactRoundedImage image={imageIcon}
+                                                            imageWidth="45"
+                                                                imageHeight="45"
+                                                                roundedSize="9"
+                                                                roundedColor="white"
+                                                                />
+                                                        </figure>
+                                                        <div className="media-content px-2">
+                                                                <div className="content">
+                                                                    <p> <strong>{name}</strong> <br />
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, culpa.
+                                                                     </p>
+                                                                </div>
+                                                        </div>
+                                                        </div>
+                                                         </div>
+                                                )
+                                            })
+                                        }
+
+                                    </div>
+                                </div>
+                                <div className="col-8  my-4">
+                                    <b className='is-2'>Election Chart flow</b>
+                                    <Chart />
+                                </div>
+                                </div>
+
+                            </div>

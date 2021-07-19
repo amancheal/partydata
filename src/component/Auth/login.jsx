@@ -46,7 +46,7 @@ function Login({location}){
                     setMesg(res.data.message);
                     setNoti(false);
                 localStorage.setItem("token", res.data.token);
-                window.open('/overview', 'self');
+                window.open('/overview', '_self');
               } else {
                   console.log(res)
                    setLoading(false);

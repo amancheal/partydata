@@ -54,7 +54,7 @@ function FeedBackTable({ getwhattoshow }) {
               <th>From</th>
               <th>Type</th>
               <th>Status</th>
-              <th>Pooling-Unit</th>
+              <th>P-Unit</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -66,8 +66,8 @@ function FeedBackTable({ getwhattoshow }) {
                   title,
                   status,
                   complaintype,
-                  localgovernment,
-                  PoolingUnit,
+                  lga,
+                  poolingUnit,
                   ward,
                   feedback,
                   number,
@@ -78,7 +78,7 @@ function FeedBackTable({ getwhattoshow }) {
                       <td>{username}</td>
                       <td> {complaintype} </td>
                       <td>{status} </td>
-                      <td>{PoolingUnit} </td>
+                      <td>{poolingUnit} </td>
                       <td>
                         {" "}
                         <button className="btn btn-success">
@@ -91,8 +91,8 @@ function FeedBackTable({ getwhattoshow }) {
                                 title,
                                 complaintype,
                                 status,
-                                localgovernment,
-                                PoolingUnit,
+                                lga,
+                                poolingUnit,
                                 ward,
                                 feedback,
                                 username,

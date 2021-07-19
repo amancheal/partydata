@@ -30,16 +30,16 @@ function SideBar({ history}){
                                 </p>
                                 <div className='menu-list'>
                                     <a style={{fontSize:'1rem', textDecoration:'none'}} href='/overview' onClick={()=>setTab(OVER_VIEW)} className={`my-4 py-2 bar  ${tab === OVER_VIEW ? 'acti' : ''} `} > <i className='fa fa-home'></i> Overview </a>
-                                    <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/electionDashboard' onClick={()=>setTab(ELECTION_DASHBOARD)} className={`text-nowrap bar ${tab === ELECTION_DASHBOARD ? 'acti' : '' }`} > <i class="fas fa-vote-yea"></i> E-Voting </a>
+                                    <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/electionDashboard' onClick={()=>setTab(ELECTION_DASHBOARD)} className={`text-nowrap bar ${tab === ELECTION_DASHBOARD ? 'acti' : '' }`} > <i className="fas fa-vote-yea"></i> E-Voting </a>
                                 </div>
-                                <p class="menu-label py-3">
+                                <p className="menu-label py-3">
                                     Administration
                                 </p>
                                 <div className='menu-list'>
-                                    <a style={{fontSize:'1rem', textDecoration:'none'}} onClick={()=> setTab(FEED_BACK_FORM)} href='/createfeedback' className={`my-4 py-2 text-nowrap bar ${tab === FEED_BACK_FORM ? 'acti' : ''}`} > <i class="fal fa-comments-alt"></i> Send Feedback </a>
-                                    <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/'  className='text-nowrap my-4 py-2 bar' > <i class="fas fa-tasks"></i> Manage Account </a>
-                                    <a style={{fontSize:'1rem',  textDecoration:'none'}}  href='/'  className='text-nowrap my-4 py-2 bar' > <i class="fas fa-cogs"></i> Settings </a>
-                                    <a style={{fontSize:'1rem',  textDecoration:'none'}}  href='/'  className='text-nowrap bar' > <i class="far fa-question-circle"></i> Help </a>
+                                    <a style={{fontSize:'1rem', textDecoration:'none'}} onClick={()=> setTab(FEED_BACK_FORM)} href='/createfeedback' className={`my-4 py-2 text-nowrap bar ${tab === FEED_BACK_FORM ? 'acti' : ''}`} > <i className="fal fa-comments-alt"></i> Send Feedback </a>
+                                    <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/'  className='text-nowrap my-4 py-2 bar' > <i className="fas fa-tasks"></i> Manage Account </a>
+                                    <a style={{fontSize:'1rem',  textDecoration:'none'}}  href='/'  className='text-nowrap my-4 py-2 bar' > <i className="fas fa-cogs"></i> Settings </a>
+                                    <a style={{fontSize:'1rem',  textDecoration:'none'}}  href='/'  className='text-nowrap bar' > <i className="far fa-question-circle"></i> Help </a>
                                 </div>
                             </div>
                     </aside>

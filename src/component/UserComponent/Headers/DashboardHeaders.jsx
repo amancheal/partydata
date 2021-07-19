@@ -39,11 +39,11 @@ const bug =()=>{
         <a style={{textDecoration:'none'}}  href="/signIn" className='navbar-item '> <i className='fa fa-user mx-1 '></i> Sign-In</a>
         <a style={{textDecoration:'none'}}  href="/signOut" className='navbar-item '> <i className='fas fa-sign-out-alt mx-1'></i> Logout</a>
         <a style={{listStyleType: 'none', textDecoration:'none'}} href="/signIn" className=' navbar-item ' > <i className='fa fa-home'></i> DashBoard </a>
-        <a style={{listStyleType: 'none', textDecoration:'none'}} href="/signIn" className='navbar-item ' > <i class="fas fa-vote-yea"></i> Register to Vote </a>
-        <a style={{fontSize:'1rem', textDecoration:'none'}} href='/' className=' text-nowrap navbar-item ' > <i class="fal fa-comments-alt"></i> Send Feedback </a>
-        <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/'  className='text-nowrap navbar-item ' > <i class="fas fa-tasks"></i> Manage Account </a>
-        <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/'  className=' navbar-item' > <i class="fas fa-cogs"></i> Settings </a>
-         <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/'  className='navbar-item' > <i class="far fa-question-circle"></i> Help </a>
+        <a style={{listStyleType: 'none', textDecoration:'none'}} href="/signIn" className='navbar-item ' > <i className="fas fa-vote-yea"></i> Register to Vote </a>
+        <a style={{fontSize:'1rem', textDecoration:'none'}} href='/' className=' text-nowrap navbar-item ' > <i className="fal fa-comments-alt"></i> Send Feedback </a>
+        <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/'  className='text-nowrap navbar-item ' > <i className="fas fa-tasks"></i> Manage Account </a>
+        <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/'  className=' navbar-item' > <i className="fas fa-cogs"></i> Settings </a>
+         <a style={{fontSize:'1rem',  textDecoration:'none'}} href='/'  className='navbar-item' > <i className="far fa-question-circle"></i> Help </a>
         </div>
         </div>
             </div>

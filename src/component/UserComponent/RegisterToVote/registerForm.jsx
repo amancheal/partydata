@@ -2,19 +2,25 @@ import React, {useState} from 'react';
 import { Form, FormGroup, Label, Input} from 'reactstrap';
 import axios from 'axios';
 import '../../../asset/css/register.css';
+import { decipherJwt } from 'decipher-jwt';
+import "react-naija-states/dist/index.css";
+import { Options } from "react-naija-states";
 
 function RegisterForm(){
 
     const [reg, setReg] = useState({
-        firstName:'',
-        lastName: '',
+        firstname:'',
+        lastname: '',
         lga:'',
         poolingunit:'',
         ward: '',
         email:'',
-        number:'',
+        phone:'',
         address:''
     });
+    const {result} = decipherJwt(localStorage.getItem('token'));
+    const vId = result.voterId.toUpperCase();
+
     const [mesg, setMesg] = useState('');
     const [loading, setLoading] = useState(false);
     const handleChange =(e) =>{
@@ -30,13 +36,13 @@ const sendForm =async(e)=>{
 e.preventDefault();
         setLoading(true);
         let newVoter = {
-            firstName: reg.firstName,
-            lastName: reg.lastName,
+            firstname: reg.firstname,
+            lastname: reg.lastname,
             lga: reg.lga,
             poolingunit: reg.poolingunit,
             ward: reg.ward,
             email: reg.email,
-            number: reg.number,
+            phone: reg.phone,
             address: reg.address
         };
         console.log(newVoter);
@@ -44,13 +50,13 @@ e.preventDefault();
         .then(res =>{
             const {data} = res;
             setReg({
-                firstName:'',
-                lastName: '',
+                firstname:'',
+                lastname: '',
                 lga:'',
                 poolingunit:'',
                 ward: '',
                 email:'',
-                number:'',
+                phone:'',
                 address:''
             })
             setLoading(false);
@@ -88,7 +94,7 @@ e.preventDefault();
                         <div className='row '>
                           <div className="col-6">
                             <FormGroup>
-                            <button  className='my-4 px-4 py-1 btn btn-success reg' aria-disabled="true" disabled> <b> Voter-ID:</b> EX456YPD</button>
+                            <button  className='my-4 px-4 py-1 btn btn-success reg' aria-disabled="true" disabled> <b className='mx-2'> Voter-ID:</b> {vId} </button>
                         </FormGroup>
                             </div>
                          </div>
@@ -96,13 +102,13 @@ e.preventDefault();
                             <div className="col-6">
                             <FormGroup>
                             <Label for="voter-name">Voter's First Name</Label>
-                            <Input type="text" onChange={handleChange}  value={reg.firstName}  name="firstName"   />
+                            <Input type="text" onChange={handleChange}  value={reg.firstname}  name="firstname"   />
                         </FormGroup>
                             </div>
                              <div className="col-6">
                             <FormGroup>
                             <Label for="voter-name">Voter's Last Name</Label>
-                            <Input type="text" name="lastName" onChange={handleChange}  value={reg.lastName}   />
+                            <Input type="text" name="lastname" onChange={handleChange}  value={reg.lastname}   />
                         </FormGroup>
                             </div>
                                  <div className="col-6">
@@ -119,14 +125,16 @@ e.preventDefault();
                             </div>
                                  <div className="col-6">
                             <FormGroup>
-                            <Label for="voter-LGA">Voter's L.G.A</Label>
-                            <Input type="text" name="lga" onChange={handleChange}  value={reg.lga}   />
-                        </FormGroup>
+                            <Label for="lga">Voter's Local-government</Label>
+                            <Input type="select" onChange={handleChange} value={reg.lga} name="lga" >
+                            <Options type="lga"  state={result.state}/>
+                            </Input>
+                            </FormGroup>
                             </div>
                                  <div className="col-6">
                             <FormGroup>
                             <Label for="voter-number">Voter's Moile Number</Label>
-                            <Input type="tel" name="number" onChange={handleChange}  value={reg.number}   />
+                            <Input type="tel" name="phone" onChange={handleChange}  value={reg.phone}   />
                         </FormGroup>
                             </div>
                                  <div className="col-6">

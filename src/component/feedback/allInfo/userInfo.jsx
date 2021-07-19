@@ -12,8 +12,8 @@ function AllInfo() {
     title,
     complaintype,
     status,
-    localgovernment,
-    PoolingUnit,
+    lga,
+    poolingUnit,
     ward,
     number,
     feedback,
@@ -37,8 +37,8 @@ function AllInfo() {
           title,
           complaintype,
           status,
-          localgovernment,
-          PoolingUnit,
+          lga,
+          poolingUnit,
           ward,
           number,
           feedback,
@@ -62,8 +62,8 @@ function AllInfo() {
           title,
           complaintype,
           status,
-          localgovernment,
-          PoolingUnit,
+          lga,
+          poolingUnit,
           ward,
           number,
           feedback,
@@ -131,11 +131,11 @@ function AllInfo() {
                 </h6>
                 <h6>
                   {" "}
-                  <b>L.G.A :</b> <span> {localgovernment} </span>{" "}
+                  <b>L.G.A :</b> <span> {lga} </span>{" "}
                 </h6>
                 <h6>
                   {" "}
-                  <b>Polling-Unit:</b> <span> {PoolingUnit} </span>{" "}
+                  <b>Polling-Unit:</b> <span> {poolingUnit} </span>{" "}
                 </h6>
               </div>
             </div>

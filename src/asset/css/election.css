@@ -4,3 +4,13 @@
 .car:hover{
     font-size: larger;
 }
+
+.res{
+    color: greenyellow;
+}
+.wrd{
+    margin-left: 4rem;
+}
+.elcrd{
+    margin-left: 5rem !important;
+}
