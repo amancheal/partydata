@@ -19,7 +19,7 @@ function RegisterForm(){
         address:''
     });
     const {result} = decipherJwt(localStorage.getItem('token'));
-    const vId = result.voterId.toUpperCase();
+    const vId = result.voterId;
 
     const [mesg, setMesg] = useState('');
     const [loading, setLoading] = useState(false);
