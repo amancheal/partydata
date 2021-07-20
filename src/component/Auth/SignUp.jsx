@@ -48,7 +48,7 @@ function SignUp() {
       password: stateValue.password,
     };
     if (stateValue.password === stateValue.confirmPassword) {
-       await axios.post('http://localhost:3000/usermanager/newuser', newUser)
+       await axios.post('https://pdpparty.herokuapp.com/usermanager/newuser', newUser)
         .then(data =>{
           console.log(data)
           if (data.data.status === "success") {
