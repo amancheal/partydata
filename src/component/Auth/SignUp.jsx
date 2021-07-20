@@ -48,8 +48,8 @@ function SignUp() {
       password: stateValue.password,
     };
     if (stateValue.password === stateValue.confirmPassword) {
-       await axios.post('https://quiet-temple-20315.herokuapp.com/usermanager/newuser', newUser)
-        .then((data) => {
+       await axios.post('http://localhost:3000/usermanager/newuser', newUser)
+        .then(data =>{
           console.log(data)
           if (data.data.status === "success") {
             setLoad(false);
@@ -69,7 +69,7 @@ function SignUp() {
             dob: "",
             password: "",
             confirmPassword: "",
-          });
+          })
          window.open('/', '_self')
          })
       .catch(err => console.log(err))

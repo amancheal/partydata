@@ -46,7 +46,7 @@ e.preventDefault();
             address: reg.address
         };
         console.log(newVoter);
-         await axios.post('https://quiet-temple-20315.herokuapp.com/registerToVote', newVoter)
+         await axios.post('https://pdpparty.herokuapp.com//registerToVote', newVoter)
         .then(res =>{
             const {data} = res;
             setReg({

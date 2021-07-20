@@ -38,7 +38,7 @@ function Login({location}){
                 password: stateValue.password
             }
 
-            axios.post("https://quiet-temple-20315.herokuapp.com/login", loginUser)
+            axios.post("https://pdpparty.herokuapp.com/login", loginUser)
             .then((res) => {
               if (res.data.token) {
                    setLoading(false);
