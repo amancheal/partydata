@@ -18,7 +18,7 @@ function Chart() {
                     1000,
                     200
                 ],
-             backgroundColor: "rgba(252, 253, 10, 0.412712)",
+             backgroundColor: "rgba(250, 110, 40,0.7)",
                 fill: true,
 
 
@@ -38,8 +38,8 @@ function Chart() {
                     line:{
                         fill:false,
                         tension:0.3,
-                        backgroundColor:'rgba(230, 200, 9, 0.6)',
-                        borderColor:'rgba(200, 205, 10, 0.6)'
+                        backgroundColor:"rgba(90, 190, 250,0.7)",
+                        borderColor:"rgba(90, 190, 250,0.7)",
                     }
                 }
 

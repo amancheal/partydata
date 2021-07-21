@@ -18,8 +18,10 @@ function OverviewChart() {
                     1000,
                     200
                 ],
-             backgroundColor: "rgba(252, 253, 10, 0.412712)",
-                fill: true,
+             fillColor: "rgba(200, 90 130, 0.2)",
+             strokeColor: "rgba(230, 80, 199,0.7)",
+             backgroundColor: ["rgba(250, 70, 120, 0.9)", "rgba(30, 90, 220,0.7)", "green", "blue", "red", "rgba(20, 250, 90,0.7)"],
+             fill: true,
 
 
             }
