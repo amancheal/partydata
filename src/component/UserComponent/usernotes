@@ -529,3 +529,57 @@ this is the previous voting card design
                                 </div>
 
                             </div>
+==================================================================================================
+==================================================================================================
+<div className="col-4 car my-4 is-one-thrid">
+                                    <div onClick={toReg} className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='wrd text-nowrap'>Register To vote</h4>
+                                        <div className='elcrd'>
+                                        <ReactRoundedImage image={reg}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="green"
+                                />
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                </div>
+                                <div className="col-4  my-4 car">
+                                <div  onClick={gotToVote} className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='wrd'>Vote Now</h4>
+                                        <div className='elcrd '>
+                                        <ReactRoundedImage image={ballot}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="white"
+                                />
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div className="col-4  my-4 car">
+                                <div className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <h4 className='wrd text-nowrap'>View Result</h4>
+                                        <div className='elcrd '>
+                                        <ReactRoundedImage image={result}
+                               imageWidth="65"
+                                imageHeight="65"
+                                roundedSize="9"
+                                roundedColor="red"
+                                />
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>

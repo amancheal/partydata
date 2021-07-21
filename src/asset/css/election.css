@@ -9,8 +9,14 @@
     color: greenyellow;
 }
 .wrd{
-    margin-left: 4rem;
+    margin-left: 5rem;
+    font-weight: bold;
 }
 .elcrd{
-    margin-left: 5rem !important;
+    margin-left: 6rem !important;
 }
+.remove{
+    display: none;
+}
+
+

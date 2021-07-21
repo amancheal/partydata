@@ -15,6 +15,8 @@ import AuthContextProvider from './contexts/auth_context';
 import Login from './component/Auth/login';
 import Evoting from './component/E-Voting/vote';
 // Users Routes
+// MulpX test
+
 import ElectionDashBoard from './component/UserComponent/ElectionDashboard/ElectionDashboard';
 import FeedbackForm from './component/UserComponent/Feedback/Feedbackform';
 import RegisterToVote from './component/UserComponent/RegisterToVote/register';
@@ -30,6 +32,7 @@ function App() {
         <Switch>
           <Route  component={SignUp} path="/signUp" />
            <Route exact component={Login} path="/" />
+          
            <Protected component={OverView} path='/overview' />
            <Protected component={Evoting} path='/evote' />
            <Protected component={ElectionDashBoard} path='/electionDashboard' />

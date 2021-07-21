@@ -13,27 +13,44 @@
 
         function UserCard(){
             const history = useHistory();
-            const toReg =()=>{
+            const [noti, setNoti] = useState(false);
+            const [mesg, setMesg] = useState("");
 
-                if(checkElegibility() === true){
-                    history.push('/registerToVote');
-                }
-
-            }
-
-            const checkElegibility = () =>{
-                const {result} = decipherJwt(localStorage.getItem('token'))
-                if(result.age < 18){
+               const checkElegibility = () =>{
+                 const {result} = decipherJwt(localStorage.getItem('token'))
+                if(Number(result.age) < 18){
                     return false;
                 }else{
                     return true;
                 }
             }
+
+            const dele =()=>{
+                    setNoti(true);
+                     setMesg("");
+            }
+            const toReg =()=>{
+                 const {result} = decipherJwt(localStorage.getItem('token'))
+                if(checkElegibility() === true){
+                   history.push('/registerToVote');
+                }else{
+
+                const userAge =  18 - Number(result.age);
+                 setNoti(false)
+                 setMesg(`Please wait until ${userAge} for you to be eligible to register`);
+                }
+
+            }
             const gotToVote = () =>{
                 if(checkElegibility() === true){
                     history.push('/evote');
+                }else{
+                const {result} = decipherJwt(localStorage.getItem('token'))
+                const userAge =  18 - Number(result.age);
+                setNoti(false)
+                 setMesg(`Please wait until ${userAge} for you to be eligible to Vote`)
+                    console.log(mesg);
                 }
-
             }
             const [comment] = useState([
                 {
@@ -67,13 +84,18 @@
             return(
 
                             <div className="column is-9 pal">
+                                {mesg !== '' ? <div className={`${noti === true ? 'remove': 'notification'} is-danger ${mesg !== ''? 'my-3': ''}`}>
+                                <button onClick={ dele} className="delete"></button>
+                                            { mesg  }
+                                </div> : <span></span>
+                                    }
                                      <div className="row">
-                                    <div className="col-4 car my-4 is-one-thrid">
-                                    <div onClick={toReg} className="card">
-                                <div className="card-content">
-                                    <div className="content">
-                                        <h4 className='wrd text-nowrap'>Register To vote</h4>
-                                        <div className='elcrd'>
+                                    <div className="col-4 car my-4 ">
+                                    <div onClick={() =>toReg()} className="card my-3 py-3">
+                                <div className="">
+                                    <div className="card-body">
+                                        <h4 className='wrd card-title'>Register To vote</h4>
+                                        <div className='elcrd card-text'>
                                         <ReactRoundedImage image={reg}
                                imageWidth="65"
                                 imageHeight="65"
@@ -87,11 +109,11 @@
 
                                 </div>
                                 <div className="col-4  my-4 car">
-                                <div  onClick={gotToVote} className="card">
-                                <div className="card-content">
-                                    <div className="content">
-                                        <h4 className='wrd'>Vote Now</h4>
-                                        <div className='elcrd '>
+                                <div  onClick={() =>gotToVote()} className="card my-3 py-3">
+                                <div className="">
+                                    <div className="card-body">
+                                        <h4 className='wrd card-title'>Vote Now</h4>
+                                        <div className='elcrd card-text'>
                                         <ReactRoundedImage image={ballot}
                                imageWidth="65"
                                 imageHeight="65"
@@ -104,11 +126,11 @@
                                 </div>
                                 </div>
                                 <div className="col-4  my-4 car">
-                                <div className="card">
-                                <div className="card-content">
-                                    <div className="content">
-                                        <h4 className='wrd text-nowrap'>View Result</h4>
-                                        <div className='elcrd '>
+                                <div className="card my-3 py-3">
+                                <div className="">
+                                    <div className="card-body">
+                                        <h4 className='wrd card-title'>View Result</h4>
+                                        <div className='elcrd card-text'>
                                         <ReactRoundedImage image={result}
                                imageWidth="65"
                                 imageHeight="65"
