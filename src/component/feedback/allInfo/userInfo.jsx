@@ -22,7 +22,7 @@ function AllInfo() {
 
   const treat = async(id) => {
    await axios
-      .post(`https://pdpparty.herokuapp.com/users/allfeedbacks/${id}`,"", {
+      .post(`https://partyydata.herokuapp.com/users/allfeedbacks/${id}`,"", {
         headers:{
           "Content-Type": "application/json",
            Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -49,7 +49,7 @@ function AllInfo() {
 
   const closeCase = (id) => {
     axios
-      .post(`https://pdpparty.herokuapp.com/users/allfeedbacks/${id}/close`, "",{
+      .post(`https://partyydata.herokuapp.com/users/allfeedbacks/${id}/close`, "",{
         headers:{
           "Content-Type": "application/json",
            Authorization: `Bearer ${localStorage.getItem("token")}`,

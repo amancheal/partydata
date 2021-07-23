@@ -38,7 +38,7 @@ function Login({location}){
                 password: stateValue.password
             }
             // https://pdpparty.herokuapp.com
-            axios.post("https://pdpparty.herokuapp.com/login", loginUser)
+            axios.post("https://partyydata.herokuapp.com/login", loginUser)
             .then((res) => {
               if (res.data.token) {
                    setLoading(false);

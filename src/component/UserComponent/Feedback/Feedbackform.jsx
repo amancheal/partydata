@@ -52,7 +52,7 @@ function FeedBack(){
             feedback: form.feedback
         };
         console.log(newFeedback);
-       await axios.post('https://pdpparty.herokuapp.com/feedback/createfeedback', newFeedback)
+       await axios.post('https://partyydata.herokuapp.com/feedback/createfeedback', newFeedback)
         .then(res =>{
             const {data} = res;
             setForm({

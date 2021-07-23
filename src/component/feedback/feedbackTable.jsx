@@ -9,7 +9,7 @@ function FeedBackTable({ getwhattoshow }) {
 
   useEffect(() => {
     axios
-      .get("https://pdpparty.herokuapp.com/users/allfeedbacks", {
+      .get("https://partyydata.herokuapp.com/users/allfeedbacks", {
         headers:{
             "Content-Type": "application/json",
              Authorization: `Bearer ${localStorage.getItem("token")}`,

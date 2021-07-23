@@ -45,7 +45,7 @@ function RegisterForm() {
     };
     //  https://pdpparty.herokuapp.com
     await axios
-      .post("https://pdpparty.herokuapp.com/registerToVote", newVoter)
+      .post("https://partyydata.herokuapp.com/registerToVote", newVoter)
       .then((res) => {
         console.log(newVoter);
         const { data } = res;

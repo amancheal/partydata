@@ -3,7 +3,7 @@ import axios from 'axios';
 const display =()=> {
     return(dispatch)=>{
         //   https://pdpparty.herokuapp.com
-    axios.get('https://pdpparty.herokuapp.com/dashboard', {
+    axios.get('https://partyydata.herokuapp.com/dashboard', {
         headers:{
             "Content-Type": "application/json",
              Authorization: `Bearer ${localStorage.getItem("token")}`,

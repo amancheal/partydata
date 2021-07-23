@@ -10,7 +10,7 @@ function RegisteredVotersTable(){
     useEffect(()=> {
       //  https://pdpparty.herokuapp.com
         axios
-        .get("https://pdpparty.herokuapp.com/allVoters", {
+        .get("https://partyydata.herokuapp.com/allVoters", {
              headers:{
             "Content-Type": "application/json",
              Authorization: `Bearer ${localStorage.getItem("token")}`,
