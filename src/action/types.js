@@ -10,3 +10,4 @@ export const OVER_VIEW = 'OVER_VIEW';
 export const ELECTION_DASHBOARD = 'ELECTION_DASHBOARD';
 export const VOTE = 'E-VOTING';
 export const REGISTER_TO_VOTE = 'REGISTER-TO-VOTE';
+export const REGISTERED_VOTERS = 'REGISTERED VOTERS';

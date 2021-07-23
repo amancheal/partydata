@@ -3,7 +3,7 @@ import Chart from "./Chart";
 import { useHistory } from "react-router-dom";
 import '../../../asset/css/overview.css';
 
-function DashboardCards({ dashBoardDisplay }) {
+function DashboardCards() {
   const history = useHistory();
 
 

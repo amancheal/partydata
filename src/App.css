@@ -227,8 +227,11 @@ li {
 	margin-top: 1em;
 }
 
+.colo{
+    color: rgb(230, 230, 213) !important;
 
-   
+}
+
 .pass{
 	text-decoration: none;
 }

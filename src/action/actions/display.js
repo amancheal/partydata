@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const display =()=> {
     return(dispatch)=>{
-    axios.get('https://pdpparty.herokuapp.com/dashboard', {
+        //   https://pdpparty.herokuapp.com
+    axios.get(' https://pdpparty.herokuapp.com/dashboard', {
         headers:{
             "Content-Type": "application/json",
              Authorization: `Bearer ${localStorage.getItem("token")}`,

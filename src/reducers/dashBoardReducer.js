@@ -1,4 +1,11 @@
-import { FEED_BACK_PORTAL, DASH_BOARD, MANAGE_STAKE_HOLDERS, ALL_STAKE_HOLDERS, REGISTERED_STAKE_HOLDERS, USER_INFO } from "../action/types";
+import { FEED_BACK_PORTAL,
+          DASH_BOARD,
+        MANAGE_STAKE_HOLDERS,
+          ALL_STAKE_HOLDERS,
+        REGISTERED_STAKE_HOLDERS,
+             USER_INFO,
+             REGISTERED_VOTERS
+    } from "../action/types";
 
 const initState = "Dashboard";
 
@@ -16,6 +23,8 @@ const navReducer = (state = initState, action) => {
                 return 'Registered Stakeholders';
                 case USER_INFO :
                     return 'User Information';
+                    case REGISTERED_VOTERS :
+                    return 'Registered Voters';
         default:
             return state;
     }

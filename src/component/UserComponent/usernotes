@@ -583,3 +583,63 @@ this is the previous voting card design
                                 </div>
                                 </div>
                                 </div>
+===============================================================================
+================================================================================
+ <section>
+        <div className="card-cont">
+          {list.map(val => {
+            console.log(val.num)
+            return (
+              <div key={val.name} onClick={() => setUri(val.url)} className={`cardi ${val.color}`}>
+                <p className="spen">{val.name}</p>
+                <h4 className="span">
+                 { val.num && val.num !== '' ? val.num :  <i className="fas fa-spinner fa-spin"></i>
+                    }
+                </h4>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      ===================================================================================================
+      =================================================================================================
+       const [list, setList] = useState([
+    {
+      name: "Feed Back Portal",
+      color: "bg-danger",
+      url: "/feedback",
+      num: 1
+
+    },
+    {
+      name: "Aspiring Politicians",
+      color: "bg-primary",
+     url: "/feedback",
+      num: feedData[0].allFeds
+    },
+    {
+      name: "Registered Stake Holders",
+      color: "bg-success",
+      url: "/allStakeHolders",
+      num: feedData[0].allFeds
+    },
+    {
+      name: "Politicians To Watch",
+      color: "bg-success",
+       url: "/feedback",
+      num: feedData[0].allFeds
+    },
+    {
+      name: "Forencis",
+      color: "bg-danger",
+       url: "/feedback",
+      num: feedData[0].allFeds
+    },
+    {
+      name: "E-Voting",
+      color: "bg-primary",
+       url: "/feedback",
+      num: feedData[0].allFeds
+    },
+  ]);

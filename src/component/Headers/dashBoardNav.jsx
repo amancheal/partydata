@@ -8,6 +8,7 @@ import {
   ALL_STAKE_HOLDERS,
   REGISTERED_STAKE_HOLDERS,
   USER_INFO,
+  REGISTERED_VOTERS
 } from "../../action/types";
 import { updateNav } from "../../action/actions/nav_actions";
 
@@ -26,6 +27,8 @@ function DashBoardNav({ history, changeShow, whattoshow }) {
         return changeShow(REGISTERED_STAKE_HOLDERS);
       case "/feedbackinfo":
         return changeShow(USER_INFO);
+      case '/registeredVoters':
+          return changeShow(REGISTERED_VOTERS);
       default:
         return changeShow(DASH_BOARD);
     }

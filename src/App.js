@@ -8,6 +8,8 @@ import FeedBack from './component/feedback/feedback';
 import ManageStakeHolders from './component/manageStakeHolders/manageStakeHolders';
 import AllStakeHolders from './component/stackholders/allStakeHolders';
 import RegisteredStakeHolders from './component/stackholders/registeredStakeHolders';
+import RegisteredVoters from './component/RegisteredVoters/ParentRegisteredVoteres';
+
  //newlogin
 import FeedBackInfo from './component/feedback/allInfo/userInfo';
 import Protected from './component/Auth/protect';
@@ -32,12 +34,13 @@ function App() {
         <Switch>
           <Route  component={SignUp} path="/signUp" />
            <Route exact component={Login} path="/" />
-          
+
            <Protected component={OverView} path='/overview' />
            <Protected component={Evoting} path='/evote' />
            <Protected component={ElectionDashBoard} path='/electionDashboard' />
            <Protected component={FeedbackForm} path='/createfeedback' />
            <Protected component={RegisterToVote} path='/registerToVote' />
+          <Protected component={RegisteredVoters} path='/registeredVoters' />
           <Protected path='/dashboard' component={DashBoard} />
           <Protected component={AllStakeHolders} path="/allStakeHolders" />
           <Protected component={ManageStakeHolders} path="/manageAllStakeHolders" />

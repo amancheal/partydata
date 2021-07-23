@@ -23,6 +23,14 @@ function SignUp() {
     confirmPassword: "",
   });
 
+  // const [mesg, setMesg] = useState('');
+  // const [loading, setLoading] = useState(false);
+  //  const [noti, setNoti] = useState(false);
+  //     const dele =()=>{
+  //             setNoti(true)
+
+  //           }
+
   const [load, setLoad] = useState(false);
   const [err, setErr] = useState(null);
   const onChane = (e) => {
@@ -48,6 +56,7 @@ function SignUp() {
       password: stateValue.password,
     };
     if (stateValue.password === stateValue.confirmPassword) {
+      //   https://pdpparty.herokuapp.com  http://localhost:4001.
        await axios.post('https://pdpparty.herokuapp.com/usermanager/newuser', newUser)
         .then(data =>{
           console.log(data)
@@ -72,9 +81,14 @@ function SignUp() {
           })
          window.open('/', '_self')
          })
-      .catch(err => console.log(err))
-    } else {
+      .catch(err =>{
 
+        setLoad(false);
+        console.log(err)
+
+      })
+    } else {
+        setLoad(false);
       setErr("Password do no match");
     }
   };
@@ -102,9 +116,9 @@ function SignUp() {
           <div>
             <div
               style={myStyle}
-              className="fa-5x   d-flex justify-content-center align-items-center"
+              className=" d-flex justify-content-center align-items-center"
             >
-              <i className="fas fa-spinner fa-spin"></i>
+            <i className="fad fa-spinner-third fa-spin fa-pulse fa-5x  colo"></i>
             </div>
           </div>
         ) : (

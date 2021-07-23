@@ -2,9 +2,14 @@ import React, {useState} from 'react';
 import ReactRoundedImage from "react-rounded-image";
 import {Button, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 import correct from '../../asset/correct.svg';
+import { decipherJwt } from 'decipher-jwt';
+
 
 function CandidateCard(){
-    //const img = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_m6thHZVvjapVuXDuQ75lOMGoQwec8H6tOqBGtZtxi_aBCU0XRT09j-zEToK2lxYtpac&usqp=CAU';
+
+
+    const {result} = decipherJwt(localStorage.getItem('token'));
+
     const [candidate, setCandidate] = useState([
 
         {
@@ -47,8 +52,6 @@ function CandidateCard(){
     }
 
 
-    // const [popoverOpen, setPopoverOpen] = useState(false);
-
     const [userDis, setUserDis] = useState('')
     const toggle = (ide) => {
         setCandidate([...(candidate.map(c => {
@@ -68,6 +71,11 @@ function CandidateCard(){
         <div className='column is-9'>
                 <sectio className="section">
                     <div className="jumbotron">
+                        <div className='row'>
+                            <div className="col-6 form-group">
+                            <button  className='my-4 px-4 py-1 btn btn-success reg' aria-disabled="true" disabled> <b className='mx-2'> Voter-ID:</b> { result.voterId } </button>
+                            </div>
+                         </div>
                         <div className="row">
                      {
                          candidate && candidate.map(function ({id, image, username, disable, status, pop}) {

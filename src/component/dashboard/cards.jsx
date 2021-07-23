@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chart from "./chart";
 import FeedBacks from "./feedBackList";
 import { useHistory } from "react-router-dom";
@@ -6,34 +6,28 @@ import { connect } from "react-redux";
 
 function Cards({ dashBoardDisplay }) {
   const history = useHistory();
-  const [list] = useState([
-    {
-      name: "Feed Back Portal",
-      color: "bg-danger",
-      url: "/feedback"
-    },
-    {
-      name: "Aspiring Politicians",
-      color: "bg-primary",
-    },
-    {
-      name: "Registered Stake Holders",
-      color: "bg-success",
-      url: "/allStakeHolders"
-    },
-    {
-      name: "Politicians To Watch",
-      color: "bg-success",
-    },
-    {
-      name: "Forencis",
-      color: "bg-danger",
-    },
-    {
-      name: "E-Voting",
-      color: "bg-primary",
-    },
-  ]);
+  const [feedData, setFeedData] = useState([{
+    allFeds:'',
+    stakers: ''
+  }])
+
+    useEffect(()=>{
+
+      dashBoardDisplay.map(done =>{
+        //console.log(done);
+        setFeedData(data =>[...data, data.map(c =>{
+          c.allFeds = done.feedbacks.length;
+          c.stakers = done.stakeholders;
+              return c;
+        })] )
+        return done;
+      })
+
+    }, [dashBoardDisplay])
+
+    //console.log(feedData[0].allFeds)
+    const dataFeeds = feedData[0]
+     console.log(dataFeeds)
 
   const setUri = (url) => {
     history.push(`${url}`);
@@ -55,31 +49,48 @@ function Cards({ dashBoardDisplay }) {
     <div className="jumbotron">
       <section>
         <div className="card-cont">
-          {list.map(({ name, color, url }, index) => {
-          console.log(dashBoardDisplay)
-            if (index < list.length) {
-              return (
-                <div onClick={() => setUri(url)} key={name} className={`cardi ${color}`}>
-                  <p className="spen">{name}</p>
-                  <h4 className="span">
-                    {dashBoardDisplay.length > 0 ? (
-                      dashBoardDisplay[0].feedbacks.length
-                    ) : (
-                      <i className="fas fa-spinner fa-spin"></i>
-                    )}
-                  </h4>
-                </div>
-              );
-            }
-            return (
-              <div key={name} className={`cardi ${color}`}>
-                <p className="spen">{name}</p>
+              <div  onClick={() => setUri('/feedback')} className={`cardi bg-primary`}>
+                <p className="spen"> Feed Back Portal </p>
                 <h4 className="span">
-                  <i className="fas fa-spinner fa-spin"></i>
+                 { dataFeeds !== undefined  ? dataFeeds.allFeds :  <i className="fas fa-spinner fa-spin"></i>
+                    }
                 </h4>
               </div>
-            );
-          })}
+               <div  onClick={() => setUri('')} className={`cardi bg-danger`}>
+                <p className="spen"> Aspiring Politicians </p>
+                <h4 className="span">
+                 { dataFeeds !== undefined  ? 0 :  <i className="fas fa-spinner fa-spin"></i>
+                    }
+                </h4>
+              </div>
+               <div  onClick={() => setUri('')} className={`cardi bg-success`}>
+                <p className="spen"> Registered Stake Holders </p>
+                <h4 className="span">
+                 { dataFeeds !== undefined  ? dataFeeds.stakers :  <i className="fas fa-spinner fa-spin"></i>
+                    }
+                </h4>
+              </div>
+               <div  onClick={() => setUri('')} className={`cardi bg-danger`}>
+                <p className="spen"> Politicians To Watch </p>
+                <h4 className="span">
+                 { dataFeeds !== undefined  ? 0 :  <i className="fas fa-spinner fa-spin"></i>
+                    }
+                </h4>
+              </div>
+               <div  onClick={() => setUri('')} className={`cardi bg-warning`}>
+                <p className="spen"> Forencis </p>
+                <h4 className="span">
+                 { dataFeeds !== undefined  ? 0 :  <i className="fas fa-spinner fa-spin"></i>
+                    }
+                </h4>
+              </div>
+               <div  onClick={() => setUri('')} className={`cardi bg-primary`}>
+                <p className="spen"> E-Voting </p>
+                <h4 className="span">
+                 { dataFeeds !== undefined  ? 0 :  <i className="fas fa-spinner fa-spin"></i>
+                    }
+                </h4>
+              </div>
         </div>
       </section>
 

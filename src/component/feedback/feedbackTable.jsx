@@ -116,7 +116,7 @@ function FeedBackTable({ getwhattoshow }) {
                 className="fa-4x   d-flex justify-content-center align-items-center"
               >
                 <td>
-                  <i className="fas fa-spinner fa-spin"></i>
+                <i className="fad fa-spinner-third fa-spin fa-pulse fa-5x  colo"></i>
                 </td>
               </tr>
             )}

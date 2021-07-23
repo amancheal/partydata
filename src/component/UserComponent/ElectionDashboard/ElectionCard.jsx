@@ -2,7 +2,6 @@
         import React, {useState} from 'react';
         import ReactRoundedImage from "react-rounded-image";
         import ballot from '../../../asset/ballot.svg';
-
         import user from '../../../asset/user.svg';
         import reg from '../../../asset/reg.png';
         import result from '../../../asset/result.svg';
@@ -31,15 +30,15 @@
             }
             const toReg =()=>{
                  const {result} = decipherJwt(localStorage.getItem('token'))
-                if(checkElegibility() === true){
+                if(checkElegibility() === true && result.votingStatus === false ){
                    history.push('/registerToVote');
+                }else if(checkElegibility() === true && result.votingStatus === true){
+                    setMesg(`You cant register to vote twice`);
                 }else{
-
-                const userAge =  18 - Number(result.age);
+                 const userAge =  18 - Number(result.age);
                  setNoti(false)
                  setMesg(`Please wait until ${userAge} for you to be eligible to register`);
                 }
-
             }
             const gotToVote = () =>{
                 if(checkElegibility() === true){
