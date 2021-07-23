@@ -25,7 +25,6 @@ function DashboardCards() {
                       <i className="fas fa-spinner fa-spin my-3 ico"></i>
                   </div>
                   </div>
-
                  </div>
                 </div>
                   <div  className={`column py-3  `}>
