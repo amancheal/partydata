@@ -60,9 +60,6 @@ function RegisterForm(){
             setLoading(false);
             setMesg(data.message);
             setNoti(false);
-            localStorage.removeItem('token');
-            localStorage.setItem('token', data.token);
-            history.push('/overview')
         })
         .catch(err =>{
                 console.log(err);
