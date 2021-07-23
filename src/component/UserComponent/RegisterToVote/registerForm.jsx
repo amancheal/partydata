@@ -63,7 +63,7 @@ function RegisterForm() {
         setNoti(false);
         localStorage.removeItem('token');
         localStorage.setItem('token', data.token);
-       window.open('/', '_self');
+       window.open('/overview', '_self');
       })
       .catch((err) => {
         console.log(err);

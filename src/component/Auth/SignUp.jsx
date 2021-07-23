@@ -79,7 +79,7 @@ function SignUp() {
             password: "",
             confirmPassword: "",
           })
-         window.open('/overview', '_self')
+         window.open('/', '_self')
          })
       .catch(err =>{
 
