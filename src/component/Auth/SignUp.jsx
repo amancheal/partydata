@@ -57,7 +57,7 @@ function SignUp() {
     };
     if (stateValue.password === stateValue.confirmPassword) {
       //   https://pdpparty.herokuapp.com  http://localhost:4001.
-       await axios.post('https://partyydata.herokuapp.com/usermanager/newuser', newUser)
+       await axios.post(' https://pdpparty.herokuapp.com/usermanager/newuser', newUser)
         .then(data =>{
           console.log(data)
           if (data.data.status === "success") {

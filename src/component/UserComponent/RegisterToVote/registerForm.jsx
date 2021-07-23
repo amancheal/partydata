@@ -3,12 +3,12 @@ import { Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 import "../../../asset/css/register.css";
 import { decipherJwt } from "decipher-jwt";
-//import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "react-naija-states/dist/index.css";
 import { Options } from "react-naija-states";
 
 function RegisterForm() {
-//   const history = useHistory();
+ const history = useHistory();
   const [reg, setReg] = useState({
     firstname: "",
     lga: "",
@@ -61,6 +61,9 @@ function RegisterForm() {
         setLoading(false);
         setMesg(data.message);
         setNoti(false);
+        localStorage.removeItem('token');
+        localStorage.setItem('token', data.token);
+        history.push('/overview');
       })
       .catch((err) => {
         console.log(err);
