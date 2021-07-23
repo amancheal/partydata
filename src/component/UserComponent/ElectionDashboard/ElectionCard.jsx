@@ -31,9 +31,9 @@
             const toReg =()=>{
                 //
                  const {result} = decipherJwt(localStorage.getItem('token'))
-                if( checkElegibility() === true && result.votingStatus === true){
+                if( result.votingStatus === true){
                     setMesg(`You cant register to vote twice`);
-                }else if(checkElegibility() === true && result.votingStatus === false){
+                }else if(checkElegibility() === true){
                     history.push('/registerToVote');
                 }else{
                  const userAge =  18 - Number(result.age);
